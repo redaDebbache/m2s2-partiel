@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiche Juridique — Droit des Entreprises en Difficulté (Pr. Vincent)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --ink: #1a1a2e;
+    --ink2: #16213e;
+    --ruby: #9b1d20;
+    --ruby-light: #fdf0f0;
+    --teal: #0d5c63;
+    --teal-light: #edf6f7;
+    --amber: #c17f24;
+    --amber-light: #fdf6ea;
+    --slate: #2d4059;
+    --slate-light: #eef1f6;
+    --violet: #4a3060;
+    --violet-light: #f3f0f8;
+    --green: #1b5e20;
+    --green-light: #edf7ed;
+    --paper: #faf9f6;
+    --border: #e0ddd5;
+    --shadow: 0 3px 16px rgba(26,26,46,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 14.5px;
+    line-height: 1.75;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--ink2);
+    color: #fff;
+    padding: 52px 64px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      60deg,
+      transparent 0px,
+      transparent 28px,
+      rgba(155,29,32,0.06) 28px,
+      rgba(155,29,32,0.06) 29px
+    );
+    pointer-events: none;
+  }
+  .header-eyebrow {
+    font-size: 10.5px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: #c9a84c;
+    font-weight: 700;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .header h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 8px;
+  }
+  .header h1 em { color: #c9a84c; font-style: italic; }
+  .header-sub {
+    color: rgba(255,255,255,0.55);
+    font-size: 13.5px;
+    position: relative;
+    z-index: 1;
+    margin-top: 10px;
+  }
+  .header-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .chip {
+    background: rgba(201,168,76,0.13);
+    border: 1px solid rgba(201,168,76,0.38);
+    color: #e8c97a;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 11px;
+    border-radius: 2px;
+  }
+  .biblio {
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid #c9a84c;
+    padding: 10px 16px;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.65);
+    font-style: italic;
+  }
+  .biblio strong { color: #e8c97a; font-style: normal; }
+
+  /* ── NAV ── */
+  .toc {
+    background: #16213e;
+    border-bottom: 2px solid var(--ruby);
+    padding: 14px 64px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 18px;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+  .toc-label { font-size: 9.5px; letter-spacing: 2.5px; text-transform: uppercase; color: #c9a84c; font-weight: 700; margin-right: 6px; }
+  .toc a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 12px; font-weight: 600; transition: color .2s; }
+  .toc a:hover { color: #e8c97a; }
+  .toc-dot { color: rgba(155,29,32,0.6); font-size: 10px; }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 980px; margin: 0 auto; padding: 44px 44px 90px; }
+
+  /* ── THEME HEADERS ── */
+  .theme {
+    margin-bottom: 58px;
+    scroll-margin-top: 60px;
+  }
+  .theme-header {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 18px;
+  }
+  .theme-num {
+    background: var(--ink);
+    color: #c9a84c;
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    padding: 12px 10px;
+    margin-right: 18px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .theme-meta { flex: 1; }
+  .theme-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--ruby);
+    margin-bottom: 6px;
+  }
+  .theme-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  /* ── SECTION H3 ── */
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1.5px solid var(--border);
+    padding-bottom: 5px;
+    margin: 28px 0 14px;
+  }
+
+  h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--slate);
+    margin: 18px 0 8px;
+  }
+
+  /* ── ARTICLE TAGS ── */
+  .art {
+    display: inline-block;
+    background: var(--ink2);
+    color: #c9a84c;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin: 0 2px;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .art.r { background: var(--violet); color: #cbb8f5; }
+  .art.civ { background: #444; color: #ddd; }
+
+  /* ── CARDS ── */
+  .card {
+    background: white;
+    border-left: 4px solid var(--ink);
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin: 12px 0;
+    box-shadow: var(--shadow);
+  }
+  .card.ruby   { border-color: var(--ruby); background: var(--ruby-light); }
+  .card.teal   { border-color: var(--teal); background: var(--teal-light); }
+  .card.amber  { border-color: var(--amber); background: var(--amber-light); }
+  .card.slate  { border-color: var(--slate); background: var(--slate-light); }
+  .card.violet { border-color: var(--violet); background: var(--violet-light); }
+  .card.green  { border-color: var(--green); background: var(--green-light); }
+
+  .card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .card.ruby   .card-label { color: var(--ruby); }
+  .card.teal   .card-label { color: var(--teal); }
+  .card.amber  .card-label { color: #8a5d00; }
+  .card.slate  .card-label { color: var(--slate); }
+  .card.violet .card-label { color: var(--violet); }
+  .card.green  .card-label { color: var(--green); }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: var(--ink);
+    color: #eee;
+    border-left: 5px solid #c9a84c;
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+  }
+  .callout strong { color: #e8c97a; }
+
+  /* ── GRID ── */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 0; }
+  @media(max-width:700px){ .grid2,.grid3{ grid-template-columns:1fr; } }
+
+  /* ── TIMELINE ── */
+  .tl { border-left: 3px solid #c9a84c; padding-left: 22px; margin: 16px 0; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -28px; top: 5px;
+    width: 10px; height: 10px;
+    background: #c9a84c;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #c9a84c;
+  }
+  .tl-step { font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #c9a84c; margin-bottom: 3px; }
+  .tl-title { font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 4px; }
+  .tl-body { font-size: 13.5px; color: #444; }
+
+  /* ── TABLE ── */
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; background: white; box-shadow: var(--shadow); }
+  th { background: var(--ink); color: #c9a84c; font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 9px 13px; text-align: left; }
+  td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f7f5f1; }
+
+  /* ── BADGE ── */
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    vertical-align: middle;
+  }
+  .badge.imp { background: #ffeaa7; color: #6d4c00; border: 1px solid #d4a017; }
+  .badge.exc { background: #dfe6e9; color: #2d3436; border: 1px solid #b2bec3; }
+  .badge.new { background: #d1f2eb; color: #1b5e4a; border: 1px solid #82e0aa; }
+
+  /* ── JURISPRUDENCE ── */
+  .jp {
+    background: #fff8ee;
+    border: 1.5px solid #e8c97a;
+    border-radius: 5px;
+    padding: 13px 16px;
+    margin: 12px 0;
+    font-size: 13.5px;
+  }
+  .jp-ref {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #8a5d00;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── SEPARATRICE ── */
+  .sep {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--ruby), transparent);
+    margin: 46px 0;
+    opacity: 0.5;
+  }
+
+  p { margin-bottom: 8px; }
+  ul, ol { margin: 6px 0 10px 20px; }
+  li { margin-bottom: 4px; }
+  strong { color: var(--ink2); }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--ink2);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 22px;
+    font-size: 12px;
+    border-top: 2px solid var(--ruby);
+  }
+  .footer strong { color: #c9a84c; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">Droit des Entreprises en Difficulté · Cours Pr. Vincent</div>
+  <h1>Procédures <em>Amiables</em> &amp; Collectives<br>De la Prévention à la Liquidation</h1>
+  <div class="header-sub">Fiche juridique complète · Tous fondements légaux · Thèmes 1 à 6</div>
+  <div class="header-chips">
+    <span class="chip">L611 et s. C.Com</span>
+    <span class="chip">L620 / L631 / L640</span>
+    <span class="chip">L622 / L624 / L626</span>
+    <span class="chip">Ord. 15 sept. 2021</span>
+    <span class="chip">Dir. Insolvabilité 2019</span>
+    <span class="chip">Loi 14 fév. 2022 EI</span>
+  </div>
+  <div class="biblio">
+    <strong>Bibliographie recommandée :</strong> P.-M. Le Corre, <em>Droit et pratique des procédures collectives</em>, Dalloz Action, 13ᵉ éd. 2025/2026 · F. Pérochon et alii, <em>Entreprises en difficulté</em>, LGDJ, 12ᵉ éd. 2024. Examen : oral, codes autorisés.
+  </div>
+</div>
+
+<nav class="toc">
+  <span class="toc-label">Sommaire</span>
+  <a href="#t0">Intro</a><span class="toc-dot">•</span>
+  <a href="#t1">T1 · Amiable</a><span class="toc-dot">•</span>
+  <a href="#t2">T2 · Débiteur &amp; Tribunal</a><span class="toc-dot">•</span>
+  <a href="#t3">T3 · Poursuite activité</a><span class="toc-dot">•</span>
+  <a href="#t4">T4 · Discipline collective</a><span class="toc-dot">•</span>
+  <a href="#t5">T5 · Plans</a><span class="toc-dot">•</span>
+  <a href="#t6">T6 · Liquidation</a><span class="toc-dot">•</span>
+  <a href="#synth">Tableau récap</a>
+</nav>
+
+<div class="container">
+
+<!-- ════════════════════════════════════
+     INTRODUCTION GÉNÉRALE
+════════════════════════════════════ -->
+<div class="theme" id="t0">
+  <div class="theme-header">
+    <div class="theme-num">Introduction</div>
+    <div class="theme-meta">
+      <div class="theme-eyebrow">Historique &amp; Cadre</div>
+      <div class="theme-title">Le Droit des Entreprises en Difficulté — Évolution &amp; Sources</div>
+    </div>
+  </div>
+
+  <h3>Évolution historique du champ d'application</h3>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-step">Moyen Âge / XIXᵉ s.</div>
+      <div class="tl-title">Droit répressif, centré sur le commerçant</div>
+      <div class="tl-body">Élimination et punition du débiteur défaillant (présumé coupable). Procédure de déconfiture : « prix de la course ».</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-step">Loi 13 juillet 1967</div>
+      <div class="tl-title">Extension aux personnes morales de droit privé · Naissance du « DED »</div>
+      <div class="tl-body">Abandon du terme « faillite ». Séparation de l'homme et de l'entreprise.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-step">Loi 1985 / 1988</div>
+      <div class="tl-title">Extension aux artisans (1985) puis aux agriculteurs (1988)</div>
+      <div class="tl-body">Philosophie : sauver l'entreprise et l'emploi, pas seulement payer les créanciers.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-step">Loi 26 juillet 2005 — 2005-845</div>
+      <div class="tl-title">Loi de sauvegarde des entreprises · Livre VI C.Com</div>
+      <div class="tl-body">Extension aux professions libérales et indépendants. Création de la sauvegarde. 4 objectifs : prévention, sauvetage, emploi, rebond du débiteur.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-step">Ord. 15 sept. 2021</div>
+      <div class="tl-title">Transposition Directive européenne insolvabilité 20 juin 2019</div>
+      <div class="tl-body">Premier texte européen harmonisant le DED. Instaure les <strong>classes de parties affectées</strong>. Règlement UE 25 mai 2015 (DIP insolvabilité internationale).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-step">Loi 14 fév. 2022 — 2022-172</div>
+      <div class="tl-title">Statut de l'Entrepreneur Individuel (EI)</div>
+      <div class="tl-body">Création automatique de deux patrimoines distincts (professionnel / personnel) sans personne morale. <span class="art">L526-22 C.Com</span>. Attaque frontale de la théorie de l'unité du patrimoine.</div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card amber">
+      <div class="card-label">📌 Art. 2285 C.Civ — Principe fondateur</div>
+      <p>Les biens du débiteur constituent le <strong>gage commun</strong> des créanciers. Le prix s'en distribue par contribution, sauf causes légitimes de préférence → fondement de l'<em>égalité des créanciers</em> en procédure collective.</p>
+    </div>
+    <div class="card ruby">
+      <div class="card-label">⚖️ Deux grandes familles de procédures</div>
+      <ul>
+        <li><strong>Procédures amiables</strong> : confidentielles, consensuelles (mandat ad hoc, conciliation)</li>
+        <li><strong>Procédures collectives</strong> : discipline collective obligatoire (sauvegarde, redressement, liquidation)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Statistiques à connaître</h3>
+  <p>Années 60 : ~10 000 défaillances/an → Années 90 : ~59 000 → Stabilisation ~47 000 → 2009 (crise) : 60 000 → 2020-2021 : chute (PGE État) → <strong>2025 : +68 000 défaillances</strong>. Dans la plupart des cas : TPE de moins de 10 salariés.</p>
+
+  <h3>L'Entrepreneur Individuel (EI) — Loi 2022</h3>
+  <div class="card slate">
+    <div class="card-label">🔑 L526-22 C.Com — Double patrimoine automatique</div>
+    <p>L'EI est titulaire de deux patrimoines distincts : <strong>professionnel</strong> (biens utiles à l'activité) et <strong>personnel</strong>. Les documents comptables font présumer la nature du bien.</p>
+    <p><strong>Conséquences en PC :</strong> <span class="art">L681-2</span> — 4 hypothèses selon que les patrimoines sont en difficulté séparément ou ensemble, étanches ou poreux. Si les deux patrimoines sont en difficulté et poreux : <strong>procédure collective bi-patrimoniale unique</strong>.</p>
+    <p><strong>Com. 10 déc. 2025, n°25-70.020 :</strong> Si la PC porte sur les deux patrimoines, le liquidateur peut demander au JC l'autorisation de vendre la résidence principale au profit des créanciers personnels.</p>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     THÈME 1 — PROCÉDURES AMIABLES
+════════════════════════════════════ -->
+<div class="theme" id="t1">
+  <div class="theme-header">
+    <div class="theme-num">Thème 1</div>
+    <div class="theme-meta">
+      <div class="theme-eyebrow">L611-3 et s. C.Com</div>
+      <div class="theme-title">Traitement Amiable des Difficultés des Entreprises</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Principe clé :</strong> Contrairement aux PC, les procédures amiables sont <strong>confidentielles</strong> (pas de publicité, L611-15), ne soumettent pas les créanciers à une discipline collective, et reposent sur l'accord volontaire des seules parties sollicitées.
+  </div>
+
+  <h3>I — Le Mandat Ad Hoc <span class="art">L611-3 C.Com</span></h3>
+  <div class="grid2">
+    <div class="card teal">
+      <div class="card-label">🤝 Principe</div>
+      <p>Seul le <strong>débiteur</strong> peut demander la désignation au président du tribunal. Il peut proposer un nom. Profession : administrateur judiciaire, comptable, commissaire aux comptes, juge consulaire.</p>
+      <p>La mission est définie <em>au cas par cas</em> par le président (durée courte, quelques mois). Pas d'étape préalable obligatoire mais souvent précède la conciliation.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">🎯 Mission</div>
+      <p>Chercher et trouver des solutions : accord de restructuration, recherche de repreneur, préparation d'un projet d'accord → futur accord de conciliation.</p>
+    </div>
+  </div>
+
+  <h3>II — La Conciliation <span class="art">L611-4 et s. C.Com</span></h3>
+
+  <h4>A. Conditions d'ouverture</h4>
+  <div class="grid2">
+    <div class="card amber">
+      <div class="card-label">Qualité du débiteur</div>
+      <ul>
+        <li><span class="art">L611-4</span> : activité commerciale ou artisanale (TC)</li>
+        <li><span class="art">L611-5</span> : toute PM de droit privé, professions indépendantes et libérales (TJ)</li>
+        <li><span class="art">L611-17</span> : EI → porte <em>uniquement</em> sur le patrimoine professionnel</li>
+        <li><span class="badge exc">Exception</span> Agriculteurs : régime spécial L351-1 CRPM (sauf société commerciale)</li>
+      </ul>
+    </div>
+    <div class="card amber">
+      <div class="card-label">État du débiteur</div>
+      <p>Difficultés <strong>juridiques, économiques ou financières</strong>, avérées ou <em>prévisibles</em>.</p>
+      <p>Ne doit pas être en cessation des paiements <strong>depuis plus de 45 jours</strong>. (Un débiteur en CDP de moins de 45 jours peut y accéder.)</p>
+      <p>Les difficultés doivent être sérieuses (justifier les sacrifices demandés aux créanciers).</p>
+    </div>
+  </div>
+
+  <h4>B. Conditions de forme — <span class="art">L611-6 / L611-13</span></h4>
+  <ul>
+    <li>Seul le <strong>débiteur</strong> peut demander l'ouverture</li>
+    <li>Durée du mandat : <strong>4 mois max</strong>, prorogeable d'<strong>1 mois</strong> supplémentaire sur demande du conciliateur</li>
+    <li>Confidentialité totale : <span class="art">L611-15</span> — tous les participants sont tenus au secret (y compris la presse)</li>
+  </ul>
+  <div class="jp">
+    <div class="jp-ref">Cass. com., 15 déc. 2015, n°14-11500</div>
+    La publication par la presse d'informations couvertes par la confidentialité constitue un <strong>trouble manifestement illicite</strong>, même si le journaliste n'est pas directement obligé et même en l'absence de préjudice ultérieur — sauf nécessité d'information d'intérêt général.
+  </div>
+  <div class="card ruby">
+    <div class="card-label">⚠️ Incompatibilités du conciliateur — L611-13</div>
+    <p>Ne peut être nommé conciliateur ou mandataire ad hoc celui qui a perçu une rémunération, directe ou indirecte, du débiteur, d'un créancier ou d'une personne liée (L233-16) dans les <strong>24 mois précédents</strong>.</p>
+    <p>Exceptions : mandats de justice antérieurs pour le même débiteur. Juge consulaire en fonction ou ayant quitté ses fonctions depuis moins de <strong>5 ans</strong> : interdit.</p>
+    <p>Le conciliateur <strong>atteste sur l'honneur</strong> du respect de ces règles.</p>
+  </div>
+
+  <h4>C. Élaboration et contenu de l'accord — <span class="art">L611-7 C.Com</span></h4>
+  <p>Le conciliateur négocie avec les principaux créanciers et co-contractants. Aucun pouvoir de contrainte mais le tribunal peut accorder des <strong>délais de grâce</strong> (<span class="art civ">Art. 1343-5 C.Civ</span>, max 2 ans) contre un créancier refusant de négocier.</p>
+  <p><strong>Contenu possible de l'accord :</strong></p>
+  <ul>
+    <li>Délais de paiement, remises de dettes (créanciers privés et publics)</li>
+    <li>Conversion de créances en capital social, augmentation de capital</li>
+    <li>Nouveaux concours bancaires → génèrent le <em>privilège de conciliation</em></li>
+    <li>Restructuration : cession de branches, licenciements, recherche de repreneur</li>
+    <li><strong>Impôts directs</strong> : abandon total possible · <strong>Impôts indirects (TVA)</strong> : abandon impossible</li>
+  </ul>
+
+  <h4>D. Fin de la conciliation et effets</h4>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-label">📋 Constatation — L608-I C.Com</div>
+      <p>Par le <strong>président du tribunal</strong>, sur requête conjointe. Donne force exécutoire. Confidentialité préservée (pas de publicité). Condition : débiteur non en CDP ou accord y mettant fin.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">🏛️ Homologation — L611-8 II &amp; L611-10</div>
+      <p>Par le <strong>tribunal en collégialité</strong>. 3 conditions cumulatives : (1) pas de CDP ou accord y mettant fin, (2) pérennité de l'activité assurée, (3) pas d'atteinte aux créanciers non-signataires. <strong>Publicité obligatoire</strong> au BODACC et dans un support d'annonces légales (R611-43).</p>
+    </div>
+  </div>
+
+  <h4>E. Effets communs (constatation et homologation) — <span class="art">L611-8 III / L611-10-1 / L611-10-2</span></h4>
+  <ol>
+    <li>Désignation du conciliateur comme <strong>mandataire à l'exécution</strong> pour surveiller l'accord</li>
+    <li>Délais de grâce judiciaires contre créanciers non-signataires ou non-participants (max <strong>2 ans</strong>)</li>
+    <li>Protection des garants / coobligés / cautions : peuvent se prévaloir des dispositions de l'accord</li>
+  </ol>
+
+  <div class="card green">
+    <div class="card-label">⭐ Effet propre à l'homologation — L611-11 : Le Privilège de Conciliation ("New Money")</div>
+    <p>Les créanciers qui ont apporté de l'<strong>argent frais</strong> pendant la conciliation (ex : concours bancaire, avance en compte courant d'associé) bénéficient, en cas de PC ultérieure, d'un <strong>paiement prioritaire</strong> — avant les autres créanciers, mais <em>après</em> les frais de justice et le super-privilège salarial.</p>
+    <p>L'homologation emporte également <strong>levée de l'interdiction bancaire</strong> (<span class="art">L611-10-2</span>).</p>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     THÈME 2 — DÉBITEUR ET TRIBUNAL
+════════════════════════════════════ -->
+<div class="theme" id="t2">
+  <div class="theme-header">
+    <div class="theme-num">Thème 2</div>
+    <div class="theme-meta">
+      <div class="theme-eyebrow">L620-2 / L631-2 / L640-2</div>
+      <div class="theme-title">Le Débiteur et le Tribunal Saisi</div>
+    </div>
+  </div>
+
+  <h3>Section I — Qualité du Débiteur</h3>
+  <p>Les trois PC (sauvegarde, RJ, LJ) sont ouvertes à :</p>
+  <ul>
+    <li>Toute personne exerçant une <strong>activité commerciale, artisanale, agricole</strong> (L311-1 CRPM)</li>
+    <li>Toute <strong>personne physique exerçant une activité indépendante</strong>, y compris libérale</li>
+    <li>Toute <strong>personne morale de droit privé</strong> (sociétés commerciales, civiles, SCI, SEL, etc.)</li>
+  </ul>
+  <div class="callout">
+    <strong>Particularité :</strong> Depuis 2005, l'immatriculation n'est <em>pas</em> une condition. L'EI non immatriculé peut bénéficier d'une PC. Mais sans immatriculation <span class="art">L526-23</span>, pas de séparation des patrimoines → PC sur l'ensemble des biens.
+  </div>
+
+  <div class="grid2">
+    <div class="card amber">
+      <div class="card-label">Sauvegarde — Condition spécifique</div>
+      <p><span class="art">L620-1</span> : Débiteur <strong>non en CDP</strong>, justifiant de difficultés qu'il ne peut surmonter seul. Seul le <strong>débiteur</strong> peut demander la PS. La personne doit être <em>encore en activité</em>.</p>
+    </div>
+    <div class="card ruby">
+      <div class="card-label">RJ &amp; LJ — Cessation des paiements</div>
+      <p><span class="art">L631-1 C.Com</span> : Impossibilité de faire face au <strong>passif exigible</strong> avec l'<strong>actif disponible</strong>. Peuvent saisir : le débiteur, un créancier, le ministère public (<span class="art">L631-3 / L640-3-1</span>).</p>
+    </div>
+  </div>
+
+  <h4>Définitions essentielles — Cessation des paiements</h4>
+  <table>
+    <tr><th>Notion</th><th>Définition</th><th>Exemples</th></tr>
+    <tr><td><strong>Passif exigible</strong></td><td>Dettes arrivées à échéance et dont le paiement est demandé</td><td>Factures échues impayées</td></tr>
+    <tr><td><strong>Actif disponible</strong></td><td>Actif immédiatement réalisable à court terme</td><td>Solde bancaire, caisse, VMP, stocks liquides — pas un immeuble</td></tr>
+    <tr><td><strong>Neutralisation</strong></td><td>CDP non caractérisée si réserves de crédit ou moratoires accordés permettent de faire face</td><td>Délais de paiement accordés, lignes de crédit bancaires</td></tr>
+  </table>
+  <div class="card ruby">
+    <div class="card-label">🚨 L653-8 C.Com — Sanction pénale</div>
+    <p>Si le débiteur en CDP ne <strong>déclare pas sa CDP dans les 45 jours</strong>, il encourt une sanction d'<strong>interdiction de gérer</strong> (non automatique).</p>
+  </div>
+
+  <h4>La Sauvegarde Accélérée <span class="badge new">Directive 2019</span></h4>
+  <div class="card teal">
+    <div class="card-label">⚡ L628-1 et s. — Procédure de restructuration préventive</div>
+    <p>Conditions spécifiques : (1) comptes certifiés par CAC ou établis par expert-comptable ; (2) <strong>conciliation préalable</strong> ayant abouti à un projet d'accord (L628-1 al.2). Ce projet d'accord est adopté comme plan de sauvegarde.</p>
+    <p>Particularités : classes de parties affectées obligatoires, administrateur judiciaire désigné, <strong>plan adopté dans les 2 mois</strong> de l'ouverture (<span class="art">L628-8 al.1</span>).</p>
+  </div>
+
+  <h3>Section II — Saisine du Tribunal &amp; Compétence</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-label">Tribunal compétent</div>
+      <ul>
+        <li><strong>TC</strong> : débiteur exerçant une activité commerciale ou artisanale</li>
+        <li><strong>TJ</strong> : agriculteurs, libéraux, autres indépendants</li>
+        <li><strong>TC spécialisés</strong> (<span class="art">L721-8</span>) : groupes ≥ 250 sal. + 20M€ CA <em>ou</em> ≥ 40M€ CA</li>
+      </ul>
+    </div>
+    <div class="card amber">
+      <div class="card-label">Tribunaux des Activités Économiques <span class="badge new">Exp. 2025-2028</span></div>
+      <p>Depuis le 1er jan. 2025 : expérimentation. Compétents pour <em>tous</em> les débiteurs du Livre VI, sauf avocats, officiers publics, AJ/MJ. Ne distinguent plus entre TC et TJ. Contribution pour la justice économique : <strong>gratuite en PC</strong>.</p>
+      <p><em>Validé par le CC</em> : mesures expérimentales admises si limitées dans leur objet et dans le temps.</p>
+    </div>
+  </div>
+
+  <h3>Section III — Contenu du Jugement d'Ouverture — <span class="art">L621-4</span></h3>
+
+  <h4>Les organes de la procédure</h4>
+  <table>
+    <tr><th>Organe</th><th>Base légale</th><th>Mission principale</th></tr>
+    <tr>
+      <td><strong>Juge-commissaire</strong></td>
+      <td><span class="art">L621-9 / L621-11</span></td>
+      <td>Juge du tribunal. Veille au déroulement rapide. Surveille l'administration de l'entreprise. Statue par <strong>ordonnance</strong>.</td>
+    </tr>
+    <tr>
+      <td><strong>Administrateur judiciaire (AJ)</strong></td>
+      <td><span class="art">R621-11</span></td>
+      <td>Obligatoire si CA ≥ 3M€ ou ≥ 20 salariés. En charge des intérêts de l'entreprise. Mission différente en sauvegarde / RJ.</td>
+    </tr>
+    <tr>
+      <td><strong>Mandataire judiciaire (MJ)</strong></td>
+      <td>—</td>
+      <td>Représente les créanciers. Vérifie et admet les créances. Dresse le relevé des créances salariales.</td>
+    </tr>
+  </table>
+
+  <h4>Cas particulier de l'EI — <span class="art">L681-2 C.Com</span> — 4 hypothèses</h4>
+  <div class="card slate">
+    <div class="card-label">⚖️ Traitement bi-patrimonial</div>
+    <ol>
+      <li>Seul le <strong>patrimoine pro</strong> en difficulté → PC sur le patrimoine pro uniquement</li>
+      <li>Seul le <strong>patrimoine perso</strong> en difficulté → renvoi à la commission de surendettement (avec accord du débiteur)</li>
+      <li>Les <strong>deux patrimoine en difficulté mais étanches</strong> → PC sur le pro + surendettement pour le perso (avec accord)</li>
+      <li>Les <strong>deux patrimoines en difficulté et poreux</strong> → <strong>PC bi-patrimoniale unique</strong> (patrimoines restant dissociés)</li>
+    </ol>
+    <p><em>Règle préalable :</em> <span class="art">L711-3 C.Conso</span> — L'EI doit <em>d'abord</em> s'adresser au tribunal du Livre VI (pas directement au surendettement). <span class="art">L681-1 al.1</span>.</p>
+  </div>
+
+  <h3>Publicité du jugement d'ouverture</h3>
+  <p>Le JO crée une situation juridique nouvelle, opposable à tous. Publicités : <strong>RCS, RNE, BODACC, support d'annonces légales</strong>.</p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     THÈME 3 — POURSUITE ACTIVITÉ
+════════════════════════════════════ -->
+<div class="theme" id="t3">
+  <div class="theme-header">
+    <div class="theme-num">Thème 3</div>
+    <div class="theme-meta">
+      <div class="theme-eyebrow">L622-7 / L622-9 / L622-13</div>
+      <div class="theme-title">Poursuite de l'Activité &amp; Période d'Observation</div>
+    </div>
+  </div>
+
+  <h3>La Période d'Observation</h3>
+  <div class="grid2">
+    <div class="card teal">
+      <div class="card-label">Sauvegarde — L621-3</div>
+      <p>Durée max : <strong>6 mois</strong>, renouvelable une fois → <strong>12 mois maximum</strong>. Bilan économique, social et environnemental réalisé (<span class="art">L623-1</span>). À l'issue : plan de sauvegarde.</p>
+    </div>
+    <div class="card ruby">
+      <div class="card-label">Redressement judiciaire</div>
+      <p>Durée : <strong>18 mois maximum</strong> (dont 6 mois supplémentaires sur demande du <em>seul ministère public</em>). À l'issue : plan de redressement. L'activité se poursuit de plein droit <span class="art">L622-9</span>.</p>
+    </div>
+  </div>
+
+  <h3>Section I — Interdiction de certains actes — <span class="art">L622-7</span></h3>
+
+  <h4>Interdiction de payer les créances antérieures au JO</h4>
+  <div class="card ruby">
+    <div class="card-label">⛔ Principe — L622-7 al.2</div>
+    <p>Le JO emporte de plein droit interdiction de payer toute créance née <em>antérieurement</em>. Critère : <strong>date du fait générateur</strong> (ex : occupation du bien pour le bail, livraison pour marchandises, remise des fonds pour prêt).</p>
+    <p><strong>Sanctions :</strong> <span class="art">L654-8</span> → 2 ans d'emprisonnement + 30 000€ d'amende. Annulation possible à la demande de tout intéressé ou du MP.</p>
+  </div>
+  <div class="card green">
+    <div class="card-label">✅ Exceptions au principe</div>
+    <ul>
+      <li>Créances <strong>alimentaires</strong></li>
+      <li>Créances <strong>salariales</strong> (super-privilège — 60 jours de travail antérieur)</li>
+      <li>Autorisation JC pour retirer un gage ou une chose légitimement retenue (ex : droit de rétention du garagiste) si justifié par la poursuite d'activité — <span class="art">L622-7 II al.2</span></li>
+      <li>Autorisation JC pour payer des loyers antérieurs afin de <strong>lever une option d'achat de leasing</strong> si justifié par l'activité</li>
+    </ul>
+  </div>
+
+  <h4>Interdictions d'actes de disposition — <span class="art">L622-7 III</span></h4>
+  <ul>
+    <li>Actes de disposition étrangers à la gestion courante (sans autorisation JC)</li>
+    <li>Interdiction de consentir une <strong>sûreté réelle ou conventionnelle</strong> pour garantir une créance postérieure</li>
+    <li>Interdiction de <strong>compromettre ou transiger</strong> sans autorisation</li>
+  </ul>
+
+  <h3>Section II — Maintien des contrats en cours — <span class="art">L622-13</span></h3>
+  <div class="callout">
+    <strong>Ordre public :</strong> L622-13 est d'ordre public. Toute clause contractuelle prévoyant la résiliation automatique en cas d'ouverture d'une PC est <strong>réputée non écrite</strong>.
+  </div>
+  <p>L'<strong>administrateur judiciaire seul</strong> décide de poursuivre ou non le contrat. Il doit s'assurer de disposer des fonds pour payer à l'échéance. Si pas de fonds → résiliation. Si le co-contractant met en demeure l'AJ de se prononcer sans réponse → résiliation. Le JC peut prononcer la résiliation sur demande de l'AJ.</p>
+  <p>La résiliation peut donner lieu à des <strong>dommages et intérêts</strong> (créance postérieure).</p>
+
+  <h4>Exceptions au maintien</h4>
+  <ul>
+    <li><strong>Contrats de travail</strong> : exclus du mécanisme L622-13 (régime spécial)</li>
+    <li><strong>Bail commercial</strong> (<span class="art">L622-14</span>) : résiliation possible dès notification à l'AJ de ne pas poursuivre. Le bailleur peut demander la résiliation pour non-paiement de loyers <em>postérieurs</em> au JO, mais pas avant <strong>3 mois</strong> après l'ouverture.</li>
+  </ul>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     THÈME 4 — DISCIPLINE COLLECTIVE
+════════════════════════════════════ -->
+<div class="theme" id="t4">
+  <div class="theme-header">
+    <div class="theme-num">Thème 4</div>
+    <div class="theme-meta">
+      <div class="theme-eyebrow">L622-17 / L622-21 / L622-24 / L622-28 / L624-9</div>
+      <div class="theme-title">La Discipline Collective — Le Traitement des Créanciers</div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card ruby">
+      <div class="card-label">Créanciers <em>dans</em> la procédure</div>
+      <p>Créanciers <strong>antérieurs</strong> à l'ouverture. Soumis à la discipline collective : interdiction de poursuites, gel des droits, déclaration obligatoire. Ne seront payés qu'en fin de procédure.</p>
+    </div>
+    <div class="card green">
+      <div class="card-label">Créanciers <em>de</em> la procédure</div>
+      <p>Créanciers <strong>postérieurs utiles</strong> (<span class="art">L622-17</span>) : nés après le JO pour les besoins de la procédure ou de la poursuite d'activité. Payés à l'échéance normale. Privilégiés en cas de non-paiement.</p>
+    </div>
+  </div>
+
+  <h3>Section I — Les Créanciers dans la Procédure</h3>
+
+  <h4>A. Arrêt des poursuites individuelles — <span class="art">L622-21</span></h4>
+  <p>Interdiction pour tout créancier antérieur de poursuivre le débiteur pour obtenir paiement d'une somme d'argent ou résolution d'un contrat pour défaut de paiement.</p>
+  <div class="card">
+    <div class="card-label">Protection étendue aux garants — L622-28 al.1</div>
+    <p>Interdiction des poursuites contre les <strong>personnes physiques coobligées</strong> ou ayant consenti une sûreté personnelle, ou ayant affecté/cédé un bien en garantie. → Protection du dirigeant caution.</p>
+  </div>
+
+  <h4>B. Arrêt du cours des intérêts — <span class="art">L622-28 al.1</span></h4>
+  <p>Le JO arrête le cours de tous les intérêts (légaux, conventionnels). But : ne pas aggraver le passif.</p>
+  <ul>
+    <li><span class="badge exc">Exception</span> Contrats de prêt conclus pour une durée <strong>≥ 1 an</strong> → intérêts continuent à courir</li>
+    <li><span class="art">L622-28 al.2</span> : Les <strong>garants personnes physiques</strong> bénéficient aussi de l'arrêt du cours des intérêts</li>
+  </ul>
+
+  <h4>C. Déclaration des créances — <span class="art">L622-24</span></h4>
+  <div class="card amber">
+    <div class="card-label">Obligation de déclaration</div>
+    <ul>
+      <li>Tous les créanciers antérieurs doivent déclarer. Aussi les créanciers postérieurs inutiles.</li>
+      <li><span class="badge exc">Exception salariés</span> : c'est le mandataire judiciaire qui dresse la liste (<span class="art">L625-1</span>)</li>
+      <li>Si créance assortie d'une sûreté réelle → la mentionner sous peine d'être traité comme chirographaire (<span class="art">L622-25</span>)</li>
+      <li>Déclaration par le créancier, son préposé, mandataire ou avocat. Ratification possible jusqu'à la décision du juge.</li>
+      <li><span class="art">L622-6 al.2</span> : Le débiteur établit une liste de ses principaux créanciers → présomption de déclaration en leur nom.</li>
+    </ul>
+  </div>
+
+  <h4>Délais de déclaration — <span class="art">R622-24</span></h4>
+  <ul>
+    <li>Délai général : <strong>2 mois</strong> à compter de la publication du JO au BODACC</li>
+    <li>Créanciers munis de sûretés publiées (hypothèque) : délai court à compter de l'<strong>avertissement du MJ</strong> (si pas reçu → délai ne court pas)</li>
+    <li>Créances postérieures inutiles : délai court à compter de l'<strong>exigibilité</strong></li>
+  </ul>
+
+  <div class="card ruby">
+    <div class="card-label">⚠️ Sanction du défaut de déclaration — L624-26</div>
+    <p>Le créancier n'est pas admis aux répartitions (LJ) et dividendes (plan S/RJ). Relevé de forclusion possible si demande dans les <strong>6 mois</strong> de la publication du JO, si retard non imputable au créancier (ou dû à une omission du débiteur).</p>
+  </div>
+
+  <h4>D. Vérification et admission des créances — <span class="art">L624-1</span></h4>
+  <p>Le mandataire judiciaire vérifie les créances, dresse une liste, la transmet au JC qui <strong>statue par ordonnance</strong> sur l'admission.</p>
+
+  <h4>E. La Revendication — <span class="art">L624-9 et s.</span></h4>
+  <div class="card teal">
+    <div class="card-label">🔍 Principe : récupérer un bien entre les mains du débiteur</div>
+    <p>Le propriétaire d'un bien dont le débiteur est en possession peut <strong>revendiquer son droit de propriété</strong> et récupérer le bien (le soustraire à la PC).</p>
+    <p><strong>Délai impératif :</strong> <span class="art">L624-9</span> — <strong>3 mois</strong> à compter de la publication du JO au BODACC.</p>
+    <p><strong>Conditions :</strong> <span class="art">L624-12</span> — le bien meuble doit se trouver <em>en nature</em>, non transformé, non incorporé de façon indissociable.</p>
+    <p><span class="art">L624-10</span> : Dispense de preuve (action en restitution) si le contrat a fait l'objet d'une publicité légale (ex : crédit-bail, L313-7 CMF).</p>
+    <p><strong>Clause de réserve de propriété</strong> (<span class="art civ">Art. 2367 C.Civ / L624-16</span>) : Subordonne le transfert de propriété au complet paiement du prix. Doit être stipulée <em>par écrit</em>, convenue au plus tard au moment de la livraison. Valable sur la facture ou en CGV (au verso).</p>
+    <p><span class="art">L624-16 in fine</span> : Pas de restitution si le <strong>prix est payé immédiatement</strong> (option pour l'AJ : restitution ou paiement).</p>
+  </div>
+
+  <h3>Section II — Les Créanciers de la Procédure — <span class="art">L622-17</span></h3>
+  <p>Créances nées après l'ouverture, utiles à la procédure ou à la poursuite d'activité (frais de justice, honoraires des organes, créances contractuelles postérieures, impôts inhérents à l'activité).</p>
+  <p><strong>Régime :</strong> Payées à l'<strong>échéance normale</strong>. Si impayées → payées <strong>par privilège</strong> avant toutes autres créances (assorties ou non de sûretés). Cèdent cependant devant les créances salariales du super-privilège et le privilège de conciliation.</p>
+  <p>Ordre interne : <span class="art">L622-17 III</span> — créances salariales postérieures non prises en charge par l'AGS en premier (AGS cotisation : 0,25% masse salariale).</p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     THÈME 5 — PLANS
+════════════════════════════════════ -->
+<div class="theme" id="t5">
+  <div class="theme-header">
+    <div class="theme-num">Thème 5</div>
+    <div class="theme-meta">
+      <div class="theme-eyebrow">L623-1 / L626-2 / L626-11 / L626-18 / L626-29 et s.</div>
+      <div class="theme-title">Plans de Sauvegarde et de Redressement</div>
+    </div>
+  </div>
+
+  <h3>Chapitre 1 — Élaboration du Bilan et du Projet de Plan</h3>
+
+  <h4>Le Bilan économique, social et environnemental — <span class="art">L623-1</span></h4>
+  <p>Réalisé par l'AJ avec le concours du débiteur. Précise l'origine, l'importance et la nature des difficultés. <strong>S'il n'y a pas d'AJ, il n'y a pas de bilan.</strong></p>
+  <p>C'est au vu de ce bilan qu'est élaboré le projet de plan.</p>
+
+  <h4>Qui élabore le projet ?</h4>
+  <ul>
+    <li><strong>Sauvegarde :</strong> le débiteur avec le concours de l'AJ (<span class="art">L626-2</span>)</li>
+    <li><strong>RJ :</strong> l'AJ avec le concours du débiteur (<span class="art">L631-19 I al.2</span>)</li>
+  </ul>
+
+  <h3>Chapitre 2 — Le Jugement Arrêtant le Plan — <span class="art">L626-11 / L626-31</span></h3>
+  <p>Le jugement arrêtant le plan crée une situation juridique nouvelle opposable à tous. <span class="art">L626-11 al.2</span> : les personnes physiques coobligées ou ayant consenti une sûreté personnelle <strong>peuvent se prévaloir des dispositions du plan</strong>.</p>
+
+  <h3>Section 1 — Restructuration de l'Entreprise</h3>
+  <ul>
+    <li><span class="art">L626-25</span> : désignation du commissaire à l'exécution du plan</li>
+    <li>Adjonction ou suppression de branches d'activité</li>
+    <li><strong>Sauvegarde :</strong> seule la cession <em>partielle</em> est permise · <strong>RJ :</strong> cession <em>totale</em> possible</li>
+    <li>Licenciements économiques prévus au plan et modifications statutaires (vote en AG avant le jugement)</li>
+    <li><strong>RJ :</strong> licenciements dans le <strong>mois</strong> suivant le jugement sur simple notification de l'AJ (<span class="art">L631-19 II</span>)</li>
+  </ul>
+
+  <h4>Restructuration du capital en RJ — Mesures d'éviction forcée</h4>
+  <div class="card ruby">
+    <div class="card-label">L631-19-1 — Remplacement des dirigeants (demande MP exclusivement)</div>
+    <ul>
+      <li><strong>Al.1 :</strong> Le tribunal peut subordonner l'adoption du plan au remplacement d'un ou plusieurs dirigeants</li>
+      <li><strong>Al.2 :</strong> Le tribunal peut décider que le droit de vote des dirigeants-associés sera exercé par un mandataire désigné par le tribunal → impossibilité de bloquer le redressement par vote</li>
+      <li>Le tribunal peut ordonner la <strong>cession forcée</strong> des parts sociales du dirigeant</li>
+    </ul>
+  </div>
+  <div class="card violet">
+    <div class="card-label">L631-19-2 — Exclusion d'associés refusant une augmentation de capital</div>
+    <p>Exige : entreprise ≥ <strong>250 salariés</strong> et opposition risquant de causer un <strong>trouble grave à l'économie</strong>. Mesure extrême : mandataire vote à la place des associés récalcitrants.</p>
+  </div>
+
+  <h3>Section 2 — Apurement du Passif</h3>
+
+  <h4>A. En l'absence de classes de parties affectées — <span class="art">L626-5 / L626-18</span></h4>
+  <ul>
+    <li>Consultation individuelle ou collective des créanciers par le MJ</li>
+    <li>Durée max du plan : <strong>10 ans</strong> (<strong>15 ans</strong> si activité agricole — <span class="art">L626-12</span>)</li>
+    <li>Le tribunal <strong>donne acte</strong> des délais et remises accordés par les créanciers</li>
+    <li><span class="art">L626-18 al.4</span> : Le tribunal peut <strong>imposer des délais</strong> aux créanciers n'ayant pas consenti, mais <strong>ne peut pas imposer des remises de dette</strong></li>
+    <li>Délais de paiement uniformes, ne pouvant excéder la durée du plan</li>
+  </ul>
+
+  <h4>Régime particulier de certaines créances — <span class="art">L626-20</span></h4>
+  <ul>
+    <li><strong>Salariés</strong> (super-privilège + créances non couvertes AGS) : hors remises et délais</li>
+    <li><strong>Petites créances &lt; 500€</strong> : pas de délais ni remises possibles (<span class="art">L626-20 II</span>)</li>
+    <li><strong>Bénéficiaires du privilège de conciliation</strong> (<span class="art">L626-20</span>) : payés à leur échéance normale</li>
+  </ul>
+
+  <h4>B. En présence de classes de parties affectées — <span class="art">L626-29 et s. / Ord. 2021</span></h4>
+
+  <div class="card amber">
+    <div class="card-label">📐 Seuils — R626-52</div>
+    <ul>
+      <li>Obligatoire : ≥ <strong>250 salariés ET ≥ 20M€ CA</strong> OU ≥ <strong>40M€ CA</strong> seul</li>
+      <li>Groupes dépassant collectivement ces seuils</li>
+      <li>Facultatif : dérogation accordée par le JC en dessous des seuils, sur demande du débiteur (<strong>insusceptible de recours</strong>)</li>
+    </ul>
+  </div>
+
+  <div class="card teal">
+    <div class="card-label">🏗️ Composition minimale légale — L626-30</div>
+    <p>Parties affectées = créanciers dont les droits sont directement affectés par le plan + détenteurs de capital (associés, actionnaires, obligataires).</p>
+    <p><strong>3 classes minimum :</strong> (1) créanciers titulaires de sûreté réelle · (2) créanciers chirographaires · (3) détenteurs de capital. Pas de maximum. L'AJ constitue les classes selon des <strong>critères objectifs</strong> et une <strong>communauté d'intérêt économique suffisante</strong>.</p>
+    <p>Exclues des classes : AGS (super-privilège), créances &lt; 500€.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-label">🗳️ Vote — L626-30-2 — Majorité des 2/3 des voix exprimées</div>
+    <p>Délai de réponse : <strong>20 à 30 jours</strong> (réductible à 15 jours par le JC). Le défaut de réponse <strong>n'est pas comptabilisé</strong>. Les propositions sont différenciées par classe. Durée du plan fixée par le plan lui-même (pas de max légal en CPA).</p>
+  </div>
+
+  <h4>Conditions d'adoption du plan — <span class="art">L626-31 / L626-32</span></h4>
+  <div class="grid3">
+    <div class="card green">
+      <div class="card-label">Cas 1 — Vote unanime</div>
+      <p>Toutes les classes ont voté favorablement (2/3 voix exprimées). Les membres ayant voté contre dans une classe se voient imposer la proposition de leur classe.</p>
+    </div>
+    <div class="card amber">
+      <div class="card-label">Cas 2 — Majorité + une privilégiée</div>
+      <p>Majorité des classes favorable <em>ET</em> au moins une classe de créanciers titulaires de sûreté réelle (privilégiés) a voté favorablement.</p>
+    </div>
+    <div class="card ruby">
+      <div class="card-label">Cas 3 — Au moins une classe hors capital</div>
+      <p>Au moins une classe (hors détenteurs de capital) a voté favorablement, ET cette classe peut raisonnablement espérer un paiement partiel en cas de liquidation (<strong>test du meilleur intérêt</strong>).</p>
+    </div>
+  </div>
+
+  <h4>Application forcée inter-classes — <span class="art">L626-32 · "Cross-Class Cram-Down"</span></h4>
+  <div class="callout">
+    <strong>Sur demande du débiteur ou de l'AJ avec accord du débiteur :</strong> Le tribunal peut arrêter le plan et l'<strong>imposer aux classes qui ont voté contre</strong>, si les conditions d'adoption sont réunies (cas 2 ou 3) et si le test du meilleur intérêt est satisfait (la classe réfractaire est mieux traitée que dans une liquidation). <strong>Avantage majeur</strong> par rapport à la consultation individuelle : abandon de créance imposable.
+  </div>
+
+  <div class="card violet">
+    <div class="card-label">Vérifications du tribunal avant arrêt du plan — L626-31</div>
+    <ul>
+      <li>Intérêts des créanciers et parties affectées préservés</li>
+      <li>Conditions textuelles respectées</li>
+      <li>Le plan va dans le sens du sauvetage / pérennité</li>
+      <li>Parties ayant voté contre ne sont pas dans une situation moins favorable qu'en LJ ou cession (<strong>règle du meilleur intérêt</strong>)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     THÈME 6 — LIQUIDATION JUDICIAIRE
+════════════════════════════════════ -->
+<div class="theme" id="t6">
+  <div class="theme-header">
+    <div class="theme-num">Thème 6</div>
+    <div class="theme-meta">
+      <div class="theme-eyebrow">L640 et s. / L641 / L642 / L643 / L632</div>
+      <div class="theme-title">La Liquidation Judiciaire</div>
+    </div>
+  </div>
+
+  <h3>Conditions d'ouverture — <span class="art">L640-1 / L640-2 à L640-6</span></h3>
+  <div class="grid2">
+    <div class="card ruby">
+      <div class="card-label">⛔ Double condition</div>
+      <ol>
+        <li>Le débiteur est en <strong>cessation des paiements</strong></li>
+        <li>Son <strong>redressement est manifestement impossible</strong> (endettement excessif, activité cessée)</li>
+      </ol>
+    </div>
+    <div class="card">
+      <div class="card-label">LJ Simplifiée — D641-10</div>
+      <p><strong>PM :</strong> pas de bien immobilier + ≤ 5 salariés + CA ≤ 750 000€. <strong>PP :</strong> pas d'immeuble (hors résidence principale insaisissable de droit — <span class="art">L526-1</span>). Plus rapide, vérification accélérée des créances.</p>
+    </div>
+  </div>
+
+  <h3>Chapitre 1 — Jugement d'ouverture &amp; Organes</h3>
+
+  <h4>Le Liquidateur judiciaire — <span class="art">L641-4 / L641-9</span></h4>
+  <ul>
+    <li>Appartient à la profession des mandataires judiciaires</li>
+    <li><span class="art">L641-9 I al.1</span> : La LJ emporte de plein droit le <strong>dessaisissement du débiteur</strong>. Le liquidateur exerce tous les droits et actions relatifs au patrimoine.</li>
+    <li><span class="art">L641-4</span> : Le liquidateur <strong>procède aux licenciements</strong></li>
+    <li>En LJ ouverte ab initio : vérification des seules créances <strong>privilégiées</strong> (les chirographaires ne seront généralement pas payées)</li>
+    <li>En LJ simplifiée (<span class="art">L641-4-3</span>) : seules les créances susceptibles de venir en rang utile sont vérifiées</li>
+  </ul>
+
+  <h4>Maintien temporaire de l'activité</h4>
+  <p>Un AJ peut être désigné si une cession de l'entreprise est envisageable. L'activité est maintenue le temps nécessaire.</p>
+
+  <h3>Chapitre 2 — Effets de l'ouverture</h3>
+
+  <h4>P1 — Effets à l'égard des contractants — <span class="art">L641-11-1</span></h4>
+  <p>Les contrats en cours sont poursuivis en attendant leur disparition (justifié par le maintien provisoire de l'activité).</p>
+
+  <h4>P2 — Effets à l'égard du débiteur — Nullités de la période suspecte</h4>
+  <div class="card amber">
+    <div class="card-label">⏰ Période suspecte</div>
+    <p>Commence à la <strong>date de cessation des paiements</strong>, se déroule jusqu'à l'ouverture de la procédure. Durée maximale : <strong>18 mois</strong>. Actes suspects passés pendant cette période peuvent être annulés.</p>
+    <p>Action en nullité : <span class="art">L632-4</span> — intentée par l'AJ, le MJ, le liquidateur, le MP ou le commissaire à l'exécution du plan. Tribunal de la procédure compétent.</p>
+  </div>
+  <div class="grid2">
+    <div class="card ruby">
+      <div class="card-label">Nullités de droit — L632-1 (13 cas)</div>
+      <p>Si les faits sont constatés, le tribunal <em>doit</em> prononcer l'annulation (pas de pouvoir d'appréciation). Cas principaux :
+      <ul>
+        <li>Actes à <strong>titre gratuit</strong> translatifs de propriété (mobilière ou immobilière)</li>
+        <li>Contrat commutatif avec déséquilibre <strong>notable</strong> au détriment du débiteur</li>
+      </ul>
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-label">Nullités facultatives — L632-2</div>
+      <p>Tout type d'acte à <strong>titre onéreux</strong> passé pendant la période suspecte SI le tiers avait <em>connaissance</em> de l'état de cessation des paiements du débiteur au moment de l'acte. Aussi : paiement d'une dette échue dans ces conditions.</p>
+    </div>
+  </div>
+
+  <h4>P3 — Effets à l'égard des créanciers — <span class="art">L643-1 / L641-13</span></h4>
+  <ul>
+    <li>Créanciers antérieurs : soumis aux mêmes règles qu'en RJ</li>
+    <li><span class="art">L643-1 al.1</span> : La LJ emporte <strong>déchéance du terme</strong> → toutes les créances antérieures deviennent immédiatement exigibles</li>
+    <li>Créances postérieures utiles : payées à leur échéance normale (<span class="art">L641-13</span>)</li>
+  </ul>
+
+  <h3>Chapitre 3 — Opérations de Liquidation &amp; Ordre de paiement</h3>
+
+  <h4>Modalités de vente — <span class="art">L642-1 et s.</span></h4>
+  <div class="grid2">
+    <div class="card teal">
+      <div class="card-label">Cession globale de l'entreprise</div>
+      <p>Le repreneur dépose une offre de reprise précisant les biens repris, les conditions et le prix. Doit être un <strong>véritable tiers</strong> au dirigeant. <span class="art">L642-1 et s.</span></p>
+    </div>
+    <div class="card">
+      <div class="card-label">Cession d'actifs séparés</div>
+      <ul>
+        <li><strong>Immeuble</strong> (<span class="art">L642-18</span>) : adjudication judiciaire (gré à gré si meilleures conditions)</li>
+        <li><strong>Meubles</strong> (<span class="art">L642-19</span>) : vente aux enchères par principe (gré à gré si meilleures conditions)</li>
+        <li><strong>LJ simplifiée :</strong> liquidateur vend les meubles de gré à gré ou aux enchères dans les <strong>4 mois</strong> du jugement</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>Ordre de paiement des créanciers — <span class="art">L643-8</span></h4>
+  <table>
+    <tr><th>Rang</th><th>Créancier</th><th>Fondement</th></tr>
+    <tr><td>1</td><td>Créances salariales — <strong>super-privilège des salaires</strong></td><td>Super-privilège légal</td></tr>
+    <tr><td>2</td><td>Frais de justice (honoraires organes de la procédure)</td><td>—</td></tr>
+    <tr><td>3</td><td>Créances garanties par le <strong>privilège de conciliation</strong></td><td><span class="art">L611-11</span></td></tr>
+    <tr><td>4</td><td>Créances postérieures (utiles)</td><td><span class="art">L622-17</span></td></tr>
+    <tr><td>5</td><td>Créances garanties par une hypothèque</td><td>Sûreté réelle</td></tr>
+  </table>
+
+  <h3>Clôture de la liquidation — <span class="art">L643-9 / L643-11</span></h3>
+  <div class="grid2">
+    <div class="card green">
+      <div class="card-label">✅ Clôture pour extinction de passif</div>
+      <p>Tous les créanciers ont été désintéressés. La société survit.</p>
+    </div>
+    <div class="card ruby">
+      <div class="card-label">💀 Clôture pour insuffisance d'actif</div>
+      <p><span class="art civ">Art. 1844-7 7° C.Civ</span> : La société <strong>disparaît</strong>. Les créanciers ne recouvrent pas leur droit de poursuite individuelle (<span class="art">L643-11</span>).</p>
+      <p><strong>Exceptions</strong> (<span class="art">L643-11</span>) permettant le recouvrement du droit de poursuite individuelle :
+      <ul>
+        <li>La créance a pour origine une infraction pénale pour laquelle le débiteur a été reconnu coupable</li>
+        <li>Le créancier est le garant ayant payé une dette du débiteur</li>
+      </ul>
+      </p>
+    </div>
+  </div>
+  <p><strong>Délais :</strong> Le tribunal fixe un délai. LJ simplifiée : max <strong>6 mois</strong> (1 an si ≥ 1 salarié et CA entre 300 000€ et 750 000€).</p>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     TABLEAU DE SYNTHÈSE
+════════════════════════════════════ -->
+<div class="theme" id="synth">
+  <div class="theme-header">
+    <div class="theme-num" style="background:#9b1d20;color:#ffd700;">★</div>
+    <div class="theme-meta">
+      <div class="theme-eyebrow">Révision Essentielle</div>
+      <div class="theme-title">Tableau Récapitulatif — Articles Clés à Maîtriser</div>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Article</th><th>Matière</th><th>Contenu essentiel</th></tr>
+    <tr><td><span class="art civ">Art. 2285 C.Civ</span></td><td>Gage commun / égalité des créanciers</td><td>Patrimoine du débiteur = gage commun. Fondement de la discipline collective.</td></tr>
+    <tr><td><span class="art">L526-22</span></td><td>EI — double patrimoine</td><td>Patrimoine professionnel distinct automatiquement (Loi 2022)</td></tr>
+    <tr><td><span class="art">L681-2</span></td><td>EI — PC bi-patrimoniale</td><td>4 hypothèses selon état des deux patrimoines</td></tr>
+    <tr><td><span class="art">L611-3</span></td><td>Mandat ad hoc</td><td>Demande débiteur seul ; mission définie au cas par cas ; confidentiel</td></tr>
+    <tr><td><span class="art">L611-4 / L611-5</span></td><td>Conciliation — qualité débiteur</td><td>Commerciaux (TC), libéraux (TJ) ; pas en CDP &gt; 45 jours</td></tr>
+    <tr><td><span class="art">L611-6</span></td><td>Conciliation — durée / recherche d'info</td><td>4 mois max + 1 mois ; secret professionnel inopposable au président</td></tr>
+    <tr><td><span class="art">L611-7</span></td><td>Conciliation — mission du conciliateur</td><td>Accord, restructuration, délais de grâce (1343-5 C.Civ, 2 ans)</td></tr>
+    <tr><td><span class="art">L611-11</span></td><td>Privilège de conciliation</td><td>New money → priorité si PC ultérieure (après frais justice et super-priv. sal.)</td></tr>
+    <tr><td><span class="art">L611-13</span></td><td>Incompatibilités conciliateur</td><td>Rémunération dans les 24 mois ; juge consulaire &lt; 5 ans interdit</td></tr>
+    <tr><td><span class="art">L611-15</span></td><td>Confidentialité</td><td>Toutes les procédures amiables : secret absolu</td></tr>
+    <tr><td><span class="art">L620-1</span></td><td>Sauvegarde — conditions</td><td>Pas de CDP, difficultés insurmontables ; seul le débiteur saisit</td></tr>
+    <tr><td><span class="art">L621-3</span></td><td>Période d'observation — S</td><td>6 mois, renouvelable une fois = max 12 mois</td></tr>
+    <tr><td><span class="art">L621-4 / L621-9</span></td><td>Organes de la PC</td><td>JC (ordonnances), AJ (entreprise), MJ (créanciers)</td></tr>
+    <tr><td><span class="art">L621-2 / L631-7 / L641-1</span></td><td>Compétence matérielle</td><td>TC (commercial/artisan) ; TJ (autres) ; TC spécialisés ≥ 250 sal.+20M€ ou 40M€</td></tr>
+    <tr><td><span class="art">L622-7 al.2</span></td><td>Interdiction paiement créances antérieures</td><td>Critère = date du fait générateur. Sanction L654-8 (2 ans / 30K€)</td></tr>
+    <tr><td><span class="art">L622-9</span></td><td>Poursuite d'activité</td><td>Activité se poursuit de plein droit en PS et RJ</td></tr>
+    <tr><td><span class="art">L622-13</span></td><td>Contrats en cours</td><td>Ordre public. Clause résolutoire = non écrite. AJ seul décide. Bail : 3 mois</td></tr>
+    <tr><td><span class="art">L622-17</span></td><td>Créanciers de la PC</td><td>Créances post. utiles → paiement à l'échéance + privilège si non payées</td></tr>
+    <tr><td><span class="art">L622-21</span></td><td>Arrêt poursuites individuelles</td><td>Toute action en paiement ou résolution pour défaut de paiement = interdite</td></tr>
+    <tr><td><span class="art">L622-24</span></td><td>Déclaration de créances</td><td>Obligation pour tous les créanciers antérieurs ; 2 mois du BODACC</td></tr>
+    <tr><td><span class="art">L622-25</span></td><td>Sûreté non déclarée</td><td>Créancier traité comme chirographaire</td></tr>
+    <tr><td><span class="art">L622-28</span></td><td>Arrêt cours intérêts / garants PP</td><td>Intérêts stoppés ; exception prêts ≥ 1 an ; garants PP bénéficient aussi</td></tr>
+    <tr><td><span class="art">L623-1</span></td><td>Bilan économique social environnemental</td><td>AJ + débiteur ; fondement du projet de plan</td></tr>
+    <tr><td><span class="art">L624-1</span></td><td>Vérification des créances</td><td>MJ vérifie → liste → JC statue par ordonnance</td></tr>
+    <tr><td><span class="art">L624-9 / L624-12</span></td><td>Revendication</td><td>3 mois du BODACC ; bien meuble en nature, non transformé</td></tr>
+    <tr><td><span class="art civ">Art. 2367 C.Civ / L624-16</span></td><td>Clause de réserve de propriété</td><td>Écrite, convenue avant/pendant livraison ; valable en CGV. Option : restitution ou paiement immédiat</td></tr>
+    <tr><td><span class="art">L626-2</span></td><td>Projet de plan — contenu</td><td>4 volets : activité, passif, garanties, emploi</td></tr>
+    <tr><td><span class="art">L626-11</span></td><td>Arrêt du plan — effets</td><td>Opposable à tous. Garants PP peuvent s'en prévaloir.</td></tr>
+    <tr><td><span class="art">L626-18</span></td><td>Apurement du passif — sans classes</td><td>Max 10 ans (15 ans agri). Délais imposables ; remises non imposables.</td></tr>
+    <tr><td><span class="art">L626-29 et s. / R626-52</span></td><td>Classes de parties affectées — seuils</td><td>≥250 sal.+20M€ CA ou ≥40M€ CA → obligation de constituer</td></tr>
+    <tr><td><span class="art">L626-30</span></td><td>Composition des classes</td><td>Critères objectifs, communauté d'intérêt. Min 3 classes. Pas de max.</td></tr>
+    <tr><td><span class="art">L626-30-2</span></td><td>Vote des classes</td><td>20-30j ; majorité 2/3 voix exprimées ; défaut de réponse = neutre</td></tr>
+    <tr><td><span class="art">L626-31 / L626-32</span></td><td>Adoption + cram-down</td><td>3 cas ; application forcée inter-classes ; test du meilleur intérêt</td></tr>
+    <tr><td><span class="art">L631-19 I / II</span></td><td>RJ — élaboration plan / licenciements</td><td>AJ élabore avec débiteur. Licenciements = 1 mois après jugement.</td></tr>
+    <tr><td><span class="art">L631-19-1 / 19-2</span></td><td>RJ — éviction forcée dirigeants / associés</td><td>Demande MP uniquement. Cession forcée, mandataire de vote. ≥250 sal. pour L631-19-2</td></tr>
+    <tr><td><span class="art">L640-1</span></td><td>LJ — conditions d'ouverture</td><td>CDP + redressement manifestement impossible</td></tr>
+    <tr><td><span class="art">L641-4 / L641-9</span></td><td>LJ — liquidateur et dessaisissement</td><td>Dessaisissement immédiat ; liquidateur licencie et vend</td></tr>
+    <tr><td><span class="art">L643-1</span></td><td>LJ — déchéance du terme</td><td>Toutes les créances antérieures deviennent immédiatement exigibles</td></tr>
+    <tr><td><span class="art">L643-8</span></td><td>Ordre de paiement en LJ</td><td>Super-priv. sal. → frais justice → priv. conciliation → post. utiles → hypothèques</td></tr>
+    <tr><td><span class="art">L643-9 / L643-11</span></td><td>Clôture LJ</td><td>Extinction passif ou insuffisance d'actif (fin de la société). Exceptions pour droit de poursuite.</td></tr>
+    <tr><td><span class="art">L632-1 / L632-2 / L632-4</span></td><td>Nullités période suspecte</td><td>Période &lt; 18 mois. Nullités de droit (13 cas) et facultatives (connaissance de l'état de CDP).</td></tr>
+  </table>
+
+  <div class="callout" style="margin-top:28px;">
+    <strong>🎯 Points à absolument maîtriser pour l'oral :</strong> (1) Distinction procédures amiables vs collectives. (2) Conditions des CDP et différence sauvegarde / RJ / LJ. (3) Organes et leurs attributions (JC, AJ, MJ, liquidateur). (4) Mécanismes de la discipline collective (arrêt des poursuites, déclaration de créances, revendication). (5) Différence consultation individuelle vs classes de parties affectées. (6) Régime EI et double patrimoine (Loi 2022). (7) Privilège de conciliation (new money). (8) Nullités de la période suspecte.
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  Fiche réalisée à partir du cours — <strong>Pr. Vincent</strong> · Droit des Entreprises en Difficulté · Livre VI du Code de commerce · Ordonnance n°2021-1193 du 15 sept. 2021 · Loi n°2022-172 du 14 fév. 2022
+</div>
+
+</body>
+</html>

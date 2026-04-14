@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiche juridique DED — Oral Pr. Vincent</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&family=Source+Code+Pro:wght@400;600&display=swap');
+
+  :root {
+    --navy: #0f1e3c;
+    --navy-light: #1a3060;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #faf8f3;
+    --red: #c0392b;
+    --red-light: #fdf2f1;
+    --green: #1a6640;
+    --green-light: #edf7f1;
+    --purple: #4a1a6e;
+    --purple-light: #f3ecf9;
+    --blue-light: #eef3fb;
+    --text: #1c1c2e;
+    --text-light: #555577;
+    --border: #ddd8cc;
+    --shadow: 0 2px 12px rgba(15,30,60,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .header {
+    background: var(--navy);
+    color: white;
+    padding: 48px 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 30px,
+      rgba(201,168,76,0.04) 30px,
+      rgba(201,168,76,0.04) 31px
+    );
+  }
+  .header-meta {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.15;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .header h1 span { color: var(--gold-light); }
+  .header-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    position: relative;
+    margin-top: 8px;
+    max-width: 780px;
+  }
+  .header-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+    position: relative;
+  }
+  .tag {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+
+  .toc {
+    background: var(--navy-light);
+    padding: 20px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    align-items: center;
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .toc-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .toc a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+    padding: 3px 0;
+  }
+  .toc a:hover { color: var(--gold-light); }
+  .toc-sep { color: rgba(255,255,255,0.2); font-size: 11px; }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  .part {
+    margin-bottom: 54px;
+    scroll-margin-top: 88px;
+  }
+  .part-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--navy);
+  }
+  .part-num {
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 900;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .part-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .part-title small {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  h3 {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: 28px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 16px 0 8px;
+  }
+
+  .art {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin: 0 2px;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .art.reg { background: var(--purple); color: #d8b8f8; }
+  .art.civ { background: #444; color: #f3f3f3; }
+
+  .card {
+    background: white;
+    border-left: 4px solid var(--navy);
+    border-radius: 0 6px 6px 0;
+    padding: 18px 22px;
+    margin: 14px 0;
+    box-shadow: var(--shadow);
+  }
+  .card.gold { border-color: var(--gold); }
+  .card.red { border-color: var(--red); background: var(--red-light); }
+  .card.green { border-color: var(--green); background: var(--green-light); }
+  .card.purple { border-color: var(--purple); background: var(--purple-light); }
+  .card.blue { border-color: #2563eb; background: var(--blue-light); }
+
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .card.gold .card-title { color: #8a6200; }
+  .card.red .card-title { color: var(--red); }
+  .card.green .card-title { color: var(--green); }
+  .card.purple .card-title { color: var(--purple); }
+  .card.blue .card-title { color: #1d4ed8; }
+
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .grid3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0;
+  }
+
+  .timeline {
+    margin: 18px 0;
+    position: relative;
+    padding-left: 24px;
+    border-left: 3px solid var(--gold);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .timeline-step {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3px;
+  }
+  .timeline-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .timeline-body {
+    color: var(--text-light);
+    font-size: 14px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13.5px;
+    background: white;
+    box-shadow: var(--shadow);
+  }
+  th {
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f7f5f0; }
+
+  .callout {
+    background: var(--navy);
+    color: white;
+    border-left: 5px solid var(--gold);
+    padding: 18px 22px;
+    margin: 18px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .callout strong { color: var(--gold-light); }
+
+  .pill-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .pill-list li {
+    background: var(--blue-light);
+    border: 1px solid #c0d3f7;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+  }
+
+  .exc {
+    display: inline-block;
+    background: #fff3cd;
+    border: 1px solid #d4a017;
+    color: #7a5000;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 8px;
+    border-radius: 3px;
+    margin-left: 4px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .step-box {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+    text-align: center;
+    position: relative;
+  }
+  .step-box .step-n {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 22px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+  }
+  .step-box .step-t {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .step-box .step-b {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  .vote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .vote-case {
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .vote-case-head {
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    text-align: center;
+  }
+  .vote-case-body {
+    padding: 12px;
+    font-size: 13px;
+    color: var(--text);
+    background: white;
+  }
+
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    border-top: 2px solid var(--gold);
+  }
+  .footer strong { color: var(--gold); }
+
+  p { margin-bottom: 10px; }
+  ul, ol { margin: 8px 0 12px 20px; }
+  li { margin-bottom: 4px; }
+  strong { color: var(--navy); }
+  em { color: var(--text-light); font-style: normal; font-size: 13px; }
+
+  .separator {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 40px 0;
+  }
+
+  @media (max-width: 680px) {
+    .grid2, .grid3, .steps, .vote-grid { grid-template-columns: 1fr; }
+    .container { padding: 20px 16px 60px; }
+    .header { padding: 30px 20px 24px; }
+    .header h1 { font-size: 26px; }
+    .toc { padding: 12px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Droit des entreprises en difficulté · Oral DED · Cours Pr. Vincent</div>
+  <h1>Fiche juridique <span>complète</span><br>DED — Réussir l’oral</h1>
+  <div class="header-sub">Fiche de révision conçue pour une réponse orale claire, structurée et immédiatement mobilisable. Objectif : aller du principe au texte, puis du texte à l’application, sans perdre le fil.</div>
+  <div class="header-tags">
+    <span class="tag">Livre VI C. com.</span>
+    <span class="tag">Procédures amiables</span>
+    <span class="tag">Sauvegarde</span>
+    <span class="tag">Redressement</span>
+    <span class="tag">Liquidation</span>
+    <span class="tag">Classes de parties affectées</span>
+    <span class="tag">Plan de cession</span>
+  </div>
+</div>
+
+<nav class="toc">
+  <span class="toc-label">Sommaire</span>
+  <a href="#p1">1. Fondements</a><span class="toc-sep">•</span>
+  <a href="#p2">2. Amiable</a><span class="toc-sep">•</span>
+  <a href="#p3">3. Ouverture PC</a><span class="toc-sep">•</span>
+  <a href="#p4">4. Période d’observation</a><span class="toc-sep">•</span>
+  <a href="#p5">5. Discipline collective</a><span class="toc-sep">•</span>
+  <a href="#p6">6. Plans</a><span class="toc-sep">•</span>
+  <a href="#p7">7. Liquidation</a><span class="toc-sep">•</span>
+  <a href="#p8">8. Plan de cession</a><span class="toc-sep">•</span>
+  <a href="#p9">9. Réponses d’oral</a>
+</nav>
+
+<div class="container">
+
+<div class="part" id="p1">
+  <div class="part-header">
+    <div class="part-num">1</div>
+    <div class="part-title"><small>Vision d’ensemble</small>Fondements du droit des entreprises en difficulté</div>
+  </div>
+
+  <div class="callout"><strong>Idée directrice :</strong> le DED n’a plus pour fonction de punir le débiteur défaillant ; il vise d’abord à prévenir, sauver l’entreprise viable, préserver l’emploi et payer les créanciers au mieux.</div>
+
+  <h3>Évolution historique</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-step">Avant 1967</div>
+      <div class="timeline-title">Un droit de faillite répressif</div>
+      <div class="timeline-body">Le chef d’entreprise est perçu comme coupable. Le système est tourné vers la sanction, l’élimination du débiteur et le paiement concurrentiel des créanciers.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-step">Loi du 13 juillet 1967</div>
+      <div class="timeline-title">Rupture conceptuelle</div>
+      <div class="timeline-body">Extension aux personnes morales de droit privé et recul du mot « faillite » au profit du traitement des difficultés de l’entreprise.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-step">1985 / 1988 / 2005</div>
+      <div class="timeline-title">Élargissement du champ</div>
+      <div class="timeline-body">Artisans, agriculteurs, puis professions indépendantes et libérales entrent progressivement dans le champ du Livre VI.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-step">Loi n° 2005-845 du 26 juillet 2005</div>
+      <div class="timeline-title">Texte central moderne</div>
+      <div class="timeline-body">Prévention, sauvegarde de l’entreprise, maintien de l’emploi, paiement des créanciers, rebond du débiteur.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-step">Ordonnance n° 2021-1193 du 15 septembre 2021</div>
+      <div class="timeline-title">Transposition de la directive insolvabilité du 20 juin 2019</div>
+      <div class="timeline-body">Introduction notamment des classes de parties affectées.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-step">Loi n° 2022-172 du 14 février 2022</div>
+      <div class="timeline-title">Nouvel entrepreneur individuel</div>
+      <div class="timeline-body">Séparation automatique entre patrimoine professionnel et patrimoine personnel.</div>
+    </div>
+  </div>
+
+  <h3>Principe fondamental</h3>
+  <div class="card gold">
+    <div class="card-title">Article pivot</div>
+    <p><span class="art civ">Art. 2285 C. civ.</span> : les biens du débiteur sont le gage commun des créanciers. En procédure collective, ce principe devient une <strong>discipline collective</strong> : les créanciers antérieurs cessent d’agir chacun pour soi et subissent un régime commun.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card blue">
+      <div class="card-title">Deux familles de procédures</div>
+      <p><strong>Procédures amiables</strong> : mandat ad hoc, conciliation. Elles reposent sur l’accord, la confidentialité et l’adhésion volontaire des créanciers sollicités.</p>
+      <p><strong>Procédures collectives</strong> : sauvegarde, redressement, liquidation. Elles imposent une discipline collective à tous les créanciers concernés.</p>
+    </div>
+    <div class="card purple">
+      <div class="card-title">Entrepreneur individuel</div>
+      <p><span class="art">L. 526-22 C. com.</span> : les biens, droits, obligations et sûretés utiles à l’activité constituent le patrimoine professionnel.</p>
+      <p>Si les patrimoines professionnel et personnel sont simultanément atteints et non étanches, une appréhension conjointe est possible ; la résidence principale peut alors être vendue au profit des créanciers personnels si la procédure porte aussi sur le patrimoine personnel.</p>
+    </div>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="part" id="p2">
+  <div class="part-header">
+    <div class="part-num">2</div>
+    <div class="part-title"><small>Prévention</small>Procédures amiables : mandat ad hoc et conciliation</div>
+  </div>
+
+  <h3>Mandat ad hoc</h3>
+  <div class="card">
+    <div class="card-title">Texte</div>
+    <p><span class="art">L. 611-3 C. com.</span> : le président du tribunal peut, à la demande d’un débiteur, désigner un mandataire ad hoc dont il détermine la mission.</p>
+  </div>
+  <div class="grid2">
+    <div class="card green">
+      <div class="card-title">Forces</div>
+      <ul>
+        <li>Très grande souplesse</li>
+        <li>Mission définie au cas par cas</li>
+        <li>Confidentialité totale</li>
+        <li>Outil de négociation ou de préparation d’une conciliation</li>
+      </ul>
+    </div>
+    <div class="card red">
+      <div class="card-title">Limite</div>
+      <p>Le mandataire ad hoc n’a aucun pouvoir de contrainte. Aucun créancier n’est tenu de participer ni de faire des concessions.</p>
+    </div>
+  </div>
+
+  <h3>Conciliation</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">Conditions d’ouverture</div>
+      <p><span class="art">L. 611-4 C. com.</span> : difficulté juridique, économique ou financière, avérée ou prévisible, et absence de cessation des paiements depuis plus de 45 jours.</p>
+      <p><span class="art">L. 611-5 C. com.</span> : ouverte aux personnes morales de droit privé et aux personnes physiques exerçant une activité professionnelle indépendante, y compris libérale.</p>
+      <p><span class="art">L. 611-17 C. com.</span> : pour l’entrepreneur individuel, la procédure amiable ne porte que sur le patrimoine professionnel.</p>
+    </div>
+    <div class="card blue">
+      <div class="card-title">Compétence</div>
+      <p>Président du <strong>tribunal de commerce</strong> si l’activité est commerciale ou artisanale.</p>
+      <p>Président du <strong>tribunal judiciaire</strong> pour les autres activités indépendantes ou les professions libérales.</p>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title">Incompatibilités du conciliateur</div>
+    <p><span class="art">L. 611-13 C. com.</span> : ne peut être désigné celui qui a perçu, dans les 24 mois précédents, une rémunération ou un paiement direct ou indirect du débiteur, d’un créancier ou d’une personne contrôlée, sauf exceptions légales. Un juge consulaire en fonctions ou l’ayant quitté depuis moins de 5 ans est exclu.</p>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title">Confidentialité</div>
+    <p><span class="art">L. 611-15 C. com.</span> : tous ceux qui ont connaissance de la procédure sont tenus à la confidentialité.</p>
+    <p><strong>Cass. com., 15 déc. 2015, n° 14-11.500</strong> : la divulgation par la presse d’informations couvertes par cette confidentialité peut constituer un trouble manifestement illicite.</p>
+  </div>
+
+  <h3>Mission du conciliateur et contenu de l’accord</h3>
+  <div class="card gold">
+    <div class="card-title">Article directeur</div>
+    <p><span class="art">L. 611-7 C. com.</span> : le conciliateur favorise la conclusion d’un accord entre le débiteur et ses principaux créanciers ou partenaires. Il peut aussi proposer des mesures de restructuration, de cession d’activité, de recherche de repreneur ou de restructuration du capital.</p>
+  </div>
+
+  <ul class="pill-list">
+    <li>Délais de paiement</li>
+    <li>Remises de dettes</li>
+    <li>Conversion de créances en capital</li>
+    <li>Nouveau crédit</li>
+    <li>Restructuration de branches</li>
+    <li>Licenciements</li>
+  </ul>
+
+  <div class="card blue">
+    <div class="card-title">Délais de grâce</div>
+    <p><span class="art">L. 611-7, al. 5 C. com.</span> combiné avec <span class="art civ">art. 1343-5 C. civ.</span> : le débiteur peut obtenir contre un créancier récalcitrant des délais de grâce dans la limite de 2 ans.</p>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">Créanciers publics</div>
+    <p><span class="art">L. 611-7, al. 3</span> et <span class="art">L. 626-6 C. com.</span> : l’administration fiscale et les organismes sociaux peuvent consentir délais et remises.</p>
+    <p><strong>Distinction</strong> : abandon possible pour les impôts directs ; abandon impossible pour les impôts indirects comme la TVA.</p>
+  </div>
+
+  <h3>Fin de la conciliation</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">Constatation</div>
+      <p><span class="art">L. 611-8, I C. com.</span> : sur requête conjointe des parties, par le président du tribunal. Donne force exécutoire à l’accord. Pas de publicité.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Homologation</div>
+      <p><span class="art">L. 611-8, II</span> et <span class="art">L. 611-10 C. com.</span> : demandée par le débiteur, accordée par le tribunal en collégialité si trois conditions cumulatives sont réunies :</p>
+      <ul>
+        <li>absence de cessation des paiements ou accord y mettant fin ;</li>
+        <li>pérennité de l’activité ;</li>
+        <li>absence d’atteinte aux intérêts des créanciers non-signataires.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title">Publicité de l’homologation</div>
+    <p><span class="art">L. 611-10 C. com.</span> et <span class="art reg">R. 611-43 C. com.</span> : dépôt au greffe, avis au BODACC et dans un support d’annonces légales. Le jugement est public, mais le contenu détaillé de l’accord demeure confidentiel.</p>
+  </div>
+
+  <h3>Effets de l’accord</h3>
+  <div class="grid2">
+    <div class="card green">
+      <div class="card-title">Effets communs</div>
+      <ul>
+        <li><span class="art">L. 611-8, III C. com.</span> : possible désignation du conciliateur comme mandataire à l’exécution.</li>
+        <li><span class="art">L. 611-10-1 C. com.</span> : délais de grâce contre certains créanciers poursuivants.</li>
+        <li><span class="art">L. 611-10-2 C. com.</span> : les cautions, coobligés et garants personnes physiques peuvent se prévaloir de l’accord.</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Effet propre à l’homologation</div>
+      <p><span class="art">L. 611-11 C. com.</span> : privilège de conciliation, dit privilège de « new money ». Les apports d’argent frais consentis pendant la conciliation seront payés en priorité si une procédure collective est ouverte ensuite, après les frais de justice et le superprivilège salarial.</p>
+      <p><span class="art">L. 611-10-2 C. com.</span> : l’homologation emporte aussi levée de l’interdiction bancaire.</p>
+    </div>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="part" id="p3">
+  <div class="part-header">
+    <div class="part-num">3</div>
+    <div class="part-title"><small>Procédures collectives</small>Conditions d’ouverture et tribunal compétent</div>
+  </div>
+
+  <h3>Les trois procédures collectives</h3>
+  <div class="steps">
+    <div class="step-box">
+      <div class="step-n">1</div>
+      <div class="step-t">Sauvegarde</div>
+      <div class="step-b">Prévenir l’aggravation des difficultés d’un débiteur qui n’est pas encore en cessation des paiements.</div>
+    </div>
+    <div class="step-box">
+      <div class="step-n">2</div>
+      <div class="step-t">Redressement judiciaire</div>
+      <div class="step-b">Traiter la cessation des paiements d’une entreprise encore redressable.</div>
+    </div>
+    <div class="step-box">
+      <div class="step-n">3</div>
+      <div class="step-t">Liquidation judiciaire</div>
+      <div class="step-b">Traiter la cessation des paiements quand le redressement est manifestement impossible.</div>
+    </div>
+  </div>
+
+  <h3>Qualité du débiteur</h3>
+  <div class="card">
+    <div class="card-title">Textes de base</div>
+    <p><span class="art">L. 620-2 C. com.</span> pour la sauvegarde, <span class="art">L. 631-2 C. com.</span> pour le redressement judiciaire, <span class="art">L. 640-2 C. com.</span> pour la liquidation judiciaire.</p>
+    <p>Sont visés : commerçants, artisans, agriculteurs, professionnels indépendants, professions libérales et personnes morales de droit privé.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card green">
+      <div class="card-title">Sauvegarde</div>
+      <p><span class="art">L. 620-1 C. com.</span> : le débiteur ne doit pas être en cessation des paiements mais doit justifier de difficultés qu’il n’est pas en mesure de surmonter.</p>
+      <p><strong>Seul le débiteur</strong> peut demander l’ouverture.</p>
+    </div>
+    <div class="card red">
+      <div class="card-title">RJ et LJ</div>
+      <p><span class="art">L. 631-1 C. com.</span> : redressement judiciaire si le débiteur est en cessation des paiements.</p>
+      <p><span class="art">L. 640-1 C. com.</span> : liquidation judiciaire si le débiteur est en cessation des paiements et si son redressement est manifestement impossible.</p>
+    </div>
+  </div>
+
+  <h3>Cessation des paiements</h3>
+  <table>
+    <tr><th>Notion</th><th>Définition</th><th>Point d’oral</th></tr>
+    <tr><td>Passif exigible</td><td>Dettes arrivées à échéance et dont le paiement est demandé</td><td>Il faut une dette échue et réclamée</td></tr>
+    <tr><td>Actif disponible</td><td>Ressources immédiatement mobilisables</td><td>Compte bancaire créditeur, caisse, valeurs réalisables à court terme</td></tr>
+    <tr><td>Tempérament</td><td>Réserves de crédit et moratoires</td><td>Ils empêchent de caractériser la cessation des paiements s’ils permettent de faire face au passif</td></tr>
+  </table>
+
+  <div class="card red">
+    <div class="card-title">Déclaration tardive</div>
+    <p><span class="art">L. 653-8 C. com.</span> : le débiteur qui ne déclare pas l’état de cessation des paiements dans les 45 jours peut encourir une interdiction de gérer.</p>
+  </div>
+
+  <h3>Compétence juridictionnelle</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">Compétence de principe</div>
+      <p><span class="art">L. 621-2</span>, <span class="art">L. 631-7</span> et <span class="art">L. 641-1 C. com.</span> : tribunal de commerce pour les activités commerciales ou artisanales ; tribunal judiciaire pour les autres.</p>
+    </div>
+    <div class="card blue">
+      <div class="card-title">Tribunaux spécialisés</div>
+      <p><span class="art">L. 721-8 C. com.</span> : les tribunaux de commerce spécialisés sont compétents au-delà de certains seuils, notamment 250 salariés et 20 M€ de chiffre d’affaires, ou 40 M€ de chiffre d’affaires.</p>
+    </div>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title">Sauvegarde : arrêt Cœur Défense</div>
+    <p><strong>Cass. com., 8 mars 2011, Cœur Défense</strong> : le tribunal n’a pas à contrôler les motivations stratégiques du débiteur ; il doit seulement vérifier l’absence de cessation des paiements et l’existence de difficultés justifiant la sauvegarde.</p>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="part" id="p4">
+  <div class="part-header">
+    <div class="part-num">4</div>
+    <div class="part-title"><small>Moment-clé</small>La période d’observation</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card green">
+      <div class="card-title">Sauvegarde</div>
+      <p><span class="art">L. 621-3 C. com.</span> : 6 mois, renouvelable une fois, soit 12 mois maximum.</p>
+    </div>
+    <div class="card red">
+      <div class="card-title">Redressement judiciaire</div>
+      <p>Durée maximale de 18 mois, avec une prolongation supplémentaire de 6 mois qui ne peut être demandée que par le ministère public.</p>
+    </div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title">Fonction</div>
+    <p><span class="art">L. 623-1 C. com.</span> : bilan économique, social et environnemental ; préparation du projet de plan ; observation du fonctionnement réel de l’entreprise sous protection judiciaire.</p>
+    <p><span class="art">L. 622-9 C. com.</span> : l’activité se poursuit de plein droit en sauvegarde et en redressement judiciaire.</p>
+  </div>
+
+  <h3>Organes essentiels</h3>
+  <table>
+    <tr><th>Organe</th><th>Fondement</th><th>Rôle</th></tr>
+    <tr><td>Juge-commissaire</td><td><span class="art">L. 621-4 C. com.</span></td><td>Protection des intérêts en présence, autorisations et ordonnances</td></tr>
+    <tr><td>Administrateur judiciaire</td><td><span class="art">L. 621-4</span> et <span class="art">L. 621-9 C. com.</span></td><td>Assistance ou administration du débiteur, poursuite de l’activité, préparation du plan</td></tr>
+    <tr><td>Mandataire judiciaire</td><td><span class="art">L. 621-4 C. com.</span></td><td>Représente l’intérêt collectif des créanciers, reçoit les déclarations, vérifie les créances</td></tr>
+  </table>
+
+  <h3>Contrats en cours</h3>
+  <div class="card gold">
+    <div class="card-title">Principe</div>
+    <p><span class="art">L. 622-13 C. com.</span> : le régime des contrats en cours est d’ordre public. Les clauses résolutoires fondées sur l’ouverture de la procédure sont réputées non écrites.</p>
+    <p>L’administrateur judiciaire décide seul de l’exécution ou non des contrats. Pour le bail commercial, le délai classiquement retenu dans le cours est de 3 mois.</p>
+  </div>
+
+  <h3>Surveillance du débiteur</h3>
+  <div class="card red">
+    <div class="card-title">Interdiction de certains actes</div>
+    <p><span class="art">L. 622-7, III C. com.</span> : sans autorisation, le débiteur ne peut pas accomplir des actes étrangers à la gestion courante, consentir certaines sûretés, compromettre ou transiger. Les violations exposent à des sanctions.</p>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="part" id="p5">
+  <div class="part-header">
+    <div class="part-num">5</div>
+    <div class="part-title"><small>Noyau dur</small>Discipline collective : gel du passif, poursuites, créances</div>
+  </div>
+
+  <h3>Interdiction de payer les créances antérieures</h3>
+  <div class="grid2">
+    <div class="card red">
+      <div class="card-title">Principe</div>
+      <p><span class="art">L. 622-7, al. 2 C. com.</span> : le jugement d’ouverture emporte de plein droit interdiction de payer toute créance née antérieurement.</p>
+      <p><strong>Critère :</strong> la date du fait générateur de la créance, non la seule date d’exigibilité.</p>
+    </div>
+    <div class="card green">
+      <div class="card-title">Exceptions</div>
+      <ul>
+        <li>Créances alimentaires</li>
+        <li>Créances salariales couvertes par le superprivilège</li>
+        <li>Cas autorisés par le juge-commissaire, notamment pour retirer un bien gagé ou lever une option de leasing utile à l’activité</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title">Sanction</div>
+    <p><span class="art">L. 654-8 C. com.</span> : la violation de l’interdiction est pénalement sanctionnée et les actes peuvent être annulés à la demande de tout intéressé ou du ministère public.</p>
+  </div>
+
+  <h3>Arrêt des poursuites individuelles</h3>
+  <div class="card">
+    <div class="card-title">Texte</div>
+    <p><span class="art">L. 622-21 C. com.</span> : sont arrêtées ou interdites les actions tendant à la condamnation du débiteur au paiement d’une somme d’argent ainsi que les actions tendant à la résolution d’un contrat pour défaut de paiement d’une somme d’argent.</p>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title">Protection des garants personnes physiques</div>
+    <p><span class="art">L. 622-28 C. com.</span> : les personnes physiques coobligées ou ayant consenti une sûreté personnelle bénéficient de certaines protections, notamment quant aux intérêts.</p>
+  </div>
+
+  <h3>Arrêt du cours des intérêts</h3>
+  <div class="card gold">
+    <div class="card-title">Règle</div>
+    <p><span class="art">L. 622-28, al. 1 C. com.</span> : le jugement d’ouverture arrête le cours des intérêts légaux et conventionnels.</p>
+    <p><strong>Exception :</strong> les prêts conclus pour une durée au moins égale à un an.</p>
+  </div>
+
+  <h3>Déclaration des créances</h3>
+  <table>
+    <tr><th>Question</th><th>Réponse</th></tr>
+    <tr><td>Qui doit déclarer ?</td><td><span class="art">L. 622-24 C. com.</span> : tous les créanciers dont la créance est née avant le jugement d’ouverture, ainsi que certains créanciers postérieurs non utiles à la procédure ou à la poursuite de l’activité.</td></tr>
+    <tr><td>Qui est dispensé ?</td><td><span class="art">L. 625-1 C. com.</span> : les salariés, car le mandataire judiciaire établit lui-même le relevé des créances salariales.</td></tr>
+    <tr><td>Délai</td><td>2 mois à compter de la publication au BODACC.</td></tr>
+    <tr><td>Sûreté omise</td><td><span class="art">L. 622-25 C. com.</span> : si la sûreté réelle n’est pas déclarée, le créancier est traité comme chirographaire.</td></tr>
+  </table>
+
+  <div class="card purple">
+    <div class="card-title">Vérification et admission</div>
+    <p><span class="art">L. 624-1 C. com.</span> : le mandataire judiciaire vérifie les créances, établit une liste, puis le juge-commissaire statue par ordonnance d’admission, de rejet ou de constatation de contestation sérieuse.</p>
+  </div>
+
+  <h3>Créances postérieures utiles</h3>
+  <div class="card green">
+    <div class="card-title">Régime favorable</div>
+    <p><span class="art">L. 622-17 C. com.</span> : les créances nées régulièrement après le jugement d’ouverture pour les besoins du déroulement de la procédure ou en contrepartie d’une prestation fournie au débiteur pendant cette période sont payées à l’échéance ; à défaut, elles bénéficient d’un rang privilégié.</p>
+  </div>
+
+  <h3>Revendication et réserve de propriété</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">Revendication</div>
+      <p><span class="art">L. 624-9</span> et <span class="art">L. 624-12 C. com.</span> : action en revendication dans le délai de 3 mois suivant la publication au BODACC pour récupérer certains biens meubles en nature, non transformés.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Clause de réserve de propriété</div>
+      <p><span class="art civ">Art. 2367 C. civ.</span> et <span class="art">L. 624-16 C. com.</span> : doit être écrite et convenue au plus tard au moment de la livraison ; elle permet soit la restitution du bien, soit le paiement immédiat dans certains cas.</p>
+    </div>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="part" id="p6">
+  <div class="part-header">
+    <div class="part-num">6</div>
+    <div class="part-title"><small>Issue favorable</small>Les plans de sauvegarde et de redressement</div>
+  </div>
+
+  <h3>Contenu du projet de plan</h3>
+  <div class="grid2">
+    <div class="card"><div class="card-title">1. Perspectives d’activité</div><p><span class="art">L. 626-2 C. com.</span> : démontrer la viabilité future de l’entreprise.</p></div>
+    <div class="card"><div class="card-title">2. Modalités de règlement du passif</div><p>Délais, échéancier, éventuellement remises selon le régime applicable.</p></div>
+    <div class="card"><div class="card-title">3. Garanties</div><p>Inaliénabilité, sûretés, surveillance renforcée, modalités de contrôle.</p></div>
+    <div class="card"><div class="card-title">4. Perspectives d’emploi</div><p>Maintien, suppression ou adaptation des emplois.</p></div>
+  </div>
+
+  <div class="card blue">
+    <div class="card-title">Effet du jugement arrêtant le plan</div>
+    <p><span class="art">L. 626-11 C. com.</span> : le jugement créant le plan est opposable à tous. Les cautions, coobligés et garants personnes physiques peuvent s’en prévaloir.</p>
+  </div>
+
+  <h3>Apurement du passif sans classes</h3>
+  <div class="card gold">
+    <div class="card-title">Droit commun</div>
+    <p><span class="art">L. 626-18 C. com.</span> : durée maximale de 10 ans en principe, 15 ans en matière agricole. Le tribunal peut imposer des délais mais non des remises de dettes aux créanciers privés récalcitrants.</p>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">Régimes particuliers</div>
+    <p><span class="art">L. 626-20 C. com.</span> : certaines créances échappent au traitement ordinaire du plan, notamment les petites créances inférieures à 500 €, les créances salariales et les créances bénéficiant du privilège de conciliation, payées à leur échéance normale.</p>
+  </div>
+
+  <h3>Classes de parties affectées</h3>
+  <div class="grid2">
+    <div class="card amber gold">
+      <div class="card-title">Champ</div>
+      <p><span class="art">L. 626-29 et s. C. com.</span> et <span class="art reg">R. 626-52 C. com.</span> : constitution obligatoire si l’entreprise atteint au moins 250 salariés et 20 M€ de CA, ou 40 M€ de CA à elle seule.</p>
+      <p>Possible aussi en dessous des seuils sur dérogation du juge-commissaire à la demande du débiteur.</p>
+    </div>
+    <div class="card teal blue">
+      <div class="card-title">Composition</div>
+      <p><span class="art">L. 626-30 C. com.</span> : classes fondées sur des critères objectifs et une communauté d’intérêt économique suffisante.</p>
+      <p>Minimum légal : créanciers titulaires de sûretés réelles, créanciers chirographaires, détenteurs de capital.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Vote</div>
+    <p><span class="art">L. 626-30-2 C. com.</span> : délai de vote de 20 à 30 jours, réduit à 15 jours par le juge-commissaire. Majorité des 2/3 des voix exprimées. Le défaut de réponse est neutre.</p>
+  </div>
+
+  <div class="vote-grid">
+    <div class="vote-case">
+      <div class="vote-case-head">Cas 1</div>
+      <div class="vote-case-body"><strong>Toutes les classes votent pour</strong> : le tribunal peut arrêter le plan s’il vérifie les conditions légales.</div>
+    </div>
+    <div class="vote-case">
+      <div class="vote-case-head">Cas 2</div>
+      <div class="vote-case-body"><strong>Application forcée inter-classes</strong> si certaines conditions sont réunies et si le test du meilleur intérêt est respecté.</div>
+    </div>
+    <div class="vote-case">
+      <div class="vote-case-head">Cas 3</div>
+      <div class="vote-case-body"><strong>Cram-down</strong> avec priorité absolue ou relative selon le dispositif retenu par les textes et les conditions de sauvegarde des intérêts dissidents.</div>
+    </div>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title">Textes d’adoption</div>
+    <p><span class="art">L. 626-31</span> et <span class="art">L. 626-32 C. com.</span> : adoption du plan, application forcée inter-classes, meilleur intérêt des créanciers, règle de priorité et mécanismes de cram-down.</p>
+  </div>
+
+  <div class="card red">
+    <div class="card-title">Particularités du redressement judiciaire</div>
+    <p><span class="art">L. 631-19 C. com.</span> : le plan est élaboré par l’administrateur judiciaire avec le débiteur. Les licenciements économiques peuvent être mis en œuvre dans le mois du jugement arrêtant le plan.</p>
+    <p><span class="art">L. 631-19-1</span> et <span class="art">L. 631-19-2 C. com.</span> : dans certaines hypothèses et sur demande du ministère public, des mesures d’éviction forcée de dirigeants ou d’associés sont envisageables.</p>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="part" id="p7">
+  <div class="part-header">
+    <div class="part-num">7</div>
+    <div class="part-title"><small>Issue défavorable</small>Liquidation judiciaire</div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title">Condition d’ouverture</div>
+    <p><span class="art">L. 640-1 C. com.</span> : la liquidation judiciaire est ouverte lorsque le débiteur est en cessation des paiements et que son redressement est manifestement impossible.</p>
+  </div>
+
+  <h3>Liquidation judiciaire simplifiée</h3>
+  <div class="card">
+    <div class="card-title">Seuils et logique</div>
+    <p><span class="art reg">D. 641-10 C. com.</span> : elle s’impose notamment lorsque l’actif ne comprend pas d’immeuble et que certains seuils ne sont pas dépassés, notamment 5 salariés et 750 000 € de chiffre d’affaires dans le cours étudié.</p>
+  </div>
+
+  <h3>Organes et dessaisissement</h3>
+  <div class="grid2">
+    <div class="card blue">
+      <div class="card-title">Liquidateur judiciaire</div>
+      <p><span class="art">L. 641-4 C. com.</span> : il représente la procédure, procède aux licenciements et, selon les cas, vérifie les créances utiles à la répartition.</p>
+    </div>
+    <div class="card red">
+      <div class="card-title">Dessaisissement</div>
+      <p><span class="art">L. 641-9 C. com.</span> : le jugement de liquidation emporte dessaisissement du débiteur, lequel est remplacé pour les droits et actions concernant son patrimoine par le liquidateur.</p>
+    </div>
+  </div>
+
+  <div class="card gold">
+    <div class="card-title">Déchéance du terme</div>
+    <p><span class="art">L. 643-1 C. com.</span> : toutes les créances antérieures deviennent immédiatement exigibles.</p>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">Contrats en cours</div>
+    <p><span class="art">L. 641-11-1 C. com.</span> : les contrats en cours peuvent encore être poursuivis en liquidation judiciaire lorsque le maintien temporaire de l’activité le justifie, notamment en vue d’une cession.</p>
+  </div>
+
+  <h3>Ordre de paiement</h3>
+  <table>
+    <tr><th>Rang</th><th>Créances</th></tr>
+    <tr><td>1</td><td>Superprivilège des salaires</td></tr>
+    <tr><td>2</td><td>Frais de justice</td></tr>
+    <tr><td>3</td><td>Privilège de conciliation</td></tr>
+    <tr><td>4</td><td>Créances postérieures utiles</td></tr>
+    <tr><td>5</td><td>Créanciers titulaires de sûretés réelles selon leur rang</td></tr>
+  </table>
+
+  <div class="card purple">
+    <div class="card-title">Fondement</div>
+    <p><span class="art">L. 643-8 C. com.</span> : règle d’ordre de paiement telle qu’exploitée dans le cours.</p>
+  </div>
+
+  <h3>Clôture</h3>
+  <div class="grid2">
+    <div class="card green">
+      <div class="card-title">Clôture pour extinction du passif</div>
+      <p><span class="art">L. 643-9 C. com.</span> : tous les créanciers sont désintéressés.</p>
+    </div>
+    <div class="card red">
+      <div class="card-title">Clôture pour insuffisance d’actif</div>
+      <p><span class="art">L. 643-9</span> et <span class="art">L. 643-11 C. com.</span> : fin de la procédure faute d’actif suffisant ; le principe est l’arrêt des poursuites individuelles, avec des exceptions légales.</p>
+    </div>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="part" id="p8">
+  <div class="part-header">
+    <div class="part-num">8</div>
+    <div class="part-title"><small>Cession</small>Le plan de cession</div>
+  </div>
+
+  <div class="callout"><strong>Formule d’oral :</strong> le plan de cession est une reprise « à la carte » : le repreneur reprend des actifs et des contrats, jamais le passif.</div>
+
+  <h3>Principes</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">Fondements</div>
+      <p><span class="art">L. 642-1</span>, <span class="art">L. 642-2</span> et <span class="art">L. 642-3 C. com.</span> : le tribunal retient l’offre permettant le meilleur maintien de l’activité et de l’emploi, tout en assurant le meilleur paiement possible des créanciers.</p>
+    </div>
+    <div class="card blue">
+      <div class="card-title">Logique pratique</div>
+      <p>L’administrateur judiciaire organise la publicité, ouvre la data room, reçoit les offres, les compare et prépare l’audience d’examen des offres.</p>
+    </div>
+  </div>
+
+  <h3>Recevabilité de l’offre</h3>
+  <ul>
+    <li>identité et capacité financière du repreneur ;</li>
+    <li>périmètre précis des actifs et contrats repris ;</li>
+    <li>prix et modalités de financement ;</li>
+    <li>nombre de salariés repris et projet industriel ;</li>
+    <li>respect du calendrier fixé par l’administrateur.</li>
+  </ul>
+
+  <div class="card gold">
+    <div class="card-title">Règle d’amélioration</div>
+    <p><span class="art">L. 642-2, § 5 C. com.</span> : l’offre ne peut être modifiée qu’en mieux. Le candidat ne peut pas, après dépôt, réduire son prix ou le nombre d’emplois repris.</p>
+  </div>
+
+  <h3>Déroulement type</h3>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-step">Étape 1</div><div class="timeline-title">Publicité et ouverture des candidatures</div><div class="timeline-body">Annonce au BODACC et supports spécialisés ; information graduée selon la stratégie de cession.</div></div>
+    <div class="timeline-item"><div class="timeline-step">Étape 2</div><div class="timeline-title">Data room et dépôt des offres</div><div class="timeline-body">Les candidats accèdent aux informations utiles et remettent une offre avant la date limite fixée par l’administrateur.</div></div>
+    <div class="timeline-item"><div class="timeline-step">Étape 3</div><div class="timeline-title">Analyse comparative</div><div class="timeline-body">L’administrateur compare prix, emplois repris, périmètre, financement et cohérence du projet.</div></div>
+    <div class="timeline-item"><div class="timeline-step">Étape 4</div><div class="timeline-title">Audience d’examen</div><div class="timeline-body">Le tribunal entend les candidats, les co-contractants intéressés et statue en chambre du conseil.</div></div>
+    <div class="timeline-item"><div class="timeline-step">Étape 5</div><div class="timeline-title">Jugement arrêtant le plan de cession</div><div class="timeline-body">Le tribunal choisit l’offre qui répond le mieux aux objectifs légaux.</div></div>
+  </div>
+
+  <div class="card red">
+    <div class="card-title">Rôle des co-contractants</div>
+    <p><span class="art">L. 642-7 C. com.</span> : certains contrats nécessaires peuvent être cédés malgré les réticences du cocontractant, sous contrôle du tribunal.</p>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="part" id="p9">
+  <div class="part-header">
+    <div class="part-num">9</div>
+    <div class="part-title"><small>Prêt à dire</small>Réponses courtes d’oral</div>
+  </div>
+
+  <h3>1. Quelle différence entre amiable et collectif ?</h3>
+  <div class="card">
+    <p>Les procédures amiables reposent sur l’accord et la confidentialité ; elles ne soumettent pas les créanciers à une discipline collective. Les procédures collectives, elles, imposent un régime commun aux créanciers antérieurs et organisent soit le sauvetage, soit l’élimination ordonnée de l’entreprise.</p>
+  </div>
+
+  <h3>2. Qu’est-ce que la cessation des paiements ?</h3>
+  <div class="card">
+    <p>C’est l’impossibilité de faire face au passif exigible avec l’actif disponible. Il faut donc comparer les dettes échues et réclamées avec les liquidités ou valeurs immédiatement réalisables, en tenant compte des réserves de crédit et moratoires.</p>
+  </div>
+
+  <h3>3. Quel est l’effet essentiel du jugement d’ouverture ?</h3>
+  <div class="card">
+    <p>Le jugement déclenche la discipline collective : gel du passif antérieur, arrêt des poursuites individuelles, interruption du cours des intérêts dans les conditions légales, déclaration des créances et contrôle judiciaire de l’activité.</p>
+  </div>
+
+  <h3>4. Pourquoi la conciliation est-elle attractive ?</h3>
+  <div class="card">
+    <p>Parce qu’elle est précoce, confidentielle, souple et qu’elle peut être sécurisée par l’homologation, notamment grâce au privilège de conciliation pour les apports de trésorerie nouvelle.</p>
+  </div>
+
+  <h3>5. Que faut-il dire sur les classes de parties affectées ?</h3>
+  <div class="card">
+    <p>Elles constituent un outil moderne de restructuration pour les entreprises atteignant certains seuils. Les classes sont constituées selon une communauté d’intérêt économique, votent séparément, et le tribunal peut, dans certaines conditions, imposer le plan à des classes dissidentes.</p>
+  </div>
+
+  <h3>6. Qu’est-ce qui distingue le redressement de la liquidation ?</h3>
+  <div class="card">
+    <p>Le redressement suppose que l’entreprise reste sauvable. La liquidation intervient quand le redressement est manifestement impossible ; le débiteur est alors dessaisi et le liquidateur procède à la réalisation de l’actif et à la répartition.</p>
+  </div>
+
+  <h3>Réflexe méthodologique à l’oral</h3>
+  <div class="callout"><strong>Plan de réponse efficace :</strong> 1) qualification de la situation ; 2) texte applicable ; 3) effet juridique ; 4) exception éventuelle ; 5) finalité économique ou procédurale.</div>
+</div>
+
+</div>
+
+<div class="footer">
+  <strong>Fiche DED — Oral</strong> · Version HTML structurée pour la mémorisation rapide, la précision textuelle et la restitution orale.
+</div>
+
+</body>
+</html>
