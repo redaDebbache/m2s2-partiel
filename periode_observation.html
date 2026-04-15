@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiche — La Période d'Observation</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f2ede6;
+  --white: #ffffff;
+  --ink: #111111;
+  --muted: #555;
+  --rule: #d8d1c6;
+  --navy: #1b2840;
+  --navy-mid: #2e4265;
+  --red: #9b2c2c;
+  --red-light: #fdf0f0;
+  --green: #1d5c3c;
+  --green-light: #edf7f1;
+  --amber: #7a5200;
+  --amber-light: #fef8e7;
+  --blue: #1a408a;
+  --blue-light: #eef3fc;
+  --slate: #3d4d63;
+  --line: 1px solid var(--rule);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'IBM Plex Sans', sans-serif; background: var(--bg); color: var(--ink); font-size: 14.5px; line-height: 1.75; }
+
+/* HEADER */
+.header {
+  background: var(--navy);
+  padding: 0;
+}
+.header-top {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 48px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.header-label { font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.4); }
+.header-source { font-size: 11px; color: rgba(255,255,255,.35); }
+.header-body { padding: 52px 48px 44px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; }
+.header-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #e8b84b; margin-bottom: 14px; }
+.header h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(30px, 5vw, 52px); font-weight: 700; color: #fff; line-height: 1.1; }
+.header h1 em { font-style: italic; color: #e8b84b; }
+.header-sub { color: rgba(255,255,255,.55); font-size: 14px; margin-top: 14px; max-width: 560px; line-height: 1.6; }
+.header-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+.stat { padding: 14px 20px; background: rgba(255,255,255,.04); text-align: center; }
+.stat-val { font-family: 'Libre Baskerville', serif; font-size: 22px; font-weight: 700; color: #e8b84b; }
+.stat-lbl { font-size: 10px; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: 1px; }
+
+/* LAYOUT */
+.wrapper { max-width: 1060px; margin: 0 auto; padding: 48px 24px 90px; display: grid; grid-template-columns: 210px 1fr; gap: 48px; align-items: start; }
+
+/* SIDEBAR */
+.sidebar { position: sticky; top: 28px; }
+.sidebar-head { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); padding-bottom: 10px; border-bottom: var(--line); margin-bottom: 10px; }
+.sidebar nav a { display: flex; gap: 10px; align-items: baseline; text-decoration: none; color: var(--slate); font-size: 12.5px; padding: 6px 0; border-bottom: 1px dotted var(--rule); transition: color .2s; line-height: 1.35; }
+.sidebar nav a:last-child { border: none; }
+.sidebar nav a:hover { color: var(--red); }
+.num { font-family: 'Libre Baskerville', serif; font-size: 14px; font-weight: 700; color: #e8b84b; background: var(--navy); padding: 1px 6px; border-radius: 2px; flex-shrink: 0; font-size: 11px; }
+
+/* MAIN */
+main { min-width: 0; }
+
+/* SECTION */
+.section { margin-bottom: 52px; }
+.sec-hd { display: flex; align-items: flex-start; gap: 16px; border-bottom: 2px solid var(--ink); padding-bottom: 12px; margin-bottom: 24px; }
+.sec-n { font-family: 'Libre Baskerville', serif; font-size: 40px; font-weight: 700; color: var(--rule); line-height: 1; flex-shrink: 0; margin-top: -4px; }
+.sec-t { font-family: 'Libre Baskerville', serif; font-size: 22px; font-weight: 700; color: var(--navy); line-height: 1.2; }
+.sec-t em { font-style: italic; color: var(--red); }
+
+.sub { margin: 20px 0 10px; }
+.sub-t { font-family: 'Libre Baskerville', serif; font-size: 15px; font-weight: 700; color: var(--navy-mid); padding-left: 12px; border-left: 3px solid var(--navy); margin-bottom: 10px; }
+
+p { margin-bottom: 10px; }
+
+/* ARTICLE REF */
+.art { display: inline-flex; align-items: center; gap: 6px; background: var(--navy); color: #fff; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; padding: 2px 9px; border-radius: 2px; margin: 2px; vertical-align: middle; }
+
+/* CALLOUT */
+.callout { display: grid; grid-template-columns: 4px 1fr; margin: 14px 0; border-radius: 3px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.cb-bar { }
+.cb-body { padding: 13px 16px; font-size: 14px; line-height: 1.65; }
+.cb-lbl { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+.callout.red .cb-bar { background: var(--red); }
+.callout.red .cb-body { background: var(--red-light); }
+.callout.red .cb-lbl { color: var(--red); }
+.callout.green .cb-bar { background: var(--green); }
+.callout.green .cb-body { background: var(--green-light); }
+.callout.green .cb-lbl { color: var(--green); }
+.callout.amber .cb-bar { background: var(--amber); }
+.callout.amber .cb-body { background: var(--amber-light); }
+.callout.amber .cb-lbl { color: var(--amber); }
+.callout.blue .cb-bar { background: var(--blue); }
+.callout.blue .cb-body { background: var(--blue-light); }
+.callout.blue .cb-lbl { color: var(--blue); }
+.callout.navy .cb-bar { background: var(--navy); }
+.callout.navy .cb-body { background: #edf0f5; }
+.callout.navy .cb-lbl { color: var(--navy); }
+
+/* TABLE */
+.tw { overflow-x: auto; margin: 14px 0; border-radius: 3px; box-shadow: 0 1px 6px rgba(0,0,0,.07); }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--white); }
+thead { background: var(--navy); color: #fff; }
+thead th { padding: 10px 14px; text-align: left; font-weight: 500; font-size: 11.5px; letter-spacing: .5px; }
+tbody td { padding: 9px 14px; border-bottom: 1px solid #eee; vertical-align: top; line-height: 1.55; }
+tbody tr:last-child td { border: none; }
+tbody tr:hover { background: #fafaf7; }
+
+/* JURISPRUDENCE */
+.juris { border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; margin: 12px 0; }
+.juris-head { background: var(--navy); color: #fff; padding: 8px 14px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+.juris-head .badge { background: #e8b84b; color: var(--navy); font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 2px; letter-spacing: .5px; }
+.juris-body { padding: 11px 14px; font-size: 13.5px; line-height: 1.65; background: var(--white); }
+
+/* LIST */
+ul.sl { list-style: none; padding: 0; margin: 8px 0; }
+ul.sl li { padding: 6px 0 6px 20px; position: relative; border-bottom: 1px dotted var(--rule); font-size: 14px; line-height: 1.55; }
+ul.sl li:last-child { border: none; }
+ul.sl li::before { content: '›'; position: absolute; left: 0; color: #e8b84b; font-weight: 700; font-size: 16px; top: 5px; }
+
+/* TWO COL */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--navy); border-radius: 3px; padding: 15px 16px; font-size: 13.5px; }
+.card.red { border-top-color: var(--red); }
+.card.green { border-top-color: var(--green); }
+.card.amber { border-top-color: #b87300; }
+.card-t { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--navy); margin-bottom: 8px; }
+.card.red .card-t { color: var(--red); }
+.card.green .card-t { color: var(--green); }
+.card.amber .card-t { color: var(--amber); }
+
+/* FORMULA */
+.formula { background: var(--navy); color: #fff; padding: 14px 20px; border-radius: 3px; font-family: 'Libre Baskerville', serif; font-size: 15px; text-align: center; margin: 14px 0; }
+.formula span { color: #e8b84b; font-weight: 700; }
+
+/* TIMELINE */
+.timeline { margin: 16px 0; padding-left: 20px; border-left: 3px solid var(--navy); }
+.tl-item { position: relative; padding: 0 0 16px 20px; }
+.tl-item::before { content: ''; position: absolute; left: -27px; top: 6px; width: 11px; height: 11px; background: var(--navy); border-radius: 50%; border: 2px solid var(--bg); }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-head { font-weight: 600; font-size: 13.5px; margin-bottom: 3px; }
+.tl-body { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+/* RECAP */
+.recap { background: var(--navy); color: #fff; border-radius: 4px; padding: 30px 32px; margin-top: 52px; }
+.recap h3 { font-family: 'Libre Baskerville', serif; font-size: 18px; font-weight: 700; color: #e8b84b; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.recap-row { display: flex; align-items: baseline; gap: 14px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 13.5px; line-height: 1.55; }
+.recap-row:last-child { border: none; }
+.rn { font-family: 'Libre Baskerville', serif; font-size: 18px; font-weight: 700; color: #e8b84b; flex-shrink: 0; width: 26px; }
+
+/* FOOTER */
+footer { background: var(--navy); color: rgba(255,255,255,.35); text-align: center; padding: 20px; font-size: 11.5px; }
+footer strong { color: #e8b84b; }
+
+@media (max-width: 720px) {
+  .wrapper { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .header-body { grid-template-columns: 1fr; }
+  .header-stats { display: none; }
+  .header-top { padding: 10px 20px; }
+  .header-body { padding: 36px 20px 32px; }
+  .two { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <span class="header-label">Droit des entreprises en difficulté · Livre VI Code de commerce</span>
+    <span class="header-source">Cours magistral — Administrateur judiciaire</span>
+  </div>
+  <div class="header-body">
+    <div>
+      <div class="header-eyebrow">Procédures collectives</div>
+      <h1>La Période<br>d'<em>Observation</em></h1>
+      <p class="header-sub">Sauvegarde &amp; Redressement judiciaire — Compétences, organes, effets, règles communes et spécificités du RJ. Après le jugement d'ouverture : quels leviers, quelles règles ?</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat"><div class="stat-val">12</div><div class="stat-lbl">mois max (S)</div></div>
+      <div class="stat"><div class="stat-val">18</div><div class="stat-lbl">mois max (RJ)</div></div>
+      <div class="stat"><div class="stat-val">L622-7</div><div class="stat-lbl">Gel du passif</div></div>
+      <div class="stat"><div class="stat-val">18 mois</div><div class="stat-lbl">Période suspecte max</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper">
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-head">Sommaire</div>
+  <nav>
+    <a href="#s1"><span class="num">I</span> Compétence juridictionnelle</a>
+    <a href="#s2"><span class="num">II</span> Demandeurs à la procédure</a>
+    <a href="#s3"><span class="num">III</span> Extension de procédure</a>
+    <a href="#s4"><span class="num">IV</span> Organes de la procédure</a>
+    <a href="#s5"><span class="num">V</span> Durée de la période</a>
+    <a href="#s6"><span class="num">VI</span> Gel du passif antérieur</a>
+    <a href="#s7"><span class="num">VII</span> Déclaration de créances</a>
+    <a href="#s8"><span class="num">VIII</span> Interruption des poursuites</a>
+    <a href="#s9"><span class="num">IX</span> Surveillance du dirigeant</a>
+    <a href="#s10"><span class="num">X</span> Contrats en cours</a>
+    <a href="#s11"><span class="num">XI</span> Spécificités du RJ</a>
+    <a href="#s12"><span class="num">XII</span> Fin anticipée de la période</a>
+  </nav>
+</aside>
+
+<main>
+
+<!-- ── I ── -->
+<div class="section" id="s1">
+  <div class="sec-hd"><div class="sec-n">I</div><div class="sec-t">Compétence <em>juridictionnelle</em></div></div>
+
+  <div class="sub"><div class="sub-t">Principe général</div></div>
+  <div class="two">
+    <div class="card green">
+      <div class="card-t">Tribunal de commerce</div>
+      Compétent pour toute structure ayant par nature une <strong>activité commerciale</strong>.
+    </div>
+    <div class="card">
+      <div class="card-t">Tribunal judiciaire</div>
+      Compétent pour toutes les <strong>affaires civiles</strong> (associations, professions libérales…).
+    </div>
+  </div>
+
+  <div class="sub"><div class="sub-t">Exceptions & évolutions</div></div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Exception</th><th>Mécanisme</th><th>Référence</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Tribunal des activités économiques (TAE)</strong></td>
+          <td>Juridiction unique traitant l'ensemble des procédures collectives quelle que soit la nature du débiteur (société civile, association…). Expérimentation en cours (Nanterre, Paris, ~20 tribunaux). Résultats positifs — généralisation probable.</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><strong>Tribunaux de commerce spécialisés (TCS)</strong></td>
+          <td>Compétents si le débiteur dépasse les seuils cumulatifs : <strong>250 salariés ET 20 M€ de CA</strong>, ou à défaut <strong>40 M€ de CA</strong>. Un TCS par région. Désignation obligatoire.</td>
+          <td><span class="art">L721-8</span> C. com.</td>
+        </tr>
+        <tr>
+          <td><strong>Renvoi sur intérêts en présence</strong></td>
+          <td>La cour d'appel peut renvoyer un dossier devant un autre tribunal si les intérêts en présence le justifient (ex. conflit d'intérêt des juges consulaires avec le débiteur).</td>
+          <td><span class="art">L662-2</span> C. com.</td>
+        </tr>
+        <tr>
+          <td><strong>Regroupement de groupe</strong></td>
+          <td>Le premier tribunal saisi d'une procédure dans un groupe est compétent pour toutes les procédures des autres structures du même groupe (condition d'antériorité). S'applique aux sociétés françaises ; droit européen spécifique pour les filiales étrangères.</td>
+          <td><span class="art">L662-8</span> C. com.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout amber">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">🌍 Droit européen</div>
+      Deux règlements UE organisent la reconnaissance des procédures. Une <strong>procédure principale</strong> est ouverte dans le pays du centre des intérêts principaux (COMI) ; des <strong>procédures secondaires</strong> peuvent s'ouvrir dans d'autres États membres. Les procédures secondaires suivent les décisions de la principale.
+    </div>
+  </div>
+</div>
+
+<!-- ── II ── -->
+<div class="section" id="s2">
+  <div class="sec-hd"><div class="sec-n">II</div><div class="sec-t">Demandeurs à la <em>procédure</em></div></div>
+
+  <div class="two">
+    <div class="card green">
+      <div class="card-t">✅ Sauvegarde</div>
+      <strong>Uniquement le débiteur</strong> (représentant légal).<br>
+      Conditions <span class="art">L620-1</span> et <span class="art">L620-2</span> :
+      <ul class="sl" style="margin-top:8px">
+        <li>Ne pas être en état de <strong>cessation des paiements</strong></li>
+        <li>Justifier de <strong>difficultés insurmontables</strong></li>
+      </ul>
+    </div>
+    <div class="card red">
+      <div class="card-t">⚖️ Redressement judiciaire</div>
+      Trois demandeurs possibles :
+      <ul class="sl" style="margin-top:8px">
+        <li>Le <strong>débiteur</strong> (déclaration de cessation des paiements)</li>
+        <li>Un <strong>créancier</strong> par assignation (avec titre exécutoire)</li>
+        <li>Le <strong>ministère public</strong> par citation à comparaître</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="juris">
+    <div class="juris-head"><span class="badge">Cass. com.</span> 8 mars 2011 — Cœur Défense</div>
+    <div class="juris-body">Le tribunal <strong>n'a pas à apprécier les motivations</strong> du débiteur qui demande l'ouverture d'une sauvegarde. Il doit seulement vérifier l'absence de cessation des paiements et l'existence de difficultés. L'ouverture ne peut être refusée au seul motif que le débiteur chercherait à échapper à ses obligations contractuelles ou à éviter une prise de contrôle hostile.</div>
+  </div>
+
+  <div class="callout navy">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">🔎 Phase d'enquête préalable</div>
+      Avant l'ouverture, si les informations transmises sont insuffisantes, le tribunal peut ordonner une <strong>phase d'enquête de 1 à 2 mois</strong>. Il désigne un juge commis (juge enquêteur) assisté d'un administrateur ou mandataire judiciaire. Objectif : établir un rapport sur l'existence ou non d'un état de cessation des paiements. Très utilisé après une assignation par l'URSSAF ou la DGFIP.
+    </div>
+  </div>
+
+  <div class="callout amber">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">📌 Rôle du Ministère public</div>
+      Le parquet agit lorsqu'il constate des inscriptions de privilèges, l'absence de dépôt de comptes annuels, ou l'existence d'un faisceau d'indices de difficultés financières (redressement fiscal, plaintes, etc.). Objectif : éviter les <em>sociétés zombies</em> qui accumulent les pertes sans chercher à se redresser. En pratique, environ <strong>2/3 des 60 000 procédures annuelles</strong> résultent d'assignations de créanciers publics (URSSAF, DGFIP).
+    </div>
+  </div>
+</div>
+
+<!-- ── III ── -->
+<div class="section" id="s3">
+  <div class="sec-hd"><div class="sec-n">III</div><div class="sec-t">L'extension de <em>procédure</em></div></div>
+
+  <p>Mécanisme hybride permettant d'étendre une procédure existante à une autre entité sans avoir à démontrer un état de cessation des paiements. <span class="art">L621-2</span> C. com.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Critère</th><th>Description</th><th>Fréquence</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Fictivité de la personne morale</strong></td>
+          <td>La société n° 1 n'est qu'un écran juridique de la société n° 2. La procédure lui est étendue automatiquement.</td>
+          <td>Rare — difficile à prouver</td>
+        </tr>
+        <tr>
+          <td><strong>Confusion des patrimoines</strong></td>
+          <td>Résulte de <strong>relations financières anormales</strong> entre les deux entités (flux financiers anormaux, loyers non payés entre sociétés liées, transferts injustifiés…). Champ plus large que l'ancienne notion de « flux financiers anormaux » pour englober les relations sans mouvement de fonds (ex. usage gratuit d'un bien).</td>
+          <td>Le plus utilisé</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout red">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">⚠️ Limites jurisprudentielles</div>
+      Avoir les <strong>mêmes dirigeants, la même activité, les mêmes locaux et la même clientèle</strong> ne suffit pas à caractériser des relations financières anormales. La charge de la preuve est lourde.
+    </div>
+  </div>
+
+  <div class="callout green">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">✅ Points clés à retenir</div>
+      <ul class="sl" style="margin-top:4px">
+        <li>Pas besoin de démontrer la cessation des paiements de la société B pour lui étendre la procédure de la société A en RJ.</li>
+        <li>L'extension est possible à une <strong>personne physique</strong> (ex. pharmacien dont les prélèvements excessifs fragilisaient la pharmacie).</li>
+        <li>Impossible une fois qu'un <strong>plan de redressement ou de cession</strong> a été arrêté sur la société A (Cour de cassation).</li>
+        <li>Un dirigeant poursuivi peut anticiper l'extension en ouvrant lui-même une procédure et en déposant rapidement un plan.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ── IV ── -->
+<div class="section" id="s4">
+  <div class="sec-hd"><div class="sec-n">IV</div><div class="sec-t">Organes de la <em>procédure</em></div></div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Organe</th><th>Mission</th><th>Seuil de désignation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Administrateur judiciaire</strong></td>
+          <td>Assiste le débiteur pour trouver une solution de sortie. 3 niveaux de mission :<br>
+            <strong>Surveillance</strong> (sauvegarde uniquement) — rapports, pas d'accès aux comptes.<br>
+            <strong>Assistance</strong> (sauvegarde &amp; RJ) — co-signature obligatoire de tous les mouvements bancaires.<br>
+            <strong>Représentation</strong> (RJ uniquement) — substitution totale au dirigeant.
+          </td>
+          <td>Obligatoire si : &gt; 20 salariés ET &gt; 3 M€ de CA. Facultatif en deçà.</td>
+        </tr>
+        <tr>
+          <td><strong>Mandataire judiciaire</strong></td>
+          <td>Représente les créanciers (reçoit les déclarations de créance, donne un avis sur leurs intérêts). Distinction avec l'administrateur : existait avant 1985 sous la forme d'un syndic unique.</td>
+          <td>Obligatoire dans toutes les procédures, quelle que soit la taille.</td>
+        </tr>
+        <tr>
+          <td><strong>Juge-commissaire</strong></td>
+          <td>Juge du tribunal chargé du suivi quotidien de la procédure. Rend des ordonnances, autorise certains actes.</td>
+          <td>Toujours désigné.</td>
+        </tr>
+        <tr>
+          <td><strong>Représentant des salariés</strong></td>
+          <td>Élu du personnel désigné par ses pairs pour assister aux audiences. Apporte un regard contradictoire sur la situation réelle de l'entreprise.</td>
+          <td>Facultatif (sauf PV de carence).</td>
+        </tr>
+        <tr>
+          <td><strong>Contrôleurs</strong></td>
+          <td>Jusqu'à 5 créanciers ayant déclaré leur créance, désignés par le juge-commissaire. Informés de tous les actes de procédure au-delà de l'information standard du mandataire.</td>
+          <td>Facultatif — sur demande.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout amber">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">📋 Double désignation</div>
+      Si seuils atteints (&gt; 250 salariés ET &gt; 20 M€ CA ou plusieurs établissements), le tribunal désigne <strong>2 administrateurs et 2 mandataires</strong>. Les honoraires réglementés sont partagés entre eux — pas de surcoût pour le débiteur.
+    </div>
+  </div>
+
+  <div class="callout blue">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">🏛️ Désignation depuis 2021</div>
+      Le débiteur peut soumettre un nom d'administrateur (non contraignant). Le ministère public peut préconiser ou s'opposer à certains noms. En cas d'opposition du parquet, le tribunal qui désigne quand même l'administrateur doit <strong>motiver sa décision</strong>.
+    </div>
+  </div>
+</div>
+
+<!-- ── V ── -->
+<div class="section" id="s5">
+  <div class="sec-hd"><div class="sec-n">V</div><div class="sec-t">Durée de la <em>période d'observation</em></div></div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Procédure</th><th>Durée de droit commun</th><th>Prolongation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Sauvegarde</strong></td>
+          <td>12 mois maximum</td>
+          <td>❌ Aucune prolongation possible</td>
+        </tr>
+        <tr>
+          <td><strong>Redressement judiciaire</strong></td>
+          <td>12 mois</td>
+          <td>✅ + 6 mois sur requête du <strong>Ministère public uniquement</strong> → 18 mois maximum</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout red">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">⏰ Sanction du dépassement</div>
+      Si aucun plan n'est présenté dans les délais, le tribunal peut <strong>convertir la procédure</strong> en redressement judiciaire (si sauvegarde) ou en liquidation judiciaire (si RJ).
+    </div>
+  </div>
+</div>
+
+<!-- ── VI ── -->
+<div class="section" id="s6">
+  <div class="sec-hd"><div class="sec-n">VI</div><div class="sec-t">Le gel du passif <em>antérieur</em></div></div>
+
+  <p>Principal effet du jugement d'ouverture. <span class="art">L622-7</span> C. com. — Effet de plein droit, dès 0h00 du jour du jugement.</p>
+
+  <div class="formula">
+    Jugement d'ouverture = <span>Interdiction absolue</span> de payer toute créance née antérieurement
+  </div>
+
+  <div class="sub"><div class="sub-t">La notion de fait générateur — clé d'analyse</div></div>
+  <p>Pour chaque obligation, il faut identifier le <strong>fait générateur</strong> (et non la date de facture ni la date d'exigibilité).</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Type d'obligation</th><th>Fait générateur</th><th>Exemple</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Prestation de service ponctuelle</strong></td>
+          <td>Date d'exécution de la prestation</td>
+          <td>Paysagiste intervenu le 15/03 → antérieur, même si facture reçue le 20/03.</td>
+        </tr>
+        <tr>
+          <td><strong>Livraison de marchandises</strong></td>
+          <td>Date effective de remise</td>
+          <td>Livraison le 15/03 avec délai de paiement 30j → antérieur même si facture exigible le 15/04.</td>
+        </tr>
+        <tr>
+          <td><strong>Contrats à exécution successive</strong> (bail, intérim…)</td>
+          <td>Prorata temporis à la date d'ouverture</td>
+          <td>Bail mensuel : part du 1er au 18 mars = antérieure ; part du 19 à fin mars = postérieure.</td>
+        </tr>
+        <tr>
+          <td><strong>Contrat de prêt bancaire</strong></td>
+          <td>Date de remise des fonds par la banque (Cass. com.)</td>
+          <td>Prêt sur 5 ans, 2,5 ans déjà remboursés → les 2,5 ans restants sont des créances antérieures. Interdiction de payer les échéances pendant la période d'observation.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout red">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">💥 Impact sur les prêts bancaires — jurisprudence</div>
+      La Cour de cassation a jugé que le fait générateur d'un prêt est la <strong>remise des fonds</strong>. En conséquence, <strong>toutes les échéances futures</strong>, même non encore exigibles, sont des créances antérieures — interdiction de les rembourser pendant la période d'observation. C'est l'effet le plus puissant de la procédure (« arme de destruction massive de trésorerie »).
+    </div>
+  </div>
+
+  <div class="callout green">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">✅ Exceptions à l'interdiction de paiement</div>
+      <ul class="sl" style="margin-top:4px">
+        <li><strong>Créances alimentaires</strong> : peuvent continuer à être payées.</li>
+        <li><strong>Paiement par compensation de dettes connexes</strong> : ex. bailleur qui compense le dépôt de garantie avec l'arriéré de loyer.</li>
+        <li><strong>Clause de réserve de propriété</strong> <span class="art">L624-9</span> : le juge-commissaire peut autoriser le paiement si cela permet de récupérer la propriété d'un bien indispensable.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ── VII ── -->
+<div class="section" id="s7">
+  <div class="sec-hd"><div class="sec-n">VII</div><div class="sec-t">Déclaration de <em>créances</em></div></div>
+
+  <p>Corollaire de l'interdiction de paiement : les créanciers doivent faire valoir leurs droits via une déclaration formelle. <span class="art">L622-24</span> à <span class="art">L622-26</span> C. com.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-head">Jugement d'ouverture</div>
+      <div class="tl-body">Publié au BODAC et au Journal Officiel. Caractère public (≠ conciliation).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head">Publication (ex. J+6)</div>
+      <div class="tl-body">Point de départ du délai de déclaration.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head">+ 2 mois (créanciers français) / + 4 mois (créanciers hors hexagone)</div>
+      <div class="tl-body">Délai de déclaration auprès du mandataire judiciaire. Formalisme strict : fondé de pouvoir, toutes pièces justificatives (contrat, factures, solde). Un <strong>vrai piège</strong> pour les créanciers.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head">En cas de retard : relevé de forclusion</div>
+      <div class="tl-body">Le créancier peut demander au juge-commissaire d'être relevé de la forclusion dans un délai de <strong>6 mois</strong> à compter de la connaissance du redressement judiciaire.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head">Vérification du passif</div>
+      <div class="tl-body">Le mandataire et le dirigeant vérifient les déclarations. Ils peuvent contester. La charge de la preuve est alors inversée sur le créancier.</div>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">⚠️ Sanction d'une déclaration irrégulière</div>
+      La créance n'est pas éteinte mais devient <strong>inopposable à la procédure</strong> : elle existe sur le papier mais ne donne plus droit à aucune répartition. En pratique, effets proches d'une perte de créance.
+    </div>
+  </div>
+</div>
+
+<!-- ── VIII ── -->
+<div class="section" id="s8">
+  <div class="sec-hd"><div class="sec-n">VIII</div><div class="sec-t">Interruption des actions et <em>poursuites</em></div></div>
+
+  <p>Le jugement d'ouverture interrompt et interdit toute action tendant à :<br>
+  → la <strong>condamnation au paiement d'une somme d'argent</strong><br>
+  → la <strong>résolution d'un contrat pour défaut de paiement</strong><br>
+  → toute <strong>procédure d'exécution</strong> (saisies mobilières et immobilières). <span class="art">L622-21</span> C. com.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Type de saisie</th><th>Effet attributif ?</th><th>Conséquence</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Saisie conservatoire</strong></td>
+          <td>❌ Non — fonds dans un compte d'attente</td>
+          <td>Tombe sous le coup de l'interdiction des poursuites → peut être annulée.</td>
+        </tr>
+        <tr>
+          <td><strong>Saisie-attribution</strong></td>
+          <td>✅ Oui — fonds versés au commissaire de justice</td>
+          <td>Si elle a produit son effet attributif <strong>avant</strong> le jugement d'ouverture → maintenue. Pas d'annulation automatique.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout blue">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">💡 Logique du système</div>
+      Si le législateur avait interdit le paiement mais laissé la possibilité de saisies, l'interdiction serait vidée de son sens. Les deux principes sont indissociables.
+    </div>
+  </div>
+</div>
+
+<!-- ── IX ── -->
+<div class="section" id="s9">
+  <div class="sec-hd"><div class="sec-n">IX</div><div class="sec-t">Surveillance renforcée du <em>dirigeant</em></div></div>
+
+  <p>Contrepartie de l'interdiction du paiement des créances antérieures. <span class="art">L622-1</span> C. com.</p>
+
+  <div class="two">
+    <div class="card green">
+      <div class="card-t">🟢 Gestion courante</div>
+      Le dirigeant peut agir seul. Exemples : passer commande, répondre à un fournisseur, livrer.
+    </div>
+    <div class="card red">
+      <div class="card-t">🔴 Actes étrangers à la gestion courante</div>
+      Nécessitent validation de l'administrateur judiciaire et, selon l'intensité de l'acte, <strong>autorisation préalable du juge-commissaire</strong>. Ex : vente d'un immeuble, acquisition de véhicules.
+    </div>
+  </div>
+
+  <div class="callout navy">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">🏦 Contrôle bancaire (mission d'assistance)</div>
+      En mission d'assistance (sauvegarde et RJ), l'administrateur judiciaire doit <strong>co-signer tous les débits</strong> sur les comptes bancaires. Double objectif : s'assurer qu'aucune créance antérieure n'est payée et que toutes les dépenses servent l'intérêt de la société.
+    </div>
+  </div>
+</div>
+
+<!-- ── X ── -->
+<div class="section" id="s10">
+  <div class="sec-hd"><div class="sec-n">X</div><div class="sec-t">Poursuite des contrats <em>en cours</em></div></div>
+
+  <p><span class="art">L622-13</span> C. com. — Principe d'ordre public : nonobstant toute disposition légale ou contractuelle, <strong>aucune résiliation ne peut résulter du seul fait de l'ouverture</strong> de la procédure.</p>
+
+  <div class="callout red">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">🚫 Clauses résolutoires inopposables</div>
+      Toute clause contractuelle prévoyant la résiliation automatique en cas d'ouverture de procédure collective est <strong>nulle et non avenue</strong>. C'est de l'ordre public — le co-contractant doit continuer à fournir la prestation future, même en cas d'impayés antérieurs.
+    </div>
+  </div>
+
+  <div class="sub"><div class="sub-t">Résiliation par l'administrateur</div></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-head">Résiliation sur requête au juge-commissaire</div>
+      <div class="tl-body">Conditions : la résiliation doit être <strong>nécessaire à la sauvegarde du débiteur</strong> ET ne pas porter une <strong>atteinte excessive aux intérêts du co-contractant</strong>. Avantage : permet de résilier un bail commercial hors des périodes légales habituelles (3/6/9).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head">Mise en demeure de se positionner (à l'initiative du co-contractant)</div>
+      <div class="tl-body">Le co-contractant peut mettre en demeure l'administrateur de se prononcer sur la poursuite du contrat. L'administrateur a <strong>1 mois</strong> pour répondre.<br>
+        → Réponse affirmative = obligation de payer les échéances futures (engage la responsabilité).<br>
+        → Absence de réponse dans le mois = <strong>résiliation automatique de plein droit</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="callout amber">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">💶 Sort des pénalités de résiliation</div>
+      Les indemnités contractuelles (préavis, pénalités) restent dues mais <strong>intègrent le passif antérieur</strong>. Le dirigeant peut résilier sans hésiter : le coût de résiliation ne freine pas la restructuration — il sera traité dans le cadre du plan.
+    </div>
+  </div>
+
+  <div class="sub"><div class="sub-t">Régime spécifique du bail commercial — <span class="art">L622-14</span></div></div>
+  <div class="two">
+    <div class="card">
+      <div class="card-t">Poursuite du bail</div>
+      Le bail est considéré en cours tant qu'il n'existe pas de <strong>décision de justice définitive</strong> prononçant sa résiliation. Un jugement de 1ère instance frappé d'appel ne suffit pas.
+    </div>
+    <div class="card amber">
+      <div class="card-t">Délai de carence post-ouverture</div>
+      Après l'ouverture, le bailleur ne peut demander la résiliation pour impayé <strong>qu'après un délai de 3 mois</strong>. Pendant cette période, même sans paiement, il ne peut pas agir.
+    </div>
+  </div>
+</div>
+
+<!-- ── XI ── -->
+<div class="section" id="s11">
+  <div class="sec-hd"><div class="sec-n">XI</div><div class="sec-t">Spécificités du <em>redressement judiciaire</em></div></div>
+
+  <div class="sub"><div class="sub-t">Restrictions au dirigeant</div></div>
+  <div class="callout navy">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">📋 Incessibilité des parts sociales</div>
+      En RJ, les parts sociales ou actions du dirigeant ne peuvent faire l'objet d'une cession <strong>qu'après autorisation du tribunal</strong>. Objectif : éviter que le dirigeant responsable de la cessation des paiements se désengage totalement.
+    </div>
+  </div>
+
+  <div class="callout blue">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">📢 Offres de reprise volontaires</div>
+      Pendant la période d'observation d'un RJ (<strong>pas en sauvegarde</strong>), tout tiers peut déposer une offre de reprise volontaire auprès de l'administrateur et du mandataire. <span class="art">L631-13</span> C. com.
+    </div>
+  </div>
+
+  <div class="sub"><div class="sub-t">Intervention de l'AGS — Association de Garantie des Salaires</div></div>
+  <div class="two">
+    <div class="card green">
+      <div class="card-t">✅ Avance des créances salariales</div>
+      Les salariés sont dispensés de déclaration de créance. L'AGS avance les salaires impayés antérieurs. C'est une <strong>avance</strong> (à rembourser ultérieurement), pas une libération de dette. Disponible en RJ et en liquidation — <strong>pas en sauvegarde</strong>.
+    </div>
+    <div class="card green">
+      <div class="card-t">✅ Avance des indemnités de licenciement</div>
+      L'AGS avance les indemnités de licenciement économique prononcés pendant la période d'observation. Évite que leur coût paralyse les restructurations. <span class="art">L631-17</span> C. com. — licenciements urgents, inévitables et indispensables.
+    </div>
+  </div>
+
+  <div class="callout amber">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">⚖️ Licenciements économiques en période d'observation (RJ uniquement)</div>
+      Procédure allégée. Conditions cumulatives : <strong>urgents, inévitables et indispensables</strong>. Nécessite consultation des élus du personnel puis autorisation du juge-commissaire. L'AGS prend en charge les indemnités. Non applicable en sauvegarde.
+    </div>
+  </div>
+
+  <div class="sub"><div class="sub-t">La période suspecte et les nullités</div></div>
+  <p>Le tribunal fixe dans son jugement la <strong>date de cessation des paiements</strong>, qui peut remonter jusqu'à <strong>18 mois</strong> avant l'ouverture du RJ. <span class="art">L631-8</span> C. com. La période entre cette date et le jugement d'ouverture est la <strong>période suspecte</strong>.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Régime</th><th>Article</th><th>Actes visés</th><th>Conditions</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Nullités de plein droit</strong></td>
+          <td><span class="art">L632-1</span></td>
+          <td>
+            Actes à titre gratuit translatifs de propriété<br>
+            Contrats à obligations disproportionnées<br>
+            Paiements de dettes non encore échues<br>
+            Dépôts et consignations hors décision judiciaire
+          </td>
+          <td>Réalisés durant la période suspecte → <strong>annulation automatique</strong>, sans avoir à prouver la connaissance par l'autre partie.</td>
+        </tr>
+        <tr>
+          <td><strong>Nullités facultatives</strong></td>
+          <td><span class="art">L632-2</span></td>
+          <td>Tout paiement ou transfert réalisé durant la période suspecte</td>
+          <td>Il faut démontrer que le créancier avait <strong>connaissance de l'état de cessation des paiements</strong> au moment de l'acte.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout green">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">⚔️ Levier de négociation — Exemple pratique</div>
+      Une saisie-attribution réalisée pendant la période suspecte, avec un créancier qui avait connaissance de la cessation des paiements (ex. bailleur qui connaissait la situation), peut être annulée. L'administrateur peut proposer une <em>transaction</em> : le créancier renonce à la saisie en échange d'une remise partielle de loyer futur ou d'autres avantages. C'est le principal levier de négociation dans les dossiers.
+    </div>
+  </div>
+</div>
+
+<!-- ── XII ── -->
+<div class="section" id="s12">
+  <div class="sec-hd"><div class="sec-n">XII</div><div class="sec-t">Fin anticipée de la <em>période d'observation</em></div></div>
+
+  <div class="callout red">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">🔴 Cas 1 — Nouvel état de cessation des paiements</div>
+      Si la société ne peut plus faire face à ses <strong>charges postérieures</strong> (loyers, salaires, charges sociales courants), un nouvel état de cessation des paiements est caractérisé et l'administrateur ou le mandataire peut demander la conversion :<br>
+      → Sauvegarde → <strong>Redressement judiciaire</strong><br>
+      → Redressement judiciaire → <strong>Liquidation judiciaire</strong>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">🔴 Cas 2 — Redressement/Sauvegarde manifestement impossible</div>
+      <span class="art">L631-15</span> C. com. Si, après toutes les mesures de restructuration mises en œuvre, la société n'arrive pas à dégager un <strong>surplus de trésorerie suffisant</strong> pour commencer à rembourser le passif antérieur (elle couvre juste ses charges courantes sans bénéfice), le redressement est manifestement impossible → conversion en liquidation judiciaire.
+    </div>
+  </div>
+
+  <div class="callout amber">
+    <div class="cb-bar"></div>
+    <div class="cb-body">
+      <div class="cb-lbl">⚖️ Contrepartie permanente pendant la période</div>
+      En échange du gel du passif antérieur, la société doit <strong>payer toutes ses charges postérieures à bonne date</strong>. C'est le critère central de suivi lors des audiences. Si ce critère n'est pas rempli, la période prend fin.
+    </div>
+  </div>
+</div>
+
+<!-- RECAP FINAL -->
+<div class="recap">
+  <h3>🗝️ Récapitulatif — Points essentiels à retenir</h3>
+  <div class="recap-row"><span class="rn">1</span>La période d'observation débute au <strong>jugement d'ouverture</strong> (sauvegarde ou RJ) et dure 12 mois (S) ou jusqu'à 18 mois (RJ sur requête du parquet).</div>
+  <div class="recap-row"><span class="rn">2</span>En <strong>sauvegarde</strong> : seul le débiteur peut demander, sans cessation des paiements. En <strong>RJ</strong> : débiteur, créancier (assignation) ou ministère public.</div>
+  <div class="recap-row"><span class="rn">3</span>L'<strong>extension de procédure</strong> (<span class="art">L621-2</span>) permet d'englober une société liée sans démontrer sa cessation des paiements — critère : confusion des patrimoines (relations financières anormales).</div>
+  <div class="recap-row"><span class="rn">4</span><strong>Gel du passif antérieur</strong> (<span class="art">L622-7</span>) : interdiction absolue de payer toute créance antérieure. Le fait générateur (≠ date de facture) est décisif. Les prêts bancaires sont entièrement antérieurs (Cass. com.).</div>
+  <div class="recap-row"><span class="rn">5</span><strong>Déclaration de créances</strong> : 2 mois (4 hors hexagone) après publication au BODAC. Formalisme strict. Sanction : inopposabilité à la procédure.</div>
+  <div class="recap-row"><span class="rn">6</span><strong>Interruption des poursuites</strong> (<span class="art">L622-21</span>) : toute action en paiement, résolution de contrat et procédure d'exécution est stoppée. Exception : saisie-attribution ayant produit effet avant le jugement.</div>
+  <div class="recap-row"><span class="rn">7</span><strong>Poursuite des contrats</strong> (<span class="art">L622-13</span>) d'ordre public : les clauses résolutoires liées à l'ouverture sont inopposables. Résiliation possible par le juge-commissaire ou par absence de réponse dans le mois à une mise en demeure.</div>
+  <div class="recap-row"><span class="rn">8</span>Le dirigeant est sous <strong>surveillance renforcée</strong> : co-signature des comptes (mission d'assistance) et autorisation préalable du juge-commissaire pour les actes étrangers à la gestion courante.</div>
+  <div class="recap-row"><span class="rn">9</span>En <strong>RJ uniquement</strong> : AGS avance les créances salariales et indemnités de licenciement ; nullités de la période suspecte (jusqu'à 18 mois) ; offres de reprise volontaires possibles.</div>
+  <div class="recap-row"><span class="rn">10</span>La période prend fin anticipément en cas de nouvel état de cessation des paiements sur les charges postérieures, ou si le redressement est <strong>manifestement impossible</strong> (<span class="art">L631-15</span>).</div>
+</div>
+
+</main>
+</div>
+
+<footer>
+  Fiche réalisée d'après un cours magistral d'administrateur judiciaire &nbsp;|&nbsp; <strong>Droit des procédures collectives — Livre VI Code de commerce</strong> &nbsp;|&nbsp; Usage pédagogique uniquement
+</footer>
+</body>
+</html>

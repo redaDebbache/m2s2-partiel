@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiche Juridique — Plans de Sauvegarde & Classes de Parties Affectées</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&family=Source+Code+Pro:wght@400;600&display=swap');
+
+  :root {
+    --navy: #0f1e3c;
+    --navy-light: #1a3060;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #faf8f3;
+    --red: #c0392b;
+    --red-light: #fdf2f1;
+    --green: #1a6640;
+    --green-light: #edf7f1;
+    --purple: #4a1a6e;
+    --purple-light: #f3ecf9;
+    --blue-light: #eef3fb;
+    --text: #1c1c2e;
+    --text-light: #555577;
+    --border: #ddd8cc;
+    --shadow: 0 2px 12px rgba(15,30,60,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    color: white;
+    padding: 48px 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 30px,
+      rgba(201,168,76,0.04) 30px,
+      rgba(201,168,76,0.04) 31px
+    );
+  }
+  .header-meta {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.15;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .header h1 span { color: var(--gold-light); }
+  .header-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    position: relative;
+    margin-top: 8px;
+  }
+  .header-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+    position: relative;
+  }
+  .tag {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+
+  /* NAV */
+  .toc {
+    background: var(--navy-light);
+    padding: 20px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    align-items: center;
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .toc-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .toc a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+    padding: 3px 0;
+  }
+  .toc a:hover { color: var(--gold-light); }
+  .toc-sep { color: rgba(255,255,255,0.2); font-size: 11px; }
+
+  /* MAIN LAYOUT */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* PARTS */
+  .part {
+    margin-bottom: 54px;
+  }
+  .part-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--navy);
+  }
+  .part-num {
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 900;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .part-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .part-title small {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  /* SECTIONS */
+  h3 {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: 28px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ARTICLE BADGES */
+  .art {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin: 0 2px;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .art.reg { background: var(--purple); color: #d8b8f8; }
+
+  /* CARDS */
+  .card {
+    background: white;
+    border-left: 4px solid var(--navy);
+    border-radius: 0 6px 6px 0;
+    padding: 18px 22px;
+    margin: 14px 0;
+    box-shadow: var(--shadow);
+  }
+  .card.gold { border-color: var(--gold); }
+  .card.red { border-color: var(--red); background: var(--red-light); }
+  .card.green { border-color: var(--green); background: var(--green-light); }
+  .card.purple { border-color: var(--purple); background: var(--purple-light); }
+  .card.blue { border-color: #2563eb; background: var(--blue-light); }
+
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .card.gold .card-title { color: #8a6200; }
+  .card.red .card-title { color: var(--red); }
+  .card.green .card-title { color: var(--green); }
+  .card.purple .card-title { color: var(--purple); }
+  .card.blue .card-title { color: #1d4ed8; }
+
+  /* GRID */
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .grid3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0;
+  }
+
+  @media (max-width: 680px) {
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+    .container { padding: 20px 16px 60px; }
+    .header { padding: 30px 20px 24px; }
+    .header h1 { font-size: 26px; }
+    .toc { padding: 12px 20px; }
+  }
+
+  /* TIMELINE */
+  .timeline {
+    margin: 18px 0;
+    position: relative;
+    padding-left: 24px;
+    border-left: 3px solid var(--gold);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .timeline-step {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3px;
+  }
+  .timeline-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .timeline-body {
+    color: var(--text-light);
+    font-size: 14px;
+  }
+
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13.5px;
+    background: white;
+    box-shadow: var(--shadow);
+  }
+  th {
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f7f5f0; }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--navy);
+    color: white;
+    border-left: 5px solid var(--gold);
+    padding: 18px 22px;
+    margin: 18px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .callout strong { color: var(--gold-light); }
+  .callout-icon { font-size: 18px; margin-right: 8px; }
+
+  /* PILL LIST */
+  .pill-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .pill-list li {
+    background: var(--blue-light);
+    border: 1px solid #c0d3f7;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+  }
+
+  /* EXCEPTION BADGE */
+  .exc {
+    display: inline-block;
+    background: #fff3cd;
+    border: 1px solid #d4a017;
+    color: #7a5000;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 8px;
+    border-radius: 3px;
+    margin-left: 4px;
+  }
+
+  /* STEP BOXES */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .step-box {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+    text-align: center;
+    position: relative;
+  }
+  .step-box .step-n {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 22px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+  }
+  .step-box .step-t {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .step-box .step-b {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+  .step-box .step-d {
+    margin-top: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--red);
+    background: var(--red-light);
+    padding: 2px 8px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  @media (max-width: 680px) { .steps { grid-template-columns: 1fr; } }
+
+  /* VOTE TABLE */
+  .vote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .vote-case {
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .vote-case-head {
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    text-align: center;
+  }
+  .vote-case-body {
+    padding: 12px;
+    font-size: 13px;
+    color: var(--text);
+    background: white;
+  }
+  @media (max-width: 680px) { .vote-grid { grid-template-columns: 1fr; } }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    border-top: 2px solid var(--gold);
+  }
+  .footer strong { color: var(--gold); }
+
+  p { margin-bottom: 10px; }
+  ul, ol { margin: 8px 0 12px 20px; }
+  li { margin-bottom: 4px; }
+  strong { color: var(--navy); }
+  em { color: var(--text-light); font-style: normal; font-size: 13px; }
+
+  .separator {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 40px 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-meta">Droit des entreprises en difficulté · Droit commercial</div>
+  <h1>Plans de Sauvegarde & Redressement<br><span>Classes de Parties Affectées</span></h1>
+  <div class="header-sub">Fiche juridique complète · Cours transposé — synthèse structurée avec fondements légaux</div>
+  <div class="header-tags">
+    <span class="tag">L626-2 C.Com</span>
+    <span class="tag">L626-29 et s.</span>
+    <span class="tag">L631-19</span>
+    <span class="tag">Sauvegarde</span>
+    <span class="tag">Redressement judiciaire</span>
+    <span class="tag">Ordonnance 2021-1193</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="toc">
+  <span class="toc-label">Sommaire</span>
+  <a href="#part1">I · Projet de plan</a>
+  <span class="toc-sep">›</span>
+  <a href="#part2">II · Consultation individuelle</a>
+  <span class="toc-sep">›</span>
+  <a href="#part3">III · Classes de parties affectées</a>
+  <span class="toc-sep">›</span>
+  <a href="#part4">IV · Redressement — spécificités</a>
+  <span class="toc-sep">›</span>
+  <a href="#part5">V · Commissaire à l'exécution</a>
+</nav>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════════════════════════
+     PARTIE I — PROJET DE PLAN
+═══════════════════════════════════════════════════════════ -->
+<div class="part" id="part1">
+  <div class="part-header">
+    <div class="part-num">I</div>
+    <div class="part-title">
+      <small>Fondements</small>
+      L'Élaboration du Projet de Plan
+    </div>
+  </div>
+
+  <div class="card gold">
+    <div class="card-title">⚖️ Texte fondateur</div>
+    <p><span class="art">L626-2 C.Com</span> — Le projet de plan est une <strong>solution globale</strong> qui repose obligatoirement sur quatre volets :</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">📈 1. Perspectives d'activité</div>
+      <p>Prévisionnel chiffré justifiant la viabilité future. Doit démontrer le passage d'une situation déficitaire à une situation bénéficiaire. <em>Attention : l'exploitation déficitaire pendant la période d'observation n'est pas rédhibitoire en soi.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-title">💰 2. Modalités de règlement du passif</div>
+      <p>Proposition de remboursement à chaque créancier. Durée max. <strong>10 ans</strong>. Montants minimaux à la 3ᵉ et à la 10ᵉ échéance. Peut inclure délais et/ou abandons de créance.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">🔒 3. Garanties</div>
+      <p>Garanties offertes au tribunal pour sécuriser l'exécution du plan (inaliénabilité d'actifs, sûretés réelles, mensualisation des versements, information renforcée…).</p>
+    </div>
+    <div class="card">
+      <div class="card-title">👥 4. Perspectives d'emploi</div>
+      <p>Exposé et justification des perspectives sociales (maintien, suppressions de postes, PSE le cas échéant).</p>
+    </div>
+  </div>
+
+  <h3>Garanties — Détail pratique</h3>
+  <p>Deux niveaux de garanties en pratique :</p>
+  <ul>
+    <li><strong>Inaliénabilité du fonds de commerce / actifs</strong> <span class="art">L626-14 C.Com</span> — Pendant toute la durée du plan, la société ne peut aliéner certains actifs sans autorisation préalable du tribunal.</li>
+    <li><strong>Garanties renforcées</strong> (selon solidité du prévisionnel) : sûretés réelles du dirigeant, mensualisation des annuités, présence du commissaire à l'exécution dans les CA/AG, interdiction de transferts de fonds intragroupes…</li>
+  </ul>
+
+  <div class="card blue">
+    <div class="card-title">🔔 Créances litigieuses en cours d'instance</div>
+    <p><span class="art">L626-21 C.Com</span> — Les sommes correspondant à des créances contestées (non encore admises définitivement au passif) ne sont versées qu'à compter de l'admission définitive.</p>
+    <p><em>Piège à connaître :</em> Si la créance est admise tardivement (ex. : 6 ans après l'ouverture), toutes les annuités non versées deviennent exigibles en une seule fois. Le créancier peut toutefois demander une <strong>consignation à titre provisionnel</strong> chez le commissaire à l'exécution.</p>
+  </div>
+
+  <h3>Pouvoir d'appréciation du tribunal</h3>
+  <div class="card red">
+    <div class="card-title">⚠️ Le tribunal n'est pas lié par les votes</div>
+    <p>Même si tous les créanciers ont voté favorablement, le tribunal peut <strong>rejeter le plan</strong> s'il le juge insuffisamment sérieux (prévisionnel trop optimiste, garanties insuffisantes…). En cas de rejet : nouveau projet de plan ou conversion de la procédure (sauvegarde → redressement / redressement → liquidation).</p>
+  </div>
+
+</div>
+
+<div class="separator"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PARTIE II — CONSULTATION INDIVIDUELLE
+═══════════════════════════════════════════════════════════ -->
+<div class="part" id="part2">
+  <div class="part-header">
+    <div class="part-num">II</div>
+    <div class="part-title">
+      <small>Droit commun</small>
+      La Consultation Individuelle des Créanciers
+    </div>
+  </div>
+
+  <p>Applicable en <strong>sauvegarde et en redressement judiciaire</strong>, pour les structures sous les seuils des classes de parties affectées (ou en l'absence de constitution dérogatoire).</p>
+
+  <h3>Principe d'égalité de traitement</h3>
+  <p>Les <strong>mêmes propositions</strong> (options) doivent être adressées à tous les créanciers. Plusieurs options peuvent coexister mais elles sont identiques pour tous.</p>
+
+  <div class="grid2">
+    <div class="card green">
+      <div class="card-title">✅ Créanciers privés — L626-5 C.Com</div>
+      <p>Le défaut de réponse dans le délai de <strong>30 jours</strong> vaut <strong>acceptation tacite</strong> des propositions, y compris d'un abandon de créance. <em>(« Qui ne dit mot consent » — exception légale.)</em></p>
+    </div>
+    <div class="card red">
+      <div class="card-title">❌ Créanciers publics — L626-6 C.Com</div>
+      <p>Exception : le défaut de réponse <strong>ne vaut pas</strong> acceptation d'un abandon. Un accord <strong>exprès</strong> est requis. Conditions cumulatives : même conditions qu'un opérateur privé + conditions normales de marché (accord d'autres créanciers privés préalable). En pratique, très rare sauf en cas d'enjeu social fort.</p>
+    </div>
+  </div>
+
+  <h3>Créances non soumises aux propositions</h3>
+  <ul class="pill-list">
+    <li>AGS (super-privilège) — paiement immédiat</li>
+    <li>Créances ≤ 500 €</li>
+    <li>1er loyer en cas de bail commercial (clause spécifique)</li>
+  </ul>
+
+  <h3>Délais imposés par le tribunal</h3>
+  <p>Si un créancier privé <strong>refuse</strong> toutes les options proposées, le tribunal peut lui imposer des <strong>délais de paiement</strong> (jusqu'à 10 ans) mais ne peut pas lui imposer d'abandon de créance.</p>
+
+  <div class="callout">
+    <span class="callout-icon">⚡</span>
+    <strong>Règle de pratique :</strong> En août, les mandataires évitent de lancer les consultations car le défaut de réponse dû aux congés peut entraîner l'imposition de délais — voire d'abandons — à des créanciers qui n'ont simplement pas traité leur courrier.
+  </div>
+
+  <h3>Modification du plan en cours d'exécution</h3>
+  <p><span class="art">L626-26 C.Com</span> — Des modifications peuvent être demandées. <strong>Particularité :</strong> lors d'une nouvelle consultation dans le cadre d'une modification, le défaut de réponse <strong>ne vaut plus</strong> acceptation d'un abandon de créance (accord exprès requis même pour les créanciers privés). Cette règle n'a pas encore été alignée sur la consultation initiale.</p>
+
+</div>
+
+<div class="separator"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PARTIE III — CLASSES DE PARTIES AFFECTÉES
+═══════════════════════════════════════════════════════════ -->
+<div class="part" id="part3">
+  <div class="part-header">
+    <div class="part-num">III</div>
+    <div class="part-title">
+      <small>Droit de la restructuration — Ord. 2021-1193 (transposition Dir. européenne)</small>
+      Les Classes de Parties Affectées
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🧭</span>
+    <strong>Logique fondamentale :</strong> Tous les créanciers ne se valent pas. L'idée (d'inspiration anglo-saxonne) est de regrouper les créanciers selon leur <em>communauté d'intérêt économique</em> et de traiter chaque groupe différemment selon ses chances réelles de remboursement. On distingue ceux « dans la monnaie » (qui seraient remboursés même en liquidation) des autres.
+  </div>
+
+  <h3>Champ d'application — Seuils</h3>
+  <div class="card">
+    <div class="card-title">📐 Texte : L626-29 et suivants C.Com</div>
+    <p><strong>Obligation</strong> de constituer des classes si l'entreprise remplit au moins une des conditions :</p>
+    <ul>
+      <li>≥ <strong>250 salariés</strong> <em>et</em> ≥ <strong>20 M€</strong> de chiffre d'affaires</li>
+      <li>OU ≥ <strong>40 M€</strong> de chiffre d'affaires (seul)</li>
+      <li>OU appartenance à un <strong>groupe</strong> dépassant collectivement ces seuils</li>
+    </ul>
+    <p><strong>Facultatif dérogatoire :</strong> Le débiteur peut demander au juge-commissaire de constituer des classes en dessous des seuils. <span class="exc">Exception</span> Cette autorisation est <strong>insusceptible de recours</strong>.</p>
+  </div>
+
+  <h3>Constitution des Classes — Architecture minimale légale</h3>
+  <div class="grid3">
+    <div class="card purple">
+      <div class="card-title">Classe 1 (minimum)</div>
+      <p>Créanciers <strong>titulaires de sûreté réelle</strong> (privilèges spéciaux, hypothèques…)</p>
+    </div>
+    <div class="card purple">
+      <div class="card-title">Classe 2 (minimum)</div>
+      <p>Créanciers <strong>chirographaires</strong> (sans sûreté ni privilège)</p>
+    </div>
+    <div class="card purple">
+      <div class="card-title">Classe 3 (minimum)</div>
+      <p><strong>Détenteurs de capital</strong> (actionnaires / associés)</p>
+    </div>
+  </div>
+  <p><strong>Pas de maximum légal.</strong> L'administrateur judiciaire peut créer autant de classes supplémentaires que souhaité, dès lors que les critères sont objectifs et qu'il existe une communauté d'intérêt économique suffisante entre les membres.</p>
+
+  <div class="card gold">
+    <div class="card-title">💡 Intérêt stratégique de la multiplication des classes</div>
+    <p>En créant des classes séparées pour des créanciers susceptibles de voter favorablement, on <strong>multiplie le nombre de votes positifs</strong> et on isole les créanciers réfractaires. La stratégie consiste à anticiper les votes et à construire les classes pour atteindre les conditions d'adoption du plan.</p>
+  </div>
+
+  <h3>Exclusions (non soumises aux classes)</h3>
+  <ul class="pill-list">
+    <li>AGS — super-privilège salarial</li>
+    <li>Créances ≤ 500 €</li>
+  </ul>
+
+  <h3>Le processus en 3 notifications</h3>
+  <div class="steps">
+    <div class="step-box">
+      <div class="step-n">1</div>
+      <div class="step-t">Notification n°1</div>
+      <div class="step-b">Information que le créancier est membre d'une classe. Demande d'accord pour communication dématérialisée. Demande de communication des éventuels <em>accords de subordination</em>.</div>
+    </div>
+    <div class="step-box">
+      <div class="step-n">2</div>
+      <div class="step-t">Notification n°2</div>
+      <div class="step-b">Communication des <strong>critères objectifs de constitution</strong>, de la <strong>classe affectée</strong> au créancier, et de son <strong>poids (% droits de vote)</strong> dans cette classe.</div>
+      <div class="step-d">⏱ 10 jours pour contester</div>
+    </div>
+    <div class="step-box">
+      <div class="step-n">3</div>
+      <div class="step-t">Notification n°3 — Vote</div>
+      <div class="step-b">Communication des <strong>propositions différenciées</strong> par classe. Chaque classe vote à la <strong>majorité des 2/3 des votes exprimés</strong>. Délai de <strong>20 à 30 jours</strong> (réductible à 15 jours par le JC).</div>
+    </div>
+  </div>
+
+  <h3>Droit de recours — Délai critique</h3>
+  <div class="card red">
+    <div class="card-title">⏰ R628-58 C.Com — Délai de 10 jours impératif</div>
+    <p>À compter de la <strong>notification n°2</strong>, chaque créancier dispose de <strong>10 jours</strong> pour saisir le juge-commissaire d'une contestation sur la constitution de sa classe <span class="art">L626-30 C.Com</span>.</p>
+    <p>Passé ce délai : <strong>forclusion</strong>. Le créancier ne peut plus contester sa classification et se voit appliquer le régime de la classe à laquelle il a été affecté.</p>
+    <p>En cas de contestation tranchée par le JC : possibilité d'appel. L'administrateur actualise les classes si nécessaire.</p>
+  </div>
+
+  <h3>Règle de vote — Mécanisme de calcul</h3>
+  <table>
+    <tr>
+      <th>Élément</th>
+      <th>Consultation individuelle</th>
+      <th>Classes de parties affectées</th>
+    </tr>
+    <tr>
+      <td>Défaut de réponse (créancier privé)</td>
+      <td>✅ Vaut acceptation tacite</td>
+      <td>❌ Non comptabilisé (neutre)</td>
+    </tr>
+    <tr>
+      <td>Majorité requise</td>
+      <td>Simple (pas de vote formel)</td>
+      <td><strong>2/3 des voix exprimées</strong> par classe</td>
+    </tr>
+    <tr>
+      <td>Poids des votes</td>
+      <td>Créancier = 1 voix</td>
+      <td>Pondéré par le montant de la créance</td>
+    </tr>
+    <tr>
+      <td>Propositions</td>
+      <td>Identiques pour tous</td>
+      <td><strong>Différenciées par classe</strong></td>
+    </tr>
+    <tr>
+      <td>Abandon de créance imposé</td>
+      <td>Uniquement créanciers privés non-répondants</td>
+      <td><strong>Possible par le tribunal</strong> (cross-class cram-down)</td>
+    </tr>
+  </table>
+
+  <h3>Conditions d'adoption du plan — L626-31 et L626-32 C.Com</h3>
+  <div class="vote-grid">
+    <div class="vote-case">
+      <div class="vote-case-head">Cas 1 — Adoption unanime</div>
+      <div class="vote-case-body">
+        <strong>Toutes</strong> les classes ont voté favorablement à la majorité des 2/3.<br><br>
+        Les membres ayant voté contre au sein d'une classe se voient malgré tout imposer la proposition de leur classe.
+      </div>
+    </div>
+    <div class="vote-case">
+      <div class="vote-case-head">Cas 2 — Majorité de classes</div>
+      <div class="vote-case-body">
+        <strong>Majorité</strong> des classes a voté favorablement<br><em>ET</em><br>
+        Au moins <strong>une classe de créanciers titulaires de sûreté réelle</strong> (créanciers privilégiés) a voté favorablement.
+      </div>
+    </div>
+    <div class="vote-case">
+      <div class="vote-case-head">Cas 3 — Minimum requis</div>
+      <div class="vote-case-body">
+        Au moins <strong>une classe</strong> (hors détenteurs de capital) a voté favorablement,<br><em>ET</em><br>
+        Cette classe peut raisonnablement espérer un <strong>paiement partiel en liquidation judiciaire</strong> (« test du meilleur intérêt »).
+      </div>
+    </div>
+  </div>
+
+  <h3>Le Test du Meilleur Intérêt</h3>
+  <div class="card blue">
+    <div class="card-title">🔬 Mécanisme de valorisation</div>
+    <p>Pour vérifier que la classe concernée est bien « dans la monnaie », on mandate un <strong>expert comptable</strong> qui établit :</p>
+    <ul>
+      <li><strong>Valeur en continuité</strong> d'exploitation (généralement plus élevée)</li>
+      <li><strong>Valeur en liquidation</strong> (actifs nets après licenciements et recouvrements moindres)</li>
+    </ul>
+    <p>On soustrait les créanciers privilégiés (qui seraient de toute façon remboursés). Le solde divisé par le montant total des créanciers chirographaires donne le <strong>taux de remboursement théorique en liquidation</strong>. Si la proposition du plan excède ce taux, la classe est mieux traitée → test satisfait.</p>
+    <p><em>Exemple cours :</em> valeur liquidation = 2,9 M€ → après privilegiés (0,5 M€) → 2,4 M€ pour 17 M€ de chirographaires = <strong>16,76%</strong>. Toute proposition &gt; 16,76% satisfait le test.</p>
+  </div>
+
+  <h3>Application Forcée Inter-Classes (Cross-Class Cram-Down)</h3>
+  <div class="card red">
+    <div class="card-title">⚡ Imposition forcée aux classes réfractaires</div>
+    <p>Si un ou plusieurs cas d'adoption (2 ou 3) sont remplis mais qu'une classe a voté contre, le tribunal peut <strong>imposer forcément</strong> à cette classe la proposition formulée, à condition que le <strong>test du meilleur intérêt</strong> soit satisfait (la classe est mieux traitée qu'en liquidation).</p>
+    <p><em>C'est le mécanisme le plus puissant du droit des restructurations : on peut imposer des abandons de créance massifs à des créanciers qui refusent.</em></p>
+  </div>
+
+  <h3>La Règle de Priorité Absolue — et sa dérogation</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">Principe</div>
+      <p>Une classe de rang inférieur ne peut pas être mieux traitée qu'une classe de rang supérieur tant que celle-ci n'est pas intégralement désintéressée. Ex. : les chirographaires ne peuvent recevoir plus que les créanciers privilégiés n'ayant pas encore été intégralement remboursés.</p>
+    </div>
+    <div class="card gold">
+      <div class="card-title">Dérogation — L626-32 C.Com</div>
+      <p>Le tribunal peut déroger à cette règle si :</p>
+      <ul>
+        <li>La dérogation est <strong>nécessaire pour atteindre les objectifs du plan</strong></li>
+        <li>Elle ne porte pas <strong>d'atteinte excessive</strong> aux droits des autres parties</li>
+      </ul>
+      <p><em>Ex. cours :</em> remboursement à 100% d'un franchiseur (74 K€) alors que les privilégiés (3 M€) ne sont pas totalement désintéressés — justifié par l'indispensabilité du contrat de franchise.</p>
+      <p><span class="exc">Cassation</span> La dérogation peut être <strong>tacite</strong> (se déduire des propositions faites) — Cour de cassation.</p>
+    </div>
+  </div>
+
+  <h3>Rejet du plan en classe — Seconde chance</h3>
+  <div class="card">
+    <div class="card-title">📋 L631-19 C.Com (redressement judiciaire uniquement)</div>
+    <p>En cas de rejet par le tribunal du plan présenté en classes de parties affectées, la société peut présenter <strong>un nouveau plan en consultation individuelle</strong> (avec ses contraintes : mêmes propositions à tous, accords exprès pour créanciers publics, etc.).</p>
+  </div>
+
+  <h3>Plans concurrents — Spécificité redressement judiciaire</h3>
+  <div class="callout">
+    <span class="callout-icon">⚔️</span>
+    <strong>En redressement judiciaire</strong> (où les classes sont obligatoires ou facultatives), toute partie affectée peut soumettre un <strong>projet de plan concurrent</strong> à celui du débiteur. Cette faculté est attachée à la créance : un tiers qui rachète la créance acquiert également ce droit de soumettre un plan concurrent. Mécanisme utilisé pour des <strong>prises de contrôle hostiles</strong> d'entreprises en difficulté.
+  </div>
+
+</div>
+
+<div class="separator"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PARTIE IV — SPÉCIFICITÉS REDRESSEMENT
+═══════════════════════════════════════════════════════════ -->
+<div class="part" id="part4">
+  <div class="part-header">
+    <div class="part-num">IV</div>
+    <div class="part-title">
+      <small>Redressement judiciaire uniquement</small>
+      Évictions Forcées d'Actionnaires & Remplacement de Dirigeants
+    </div>
+  </div>
+
+  <p>Le redressement judiciaire étant une procédure post-cessation des paiements, les actionnaires et dirigeants bénéficient de moins de protection qu'en sauvegarde. Trois mécanismes permettent d'agir sur leur position.</p>
+
+  <div class="card purple">
+    <div class="card-title">⚖️ Constitutionnalité — Décision CC du 7 octobre 2015 (QPC)</div>
+    <p>Le Conseil constitutionnel a validé les atteintes au droit de propriété (à valeur constitutionnelle) dans le cadre des procédures collectives, dès lors que ces atteintes sont justifiées par <strong>l'intérêt général</strong> (maintien d'emplois, remboursement des créanciers, continuité économique).</p>
+  </div>
+
+  <h3>Mécanisme 1 — Reconstitution forcée du capital <span class="art">L631-9-1 C.Com</span></h3>
+  <div class="card">
+    <p><strong>Conditions :</strong> Les capitaux propres sont inférieurs à la moitié du capital social ET des actionnaires refusent ou ne peuvent pas reconstituer les fonds propres.</p>
+    <p><strong>Mécanisme :</strong> Le tribunal désigne un <strong>mandataire ad hoc</strong> qui vote à la place de l'actionnaire opposant pour une augmentation de capital. Un tiers investisseur peut alors entrer au capital, diluant ou remplaçant l'actionnaire défaillant.</p>
+  </div>
+
+  <h3>Mécanisme 2 — Remplacement forcé du dirigeant-actionnaire <span class="art">L631-19-1 C.Com</span></h3>
+  <div class="card">
+    <p><strong>Conditions :</strong> Le redressement de l'entreprise le requiert (ex : la gestion du dirigeant est à l'origine des difficultés).</p>
+    <p><strong>Mécanisme :</strong> Sur demande du <strong>ministère public</strong> (Parquet), le tribunal peut :</p>
+    <ul>
+      <li>Subordonner l'adoption du plan au <strong>remplacement du dirigeant</strong></li>
+      <li>Ordonner la <strong>cession forcée des parts sociales</strong> du dirigeant-actionnaire, le prix étant fixé à dire d'expert <em>(valeur souvent très faible en RJ)</em></li>
+    </ul>
+  </div>
+
+  <h3>Mécanisme 3 — Cession forcée des titres d'un actionnaire non-dirigeant <span class="art">L631-19-2 C.Com</span></h3>
+  <div class="card red">
+    <div class="card-title">⚠️ Régime ultra-subsidiaire — rarement appliqué en pratique</div>
+    <p><strong>Conditions cumulatives très strictes :</strong></p>
+    <ul>
+      <li>Entreprise dominante sur son marché</li>
+      <li>Effectif total &gt; <strong>150 salariés</strong></li>
+      <li>Disparition de nature à causer un <strong>trouble grave à l'économie</strong> nationale ou régionale</li>
+      <li>Aucun autre plan de continuation ou de cession n'est possible sans ce remplacement</li>
+    </ul>
+    <p><strong>Mécanisme :</strong> Le tribunal désigne un mandataire qui convoque l'AG et vote à la place de l'actionnaire pour céder ses titres à un repreneur capable d'exécuter le plan.</p>
+    <p><em>Fonction pratique :</em> Ce mécanisme sert surtout de <strong>menace dissuasive</strong> pour forcer les actionnaires bloquants à trouver un accord.</em></p>
+  </div>
+
+</div>
+
+<div class="separator"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PARTIE V — COMMISSAIRE À L'EXÉCUTION DU PLAN
+═══════════════════════════════════════════════════════════ -->
+<div class="part" id="part5">
+  <div class="part-header">
+    <div class="part-num">V</div>
+    <div class="part-title">
+      <small>Post-adoption du plan</small>
+      Le Commissaire à l'Exécution du Plan
+    </div>
+  </div>
+
+  <h3>Nomination et mission</h3>
+  <p>Lors de l'arrêté du plan, le tribunal nomme <strong>l'administrateur ou le mandataire judiciaire</strong> en qualité de <strong>commissaire à l'exécution du plan</strong>. Il est chargé :</p>
+  <ul>
+    <li>De <strong>surveiller l'exécution</strong> des engagements souscrits dans le plan</li>
+    <li>De <strong>centraliser et répartir les fonds</strong> : la société verse les annuités au commissaire, qui les redistribue aux créanciers (pas de paiement direct)</li>
+  </ul>
+
+  <h3>Résolution du plan — L626-27 C.Com</h3>
+  <div class="card red">
+    <div class="card-title">⚡ Saisine du tribunal en résolution</div>
+    <p>Si les engagements ne sont pas respectés (défaut de paiement d'une échéance, violation des garanties…), le commissaire <strong>doit saisir</strong> le tribunal d'une demande en <strong>résolution du plan</strong>.</p>
+    <p><strong>Conséquences de la résolution :</strong></p>
+    <ul>
+      <li>Si état de cessation des paiements constaté → <strong>liquidation judiciaire</strong></li>
+      <li>Si pas de cessation des paiements → débat doctrinal : possibilité d'ouverture d'un nouveau redressement judiciaire, voire d'une conciliation (si la cessation des paiements date de moins de 45 jours)</li>
+    </ul>
+  </div>
+
+  <h3>Bon achèvement du plan — L626-28 C.Com</h3>
+  <div class="card green">
+    <div class="card-title">✅ Jugement de clôture</div>
+    <p>Lorsque l'intégralité du passif est remboursé, le tribunal rend un jugement constatant le <strong>bon achèvement du plan</strong>. Statistiquement rare : moins de 5% des plans de redressement arrivent à leur terme.</p>
+  </div>
+
+  <h3>Modification du plan en cours d'exécution</h3>
+  <p><span class="art">L626-26 C.Com</span> — Des modifications (allongement de durée, ajustement de pourcentages) peuvent être demandées en cours d'exécution. <strong>Rappel important :</strong> en cas de nouvelle consultation des créanciers pour une modification, le défaut de réponse ne vaut pas acceptation d'un abandon (contrairement à la consultation initiale pour les créanciers privés).</p>
+
+</div>
+
+<div class="separator"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     TABLEAU DE SYNTHÈSE / RÉCAPITULATIF
+═══════════════════════════════════════════════════════════ -->
+<div class="part">
+  <div class="part-header">
+    <div class="part-num" style="background:var(--gold);color:var(--navy);">★</div>
+    <div class="part-title">
+      <small>Révision essentielle</small>
+      Tableau Récapitulatif — Articles clés à retenir
+    </div>
+  </div>
+
+  <table>
+    <tr>
+      <th>Article</th>
+      <th>Objet</th>
+      <th>Contenu essentiel</th>
+    </tr>
+    <tr>
+      <td><span class="art">L626-2</span></td>
+      <td>Projet de plan — contenu</td>
+      <td>4 volets : activité, passif, garanties, emploi</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-5</span></td>
+      <td>Consultation individuelle — défaut de réponse</td>
+      <td>Défaut de réponse = acceptation (créanciers privés)</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-6</span></td>
+      <td>Créanciers publics</td>
+      <td>Accord exprès requis pour tout abandon de créance</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-14</span></td>
+      <td>Inaliénabilité</td>
+      <td>Interdit la vente d'actifs pendant le plan sans autorisation</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-21</span></td>
+      <td>Créances litigieuses</td>
+      <td>Versement différé à l'admission définitive ; consignation possible</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-26</span></td>
+      <td>Modification du plan</td>
+      <td>Modification possible ; défaut de réponse ≠ acceptation abandon</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-27</span></td>
+      <td>Résolution du plan</td>
+      <td>Saisine tribunal par commissaire en cas d'inexécution</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-28</span></td>
+      <td>Clôture du plan</td>
+      <td>Jugement de bon achèvement si tout passif remboursé</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-29 et s.</span></td>
+      <td>Classes de parties affectées — champ</td>
+      <td>Seuils : 250 sal. + 20M€ CA ou 40M€ CA seul</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-30</span></td>
+      <td>Accords de subordination</td>
+      <td>Doivent être pris en compte dans la constitution des classes</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-30-2</span></td>
+      <td>Vote des classes</td>
+      <td>20-30 jours pour voter, majorité 2/3 des votes exprimés</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-31</span></td>
+      <td>Adoption du plan</td>
+      <td>3 cas d'adoption (vote unanime / majorité + une privilégiée / cas 3)</td>
+    </tr>
+    <tr>
+      <td><span class="art">L626-32</span></td>
+      <td>Priorité absolue + cram-down</td>
+      <td>Règle de priorité + dérogation possible + application forcée inter-classes</td>
+    </tr>
+    <tr>
+      <td><span class="art reg">R628-58</span></td>
+      <td>Délai de contestation</td>
+      <td><strong>10 jours</strong> pour contester la constitution de classe après notif. n°2</td>
+    </tr>
+    <tr>
+      <td><span class="art">L631-9-1</span></td>
+      <td>Reconstitution forcée du capital</td>
+      <td>Mandataire vote à la place de l'actionnaire opposant (RJ)</td>
+    </tr>
+    <tr>
+      <td><span class="art">L631-19-1</span></td>
+      <td>Remplacement forcé du dirigeant</td>
+      <td>Sur demande du Parquet ; cession forcée des titres du dirigeant-actionnaire</td>
+    </tr>
+    <tr>
+      <td><span class="art">L631-19-2</span></td>
+      <td>Cession forcée (actionnaire non-dirigeant)</td>
+      <td>Ultra-subsidiaire : 150 sal., trouble grave économie, aucun autre plan possible</td>
+    </tr>
+    <tr>
+      <td><span class="art">L631-19</span></td>
+      <td>Rejet plan en classes → consultation individuelle</td>
+      <td>Nouveau plan possible en consultation individuelle après rejet</td>
+    </tr>
+  </table>
+
+  <div class="callout" style="margin-top:28px;">
+    <span class="callout-icon">🎯</span>
+    <strong>Points insistés par le professeur à retenir absolument :</strong> (1) Le délai de <strong>10 jours</strong> pour contester après la notification n°2. (2) Le défaut de réponse vaut acceptation en consultation individuelle (créanciers privés) mais est neutre dans les classes. (3) Les 3 cas d'adoption du plan par les classes (<span class="art">L626-31</span>). (4) Le test du meilleur intérêt (comparaison plan vs liquidation). (5) La différence de traitement du défaut de réponse lors d'une modification de plan vs consultation initiale.
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  Fiche réalisée à partir du cours — <strong>Droit des entreprises en difficulté</strong> · Tous les articles cités sont ceux du <strong>Code de commerce</strong> sauf mention contraire · Ordonnance n°2021-1193 du 15 sept. 2021 (transposition directive européenne « restructuration »)
+</div>
+
+</body>
+</html>
