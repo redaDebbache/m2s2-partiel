@@ -3,157 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index des fiches de révision</title>
+  <title>Index des fiches</title>
   <style>
     :root {
-      --bg: #f6f8fb;
+      --bg: #f6f7fb;
       --card: #ffffff;
       --text: #1f2937;
       --muted: #6b7280;
-      --accent: #163a70;
-      --accent-2: #e8eef9;
-      --border: #dbe3f0;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
       color: var(--text);
-      line-height: 1.5;
     }
-
-    .container {
-      max-width: 980px;
+    .wrap {
+      max-width: 960px;
       margin: 0 auto;
-      padding: 32px 20px 48px;
+      padding: 40px 20px 60px;
     }
-
     h1 {
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       font-size: 2rem;
-      color: var(--accent);
     }
-
-    .intro {
+    .subtitle {
       margin: 0 0 28px;
       color: var(--muted);
+      font-size: 1rem;
     }
-
-    .course {
+    .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 20px;
-      margin-bottom: 22px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
     }
-
-    .course h2 {
-      margin: 0 0 14px;
-      font-size: 1.35rem;
-      color: var(--accent);
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    .grid {
       display: grid;
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
     }
-
-    a.fiche {
+    a.item {
       display: block;
       text-decoration: none;
-      color: var(--text);
-      background: var(--accent-2);
+      color: inherit;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 16px;
+      border-radius: 14px;
+      padding: 16px;
+      background: #fff;
       transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
     }
-
-    a.fiche:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 20px rgba(22, 58, 112, 0.10);
-      border-color: #b7c8e6;
+    a.item:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.10);
     }
-
-    .titre {
-      display: block;
+    .title {
       font-weight: 700;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      line-height: 1.35;
     }
-
-    .fichier {
-      display: block;
+    .filename {
       font-size: 0.92rem;
       color: var(--muted);
       word-break: break-all;
     }
-
-    .note {
-      margin-top: 24px;
-      padding: 14px 16px;
-      border-left: 4px solid var(--accent);
-      background: #fff;
-      border-radius: 8px;
-      color: var(--muted);
+    .badge {
+      display: inline-block;
+      margin-bottom: 16px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
     }
-
-    code {
-      background: #eef2f7;
-      padding: 2px 6px;
-      border-radius: 6px;
+    footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Index des fiches de révision</h1>
-    <p class="intro">Accès rapide aux fiches classées par matière : <strong>DED</strong> et <strong>Comptabilité</strong>.</p>
+  <div class="wrap">
+    <div class="badge">Mise à jour de l’index</div>
+    <h1>Index des pages</h1>
+    <p class="subtitle">Accès rapide aux fiches et pages HTML disponibles.</p>
 
-    <section class="course">
-      <h2>DED</h2>
-      <ul>
-        <li>
-          <a class="fiche" href="fiche_ded_oral_vincent.html">
-            <span class="titre">Fiche DED – oral Vincent</span>
-            <span class="fichier">fiche_ded_oral_vincent.html</span>
-          </a>
-        </li>
-        <li>
-          <a class="fiche" href="fiche_juridique_ded.html">
-            <span class="titre">Fiche juridique DED</span>
-            <span class="fichier">fiche_juridique_ded.html</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <section class="course">
-      <h2>Comptabilité</h2>
-      <ul>
-        <li>
-          <a class="fiche" href="fiche_revision_comptabilite.html">
-            <span class="titre">Fiche de révision comptabilité</span>
-            <span class="fichier">fiche_revision_comptabilite.html</span>
-          </a>
-        </li>
-        <li>
-          <a class="fiche" href="compta-protocole-partiel.html">
-            <span class="titre">Fiche compta – protocole / tutoriel</span>
-            <span class="fichier">compta-protocol...tiel.html</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <div class="note">
-      Le dernier nom de fichier visible sur la capture est tronqué. Avant de publier sur GitHub, remplace simplement <code>compta-protocol...tiel.html</code> par le nom exact du fichier si besoin.
+    <div class="card">
+      <div class="grid">
+        
+            <a class="item" href="compta-protocole-partiel.html">
+              <div class="title">Compta – protocole partiel</div>
+              <div class="filename">compta-protocole-partiel.html</div>
+            </a>
+            
+            <a class="item" href="fiche_ded_oral_vincent.html">
+              <div class="title">Fiche DED oral Vincent</div>
+              <div class="filename">fiche_ded_oral_vincent.html</div>
+            </a>
+            
+            <a class="item" href="fiche_juridique_ded.html">
+              <div class="title">Fiche juridique DED</div>
+              <div class="filename">fiche_juridique_ded.html</div>
+            </a>
+            
+            <a class="item" href="fiche_revision_comptabilite.html">
+              <div class="title">Fiche révision comptabilité</div>
+              <div class="filename">fiche_revision_comptabilite.html</div>
+            </a>
+            
+            <a class="item" href="fiche-classes-de-parties-affectees.html">
+              <div class="title">Fiche classes de parties affectées</div>
+              <div class="filename">fiche-classes-de-parties-affectees.html</div>
+            </a>
+            
+            <a class="item" href="fiche-mandat-prevention.html">
+              <div class="title">Fiche mandat ad hoc / prévention</div>
+              <div class="filename">fiche-mandat-prevention.html</div>
+            </a>
+            
+            <a class="item" href="fiche-plan-de-cession.html">
+              <div class="title">Fiche plan de cession</div>
+              <div class="filename">fiche-plan-de-cession.html</div>
+            </a>
+            
+            <a class="item" href="periode_observation.html">
+              <div class="title">Période d’observation</div>
+              <div class="filename">periode_observation.html</div>
+            </a>
+            
+      </div>
+      <footer>8 pages référencées.</footer>
     </div>
   </div>
 </body>
