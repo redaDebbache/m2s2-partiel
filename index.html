@@ -3,144 +3,558 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index des fiches</title>
+  <title>Index des fiches — Comptabilité & DED</title>
   <style>
     :root {
-      --bg: #f6f7fb;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --accent: #2563eb;
-      --accent-soft: #dbeafe;
+      --bg: #f6f3ee;
+      --surface: #ffffff;
+      --surface-soft: #fbfaf7;
+      --ink: #1f2937;
+      --muted: #5b6472;
+      --line: #d9d2c5;
+      --navy: #10233f;
+      --navy-2: #19335d;
+      --gold: #b9943d;
+      --gold-soft: #efe2bb;
+      --red: #a9382b;
+      --red-soft: #fbefec;
+      --green: #216246;
+      --green-soft: #edf7f1;
+      --blue: #2758b5;
+      --blue-soft: #eef4ff;
+      --shadow: 0 18px 40px rgba(16, 35, 63, 0.08);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1120px;
     }
+
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
-      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(185,148,61,.08), transparent 25%),
+        linear-gradient(180deg, #f9f7f3 0%, var(--bg) 100%);
+      line-height: 1.65;
     }
-    .wrap {
-      max-width: 960px;
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(246, 243, 238, 0.9);
+      border-bottom: 1px solid rgba(16, 35, 63, 0.08);
+    }
+
+    .topbar-inner {
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 40px 20px 60px;
+      padding: 12px 22px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
     }
-    h1 {
-      margin: 0 0 10px;
-      font-size: 2rem;
+
+    .brand {
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: var(--navy);
+      text-transform: uppercase;
     }
-    .subtitle {
-      margin: 0 0 28px;
+
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .topnav a {
+      text-decoration: none;
       color: var(--muted);
-      font-size: 1rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 999px;
     }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+
+    .topnav a:hover,
+    .topnav a:focus-visible {
+      background: rgba(16, 35, 63, 0.07);
+      color: var(--navy);
+      outline: none;
     }
-    .grid {
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 44px 22px 24px;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: 38px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.05);
+    }
+
+    .hero-card::before {
+      width: 320px;
+      height: 320px;
+      top: -160px;
+      right: -60px;
+    }
+
+    .hero-card::after {
+      width: 180px;
+      height: 180px;
+      bottom: -90px;
+      left: -30px;
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #f2dfae;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 760px;
+      color: rgba(255,255,255,.86);
+      font-size: 1.03rem;
+    }
+
+    .hero-meta {
+      position: relative;
+      z-index: 1;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
+      margin-top: 28px;
     }
-    a.item {
+
+    .metric {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.35rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      color: rgba(255,255,255,.74);
+      font-size: .92rem;
+    }
+
+    .layout {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 8px 22px 52px;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 76px;
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(16,35,63,.08);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(16,35,63,.05);
+    }
+
+    .sidebar h2 {
+      margin: 0 0 12px;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--gold);
+    }
+
+    .sidebar nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar a {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      text-decoration: none;
+      color: var(--ink);
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      font-weight: 600;
+    }
+
+    .sidebar a:hover,
+    .sidebar a:focus-visible {
+      background: var(--surface-soft);
+      outline: none;
+    }
+
+    .sidebar .num {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .content {
+      display: grid;
+      gap: 24px;
+    }
+
+    .section {
+      scroll-margin-top: 92px;
+      background: rgba(255,255,255,.7);
+      border: 1px solid rgba(16,35,63,.08);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 10px 28px rgba(16,35,63,.05);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(16,35,63,.08);
+    }
+
+    .section-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--navy);
+      color: var(--gold-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: .05em;
+      flex: 0 0 48px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 1.55rem;
+      line-height: 1.2;
+      color: var(--navy);
+    }
+
+    .section-sub {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: .98rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .item {
       display: block;
       text-decoration: none;
       color: inherit;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px;
-      background: #fff;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      background: var(--surface);
+      border: 1px solid rgba(16,35,63,.10);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(16,35,63,.05);
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
     }
-    a.item:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.10);
+
+    .item:hover,
+    .item:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px rgba(16,35,63,.10);
+      border-color: rgba(39,88,181,.35);
+      outline: none;
     }
-    .title {
-      font-weight: 700;
-      margin-bottom: 6px;
-      line-height: 1.35;
-    }
-    .filename {
-      font-size: 0.92rem;
-      color: var(--muted);
-      word-break: break-all;
-    }
-    .badge {
-      display: inline-block;
-      margin-bottom: 16px;
-      background: var(--accent-soft);
-      color: var(--accent);
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 6px 10px;
       border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
-    footer {
-      margin-top: 18px;
+
+    .pill.blue { background: var(--blue-soft); color: var(--blue); }
+    .pill.green { background: var(--green-soft); color: var(--green); }
+    .pill.red { background: var(--red-soft); color: var(--red); }
+
+    .item h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+
+    .item p {
+      margin: 0 0 12px;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: .96rem;
+    }
+
+    .file {
+      font-size: .88rem;
+      color: #7a8494;
+      word-break: break-all;
+      padding-top: 12px;
+      border-top: 1px solid rgba(16,35,63,.08);
+    }
+
+    .summary {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: var(--surface-soft);
+      border: 1px solid rgba(16,35,63,.08);
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 22px 36px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    @media (max-width: 920px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero-card,
+      .section {
+        padding: 24px;
+      }
+      .hero-meta,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      .topbar-inner {
+        padding: 12px 16px;
+      }
+      .hero,
+      .layout,
+      footer {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="badge">Mise à jour de l’index</div>
-    <h1>Index des pages</h1>
-    <p class="subtitle">Accès rapide aux fiches et pages HTML disponibles.</p>
-
-    <div class="card">
-      <div class="grid">
-        
-            <a class="item" href="compta-protocole-partiel.html">
-              <div class="title">Compta – protocole partiel</div>
-              <div class="filename">compta-protocole-partiel.html</div>
-            </a>
-            
-            <a class="item" href="fiche_ded_oral_vincent.html">
-              <div class="title">Fiche DED oral Vincent</div>
-              <div class="filename">fiche_ded_oral_vincent.html</div>
-            </a>
-            
-            <a class="item" href="fiche_juridique_ded.html">
-              <div class="title">Fiche juridique DED</div>
-              <div class="filename">fiche_juridique_ded.html</div>
-            </a>
-            
-            <a class="item" href="fiche_revision_comptabilite.html">
-              <div class="title">Fiche révision comptabilité</div>
-              <div class="filename">fiche_revision_comptabilite.html</div>
-            </a>
-            
-            <a class="item" href="fiche-classes-de-parties-affectees.html">
-              <div class="title">Fiche classes de parties affectées</div>
-              <div class="filename">fiche-classes-de-parties-affectees.html</div>
-            </a>
-            
-            <a class="item" href="fiche-mandat-prevention.html">
-              <div class="title">Fiche mandat ad hoc / prévention</div>
-              <div class="filename">fiche-mandat-prevention.html</div>
-            </a>
-            
-            <a class="item" href="fiche-plan-de-cession.html">
-              <div class="title">Fiche plan de cession</div>
-              <div class="filename">fiche-plan-de-cession.html</div>
-            </a>
-            
-            <a class="item" href="periode_observation.html">
-              <div class="title">Période d’observation</div>
-              <div class="filename">periode_observation.html</div>
-            </a>
-            
-      </div>
-      <footer>8 pages référencées.</footer>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Index des fiches</div>
+      <nav class="topnav" aria-label="Navigation rapide">
+        <a href="#compta">Comptabilité</a>
+        <a href="#ded">DED</a>
+      </nav>
     </div>
   </div>
+
+  <header class="hero">
+    <div class="hero-card">
+      <div class="eyebrow">Bibliothèque de révision</div>
+      <h1>Index des pages HTML</h1>
+      <p>
+        Accès rapide aux fiches disponibles, avec une séparation nette entre les contenus de <strong>comptabilité</strong>
+        et ceux de <strong>droit des entreprises en difficulté</strong>.
+      </p>
+      <div class="hero-meta">
+        <div class="metric">
+          <strong>8</strong>
+          <span>pages référencées</span>
+        </div>
+        <div class="metric">
+          <strong>2</strong>
+          <span>fiches comptabilité</span>
+        </div>
+        <div class="metric">
+          <strong>6</strong>
+          <span>fiches DED</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Sommaire</h2>
+      <nav>
+        <a href="#compta"><span class="num">01</span> Comptabilité</a>
+        <a href="#ded"><span class="num">02</span> DED</a>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section id="compta" class="section">
+        <div class="section-head">
+          <div class="section-num">01</div>
+          <div>
+            <h2 class="section-title">Comptabilité</h2>
+            <p class="section-sub">Fiches et supports dédiés aux notions comptables.</p>
+          </div>
+        </div>
+
+        <div class="cards">
+          <a class="item" href="fiche_revision_comptabilite.html">
+            <div class="pill blue">Comptabilité</div>
+            <h3>Fiche révision comptabilité</h3>
+            <p>Support général de révision pour consolider les notions fondamentales.</p>
+            <div class="file">fiche_revision_comptabilite.html</div>
+          </a>
+
+          <a class="item" href="compta-protocole-partiel.html">
+            <div class="pill blue">Comptabilité</div>
+            <h3>Compta – protocole partiel</h3>
+            <p>Page ciblée sur le protocole partiel, clairement isolée du DED.</p>
+            <div class="file">compta-protocole-partiel.html</div>
+          </a>
+        </div>
+
+        <div class="summary">Cette section regroupe uniquement les contenus comptables, pour éviter tout mélange avec les fiches de DED.</div>
+      </section>
+
+      <section id="ded" class="section">
+        <div class="section-head">
+          <div class="section-num">02</div>
+          <div>
+            <h2 class="section-title">Droit des entreprises en difficulté</h2>
+            <p class="section-sub">Fiches juridiques classées en priorité selon l’ordre que tu as fixé.</p>
+          </div>
+        </div>
+
+        <div class="cards">
+          <a class="item" href="fiche-mandat-prevention.html">
+            <div class="pill green">DED</div>
+            <h3>Prévention</h3>
+            <p>Mandat ad hoc, conciliation et mécanismes amiables de prévention des difficultés.</p>
+            <div class="file">fiche-mandat-prevention.html</div>
+          </a>
+
+          <a class="item" href="periode_observation.html">
+            <div class="pill green">DED</div>
+            <h3>Période d’observation</h3>
+            <p>Repères sur le déroulement, les enjeux et les effets de la période d’observation.</p>
+            <div class="file">periode_observation.html</div>
+          </a>
+
+          <a class="item" href="fiche-classes-de-parties-affectees.html">
+            <div class="pill green">DED</div>
+            <h3>Classes de parties affectées</h3>
+            <p>Organisation des classes, logique du vote et traitement des créanciers concernés.</p>
+            <div class="file">fiche-classes-de-parties-affectees.html</div>
+          </a>
+
+          <a class="item" href="fiche-plan-de-cession.html">
+            <div class="pill green">DED</div>
+            <h3>Plan de cession</h3>
+            <p>Support dédié au plan de cession et à ses principales règles en procédure collective.</p>
+            <div class="file">fiche-plan-de-cession.html</div>
+          </a>
+
+          <a class="item" href="fiche_juridique_ded.html">
+            <div class="pill red">DED</div>
+            <h3>Fiche juridique DED</h3>
+            <p>Vue d’ensemble juridique des principaux mécanismes du droit des entreprises en difficulté.</p>
+            <div class="file">fiche_juridique_ded.html</div>
+          </a>
+
+          <a class="item" href="fiche_ded_oral_vincent.html">
+            <div class="pill red">DED</div>
+            <h3>Fiche DED oral Vincent</h3>
+            <p>Support orienté oral pour réviser les points saillants de la matière.</p>
+            <div class="file">fiche_ded_oral_vincent.html</div>
+          </a>
+        </div>
+
+        <div class="summary">Ordre DED appliqué : prévention, période d’observation, classes de parties affectées, plan de cession, puis le reste.</div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    Index refait avec le même CSS que <em>index-refait.html</em>, en gardant uniquement deux blocs : comptabilité et DED.
+  </footer>
 </body>
 </html>

@@ -1,649 +1,835 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<title>Fiche Juridique - Prévention des Difficultés</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&family=Source+Code+Pro:wght@400;600&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prévention des difficultés — Mandat ad hoc & Conciliation</title>
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --surface: #ffffff;
+      --surface-soft: #fbfaf7;
+      --ink: #1f2937;
+      --muted: #5b6472;
+      --line: #d9d2c5;
+      --navy: #10233f;
+      --navy-2: #19335d;
+      --gold: #b9943d;
+      --gold-soft: #efe2bb;
+      --red: #a9382b;
+      --red-soft: #fbefec;
+      --green: #216246;
+      --green-soft: #edf7f1;
+      --blue: #2758b5;
+      --blue-soft: #eef4ff;
+      --shadow: 0 18px 40px rgba(16, 35, 63, 0.08);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1120px;
+    }
 
-        :root {
-            --navy: #0f1e3c;
-            --navy-light: #1a3060;
-            --gold: #c9a84c;
-            --gold-light: #e8c97a;
-            --cream: #faf8f3;
-            --red: #c0392b;
-            --red-light: #fdf2f1;
-            --green: #1a6640;
-            --green-light: #edf7f1;
-            --purple: #4a1a6e;
-            --purple-light: #f3ecf9;
-            --blue-light: #eef3fb;
-            --text: #1c1c2e;
-            --text-light: #555577;
-            --border: #ddd8cc;
-            --shadow: 0 2px 12px rgba(15,30,60,0.10);
-        }
+    * { box-sizing: border-box; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-        body {
-            font-family: 'Source Sans 3', sans-serif;
-            background: var(--cream);
-            color: var(--text);
-            font-size: 15px;
-            line-height: 1.7;
-        }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(185,148,61,.08), transparent 25%),
+        linear-gradient(180deg, #f9f7f3 0%, var(--bg) 100%);
+      line-height: 1.65;
+    }
 
-        .header {
-            background: var(--navy);
-            color: white;
-            padding: 48px 60px 40px;
-            position: relative;
-            overflow: hidden;
-        }
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: repeating-linear-gradient(
-                    -45deg,
-                    transparent,
-                    transparent 30px,
-                    rgba(201,168,76,0.04) 30px,
-                    rgba(201,168,76,0.04) 31px
-            );
-        }
-        .header-meta {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold);
-            font-weight: 600;
-            margin-bottom: 14px;
-            position: relative;
-        }
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 38px;
-            font-weight: 900;
-            line-height: 1.15;
-            position: relative;
-            margin-bottom: 10px;
-        }
-        .header h1 span { color: var(--gold-light); }
-        .header-sub {
-            font-size: 14px;
-            color: rgba(255,255,255,0.75);
-            position: relative;
-            margin-top: 8px;
-            max-width: 780px;
-        }
-        .header-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 22px;
-            position: relative;
-        }
-        .tag {
-            background: rgba(201,168,76,0.15);
-            border: 1px solid rgba(201,168,76,0.4);
-            color: var(--gold-light);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 2px;
-        }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(246, 243, 238, 0.9);
+      border-bottom: 1px solid rgba(16, 35, 63, 0.08);
+    }
 
-        .toc {
-            background: var(--navy-light);
-            padding: 20px 60px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px 20px;
-            align-items: center;
-            border-bottom: 2px solid var(--gold);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .toc-label {
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-            font-weight: 700;
-            margin-right: 8px;
-        }
-        .toc a {
-            color: rgba(255,255,255,0.75);
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: color 0.2s;
-            padding: 3px 0;
-        }
-        .toc a:hover { color: var(--gold-light); }
-        .toc-sep { color: rgba(255,255,255,0.2); font-size: 11px; }
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 22px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 40px 40px 80px;
-        }
+    .brand {
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: var(--navy);
+      text-transform: uppercase;
+    }
 
-        .part {
-            margin-bottom: 54px;
-            scroll-margin-top: 88px;
-        }
-        .part-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 28px;
-            padding-bottom: 16px;
-            border-bottom: 3px solid var(--navy);
-        }
-        .part-num {
-            background: var(--navy);
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 900;
-            width: 52px;
-            height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .part-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--navy);
-            line-height: 1.2;
-        }
-        .part-title small {
-            display: block;
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 4px;
-        }
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-        h3 {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--navy);
-            margin: 28px 0 14px;
-            padding-bottom: 6px;
-            border-bottom: 1px solid var(--border);
-        }
-        h4 {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--navy);
-            margin: 16px 0 8px;
-        }
+    .topnav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
 
-        .art {
-            display: inline-block;
-            background: var(--navy);
-            color: var(--gold);
-            font-family: 'Source Code Pro', monospace;
-            font-size: 10.5px;
-            font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 2px;
-            margin: 0 2px;
-            white-space: nowrap;
-            vertical-align: middle;
-        }
-        .art.reg { background: var(--purple); color: #d8b8f8; }
-        .art.civ { background: #444; color: #f3f3f3; }
+    .topnav a:hover,
+    .topnav a:focus-visible {
+      background: rgba(16, 35, 63, 0.07);
+      color: var(--navy);
+      outline: none;
+    }
 
-        .card {
-            background: white;
-            border-left: 4px solid var(--navy);
-            border-radius: 0 6px 6px 0;
-            padding: 18px 22px;
-            margin: 14px 0;
-            box-shadow: var(--shadow);
-        }
-        .card.gold { border-color: var(--gold); }
-        .card.red { border-color: var(--red); background: var(--red-light); }
-        .card.green { border-color: var(--green); background: var(--green-light); }
-        .card.purple { border-color: var(--purple); background: var(--purple-light); }
-        .card.blue { border-color: #2563eb; background: var(--blue-light); }
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 44px 22px 26px;
+    }
 
-        .card-title {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-        .card.gold .card-title { color: #8a6200; }
-        .card.red .card-title { color: var(--red); }
-        .card.green .card-title { color: var(--green); }
-        .card.purple .card-title { color: var(--purple); }
-        .card.blue .card-title { color: #1d4ed8; }
+    .hero-card {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: 38px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
 
-        .grid2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin: 14px 0;
-        }
-        .grid3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 14px;
-            margin: 14px 0;
-        }
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.05);
+    }
 
-        .timeline {
-            margin: 18px 0;
-            position: relative;
-            padding-left: 24px;
-            border-left: 3px solid var(--gold);
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 20px;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -30px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            background: var(--gold);
-            border: 2px solid white;
-            border-radius: 50%;
-            box-shadow: 0 0 0 2px var(--gold);
-        }
-        .timeline-step {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 3px;
-        }
-        .timeline-title {
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--navy);
-            margin-bottom: 4px;
-        }
-        .timeline-body {
-            color: var(--text-light);
-            font-size: 14px;
-        }
+    .hero-card::before {
+      width: 320px;
+      height: 320px;
+      top: -160px;
+      right: -60px;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 14px 0;
-            font-size: 13.5px;
-            background: white;
-            box-shadow: var(--shadow);
-        }
-        th {
-            background: var(--navy);
-            color: var(--gold);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 10px 14px;
-            text-align: left;
-        }
-        td {
-            padding: 10px 14px;
-            border-bottom: 1px solid var(--border);
-            vertical-align: top;
-        }
-        tr:last-child td { border-bottom: none; }
-        tr:nth-child(even) td { background: #f7f5f0; }
+    .hero-card::after {
+      width: 180px;
+      height: 180px;
+      bottom: -90px;
+      left: -30px;
+    }
 
-        .callout {
-            background: var(--navy);
-            color: white;
-            border-left: 5px solid var(--gold);
-            padding: 18px 22px;
-            margin: 18px 0;
-            border-radius: 0 6px 6px 0;
-        }
-        .callout strong { color: var(--gold-light); }
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #f2dfae;
+      margin-bottom: 14px;
+    }
 
-        .pill-list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 12px 0;
-        }
-        .pill-list li {
-            background: var(--blue-light);
-            border: 1px solid #c0d3f7;
-            color: #1d4ed8;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 4px 14px;
-            border-radius: 20px;
-        }
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
 
-        .exc {
-            display: inline-block;
-            background: #fff3cd;
-            border: 1px solid #d4a017;
-            color: #7a5000;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 1px 8px;
-            border-radius: 3px;
-            margin-left: 4px;
-        }
+    .hero p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 760px;
+      color: rgba(255,255,255,.86);
+      font-size: 1.03rem;
+    }
 
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin: 16px 0;
-        }
-        .step-box {
-            background: white;
-            border: 2px solid var(--border);
-            border-radius: 6px;
-            padding: 16px;
-            text-align: center;
-            position: relative;
-        }
-        .step-box .step-n {
-            background: var(--gold);
-            color: var(--navy);
-            font-family: 'Playfair Display', serif;
-            font-weight: 900;
-            font-size: 22px;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 10px;
-        }
-        .step-box .step-t {
-            font-weight: 700;
-            font-size: 13px;
-            color: var(--navy);
-            margin-bottom: 6px;
-        }
-        .step-box .step-b {
-            font-size: 12px;
-            color: var(--text-light);
-            line-height: 1.5;
-        }
+    .hero-meta {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
 
-        .vote-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 12px;
-            margin: 16px 0;
-        }
-        .vote-case {
-            border: 2px solid var(--border);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        .vote-case-head {
-            background: var(--navy);
-            color: var(--gold);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 8px 12px;
-            text-align: center;
-        }
-        .vote-case-body {
-            padding: 12px;
-            font-size: 13px;
-            color: var(--text);
-            background: white;
-        }
+    .metric {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
 
-        .footer {
-            background: var(--navy);
-            color: rgba(255,255,255,0.4);
-            text-align: center;
-            padding: 24px;
-            font-size: 12px;
-            border-top: 2px solid var(--gold);
-        }
-        .footer strong { color: var(--gold); }
+    .metric strong {
+      display: block;
+      font-size: 1.35rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
 
-        p { margin-bottom: 10px; }
-        ul, ol { margin: 8px 0 12px 20px; }
-        li { margin-bottom: 4px; }
-        strong { color: var(--navy); }
-        em { color: var(--text-light); font-style: normal; font-size: 13px; }
+    .metric span {
+      color: rgba(255,255,255,.74);
+      font-size: .92rem;
+    }
 
-        .separator {
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-            margin: 40px 0;
-        }
+    .layout {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 8px 22px 48px;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
 
-        @media (max-width: 680px) {
-            .grid2, .grid3, .steps, .vote-grid { grid-template-columns: 1fr; }
-            .container { padding: 20px 16px 60px; }
-            .header { padding: 30px 20px 24px; }
-            .header h1 { font-size: 26px; }
-            .toc { padding: 12px 20px; }
-        }
-    </style>
+    .sidebar {
+      position: sticky;
+      top: 76px;
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(16,35,63,.08);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(16,35,63,.05);
+    }
+
+    .sidebar h2 {
+      margin: 0 0 12px;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--gold);
+    }
+
+    .sidebar nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar a {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      text-decoration: none;
+      color: var(--ink);
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: transparent;
+      font-weight: 600;
+    }
+
+    .sidebar a:hover,
+    .sidebar a:focus-visible {
+      background: var(--surface-soft);
+      outline: none;
+    }
+
+    .sidebar .num {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .content {
+      display: grid;
+      gap: 22px;
+    }
+
+    .section {
+      background: var(--surface);
+      border: 1px solid rgba(16,35,63,.08);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 10px 28px rgba(16,35,63,.05);
+      scroll-margin-top: 92px;
+    }
+
+    .section-header {
+      display: flex;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    .section-index {
+      width: 50px;
+      height: 50px;
+      flex: 0 0 50px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, var(--navy), var(--navy-2));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .section-header h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(1.35rem, 2vw, 1.9rem);
+      line-height: 1.15;
+    }
+
+    .section-header p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: .84rem;
+      font-weight: 700;
+      background: var(--blue-soft);
+      color: var(--blue);
+      border: 1px solid #d7e4ff;
+    }
+
+    h3 {
+      margin: 22px 0 10px;
+      font-size: .94rem;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    p { margin: 0 0 12px; }
+    ul { margin: 0 0 14px 1.15rem; padding: 0; }
+    li + li { margin-top: 8px; }
+
+    .code-article {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 700;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      border: 1px solid rgba(16,35,63,.08);
+      background: var(--surface-soft);
+    }
+
+    .card h4 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+
+    .card p:last-child,
+    .card ul:last-child { margin-bottom: 0; }
+
+    .gold { background: linear-gradient(180deg, #fff9ec, #fffdf7); border-color: #ecd89d; }
+    .red { background: var(--red-soft); border-color: #f0cbc5; }
+    .green { background: var(--green-soft); border-color: #cde7d7; }
+    .blue { background: var(--blue-soft); border-color: #d7e4ff; }
+
+    .callout {
+      margin-top: 16px;
+      padding: 18px 20px;
+      border-left: 5px solid var(--gold);
+      border-radius: 0 14px 14px 0;
+      background: linear-gradient(180deg, rgba(16,35,63,.98), rgba(25,51,93,.98));
+      color: #fff;
+    }
+
+    .callout strong { color: #f2dfae; }
+
+    .formula {
+      margin-top: 16px;
+      background: #fff;
+      border: 1px dashed #ceb77a;
+      color: var(--navy);
+      border-radius: 14px;
+      padding: 16px 18px;
+      font-weight: 700;
+      text-align: center;
+      font-size: 1.02rem;
+    }
+
+    .formula span {
+      color: var(--red);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(16,35,63,.08);
+    }
+
+    thead th {
+      background: var(--navy);
+      color: #fff;
+      text-align: left;
+      padding: 14px;
+      font-size: .83rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    tbody td {
+      padding: 14px;
+      vertical-align: top;
+      border-top: 1px solid #ebe5db;
+      background: #fff;
+    }
+
+    tbody tr:nth-child(even) td { background: #fcfbf8; }
+
+    .case-note {
+      margin-top: 16px;
+      border: 1px solid #ecd89d;
+      background: linear-gradient(180deg, #fff8e9, #fffcf3);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .case-note-head {
+      background: #f5e6bd;
+      color: #6d5115;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 10px 14px;
+    }
+
+    .case-note-body {
+      padding: 16px 18px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 14px;
+      background: #fbfaf7;
+      border: 1px solid #ece4d8;
+    }
+
+    .timeline-step {
+      font-size: .82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gold);
+    }
+
+    .timeline-item h4 {
+      margin: 0 0 6px;
+    }
+
+    .summary {
+      background: linear-gradient(180deg, #fff, #fbfaf7);
+      border: 1px solid rgba(16,35,63,.08);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 10px 28px rgba(16,35,63,.05);
+    }
+
+    .summary h2 {
+      margin: 0 0 16px;
+      color: var(--navy);
+      font-size: 1.5rem;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary-item {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid #ece4d8;
+    }
+
+    .summary-item .n {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 22px 36px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .footer-card {
+      border-radius: 18px;
+      background: rgba(16,35,63,.04);
+      border: 1px solid rgba(16,35,63,.08);
+      padding: 18px 20px;
+    }
+
+    @media (max-width: 960px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+      .hero-meta,
+      .grid-3 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar-inner,
+      .hero,
+      .layout,
+      footer { padding-left: 16px; padding-right: 16px; }
+      .hero-card,
+      .section,
+      .summary { padding: 22px; }
+      .hero-meta,
+      .grid-2,
+      .grid-3 { grid-template-columns: 1fr; }
+      .timeline-item,
+      .summary-item { grid-template-columns: 1fr; }
+      .section-header { flex-direction: column; }
+      .section-index { width: 46px; height: 46px; }
+    }
+  </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Fiche de synthèse juridique</div>
+      <nav class="topnav" aria-label="Navigation interne">
+        <a href="#mandat">Mandat ad hoc</a>
+        <a href="#conciliation">Conciliation</a>
+        <a href="#issue">Issue</a>
+        <a href="#confidentialite">Confidentialité</a>
+        <a href="#resume">Résumé</a>
+      </nav>
+    </div>
+  </div>
 
-<header class="header">
-<div class="header-top">
-<span class="header-label">Fiche de Synthèse Juridique</span>
-<span class="header-source">Cours : M. Arnaud Durand</span>
-</div>
-<div class="header-body">
-<div>
-<div class="header-eyebrow">Droit des Entreprises en Difficulté</div>
-<h1>La Prévention : <em>Mandat ad hoc & Conciliation</em></h1>
-<p class="header-sub">
-Analyse des mécanismes amiables du Livre VI du Code de commerce visant à anticiper la défaillance économique et à favoriser la négociation confidentielle.
-</p>
-</div>
-<div class="header-stats">
-<div class="stat">
-<div class="stat-val">45j</div>
-<div class="stat-lbl">Limite Cessation Paiements</div>
-</div>
-<div class="stat">
-<div class="stat-val">5 mois</div>
-<div class="stat-lbl">Durée Max Conciliation</div>
-</div>
-</div>
-</div>
-</header>
-
-<div class="wrapper">
-<aside class="sidebar">
-<div class="sidebar-head">Sommaire</div>
-<nav>
-<a href="#sec1"><span class="num">01</span> Mandat ad hoc</a>
-<a href="#sec2"><span class="num">02</span> Procédure de Conciliation</a>
-<a href="#sec3"><span class="num">03</span> Sort de la Conciliation</a>
-<a href="#sec4"><span class="num">04</span> Confidentialité & Coût</a>
-</nav>
-</aside>
-
-<main>
-    <section id="sec1" class="section">
-        <div class="sec-hd">
-            <div class="sec-n">01</div>
-            <div class="sec-t">Le Mandat ad hoc : <em>La Souplesse</em></div>
+  <header class="hero">
+    <div class="hero-card">
+      <div class="eyebrow">Droit des entreprises en difficulté · Cours : M. Arnaud Durand</div>
+      <h1>La prévention des difficultés : mandat ad hoc &amp; conciliation</h1>
+      <p>
+        Synthèse claire des mécanismes amiables du Livre VI du Code de commerce, destinés à anticiper la défaillance de l’entreprise et à favoriser une négociation confidentielle avec les principaux créanciers.
+      </p>
+      <div class="hero-meta">
+        <div class="metric">
+          <strong>45 jours</strong>
+          <span>Seuil à surveiller pour la cessation des paiements en conciliation</span>
         </div>
-        <p>Régime le plus souple, le mandat ad hoc est une procédure purement contractuelle et amiable, initiée par le dirigeant.</p>
-        
-        <div class="callout navy">
-            <div class="cb-bar"></div>
-            <div class="cb-body">
-                <div class="cb-lbl">Régime Juridique <span class="art">L.611-3</span></div>
-                <ul>
-                    <li><strong>Désignation :</strong> Par le Président du Tribunal qui détermine sa mission.</li>
-                    <li><strong>Condition :</strong> Absence de cessation des paiements (ou difficulté de tout ordre).</li>
-                    <li><strong>Avantage :</strong> Aucune durée maximale légale (contrairement à la conciliation).</li>
-                    <li><strong>Limites :</strong> Aucun caractère contraignant. Les créanciers sont libres de participer ou non.</li>
-                </ul>
-            </div>
+        <div class="metric">
+          <strong>5 mois</strong>
+          <span>Durée maximale de la conciliation, prorogation incluse</span>
         </div>
-    </section>
+        <div class="metric">
+          <strong>Confidentiel</strong>
+          <span>Principe directeur des procédures amiables de prévention</span>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <section id="sec2" class="section">
-        <div class="sec-hd">
-            <div class="sec-n">02</div>
-            <div class="sec-t">La Procédure de Conciliation</div>
-        </div>
-        <p>Plus encadrée, elle vise à trouver un accord pour pérenniser l'activité. Elle concerne toute entreprise (sauf agricole et certains établissements financiers spécialisés).</p>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Sommaire</h2>
+      <nav>
+        <a href="#mandat"><span class="num">01</span> Le mandat ad hoc</a>
+        <a href="#conciliation"><span class="num">02</span> La procédure de conciliation</a>
+        <a href="#issue"><span class="num">03</span> L’issue de la procédure</a>
+        <a href="#confidentialite"><span class="num">04</span> Confidentialité & coûts</a>
+        <a href="#resume"><span class="num">05</span> Résumé de séance</a>
+      </nav>
+    </aside>
 
-        <div class="sub">
-            <div class="sub-t">Conditions d'ouverture</div>
+    <main class="content">
+      <section class="section" id="mandat">
+        <div class="section-header">
+          <div class="section-index">01</div>
+          <div>
+            <h2>Le mandat ad hoc : la souplesse maximale</h2>
+            <p>Procédure amiable particulièrement souple, déclenchée à l’initiative du dirigeant et organisée autour d’une mission sur mesure confiée par le président du tribunal.</p>
+          </div>
         </div>
-        <p>Le dirigeant doit déposer une requête présentant :</p>
-        <ul class="sl">
-            <li>L'activité et l'origine des difficultés (marché, financier).</li>
-            <li>Le prévisionnel et les mesures d'absorption de la dette.</li>
-            <li><strong>Critère temporel :</strong> Absence de cessation des paiements depuis plus de 45 jours.</li>
+
+        <div class="badge-row">
+          <div class="badge">Base légale <span class="code-article">L.611-3</span></div>
+          <div class="badge">Initiative du dirigeant</div>
+          <div class="badge">Aucune durée légale maximale</div>
+        </div>
+
+        <div class="callout">
+          <strong>Idée centrale :</strong> le mandat ad hoc offre un cadre extrêmement souple pour renouer le dialogue avec les créanciers, mais sans pouvoir contraignant à leur égard.
+        </div>
+
+        <div class="grid-2">
+          <article class="card gold">
+            <h4>Ce que fait le président du tribunal</h4>
+            <ul>
+              <li>Il désigne le mandataire ad hoc.</li>
+              <li>Il définit précisément l’objet de sa mission.</li>
+              <li>Il adapte le cadre de l’intervention à la situation de l’entreprise.</li>
+            </ul>
+          </article>
+
+          <article class="card blue">
+            <h4>Ce qu’il faut retenir</h4>
+            <ul>
+              <li>Le dispositif est confidentiel.</li>
+              <li>Il repose sur la négociation et non sur la contrainte.</li>
+              <li>Les créanciers demeurent libres de participer ou non aux discussions.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="conciliation">
+        <div class="section-header">
+          <div class="section-index">02</div>
+          <div>
+            <h2>La procédure de conciliation</h2>
+            <p>Procédure amiable plus structurée, destinée à favoriser la conclusion d’un accord de nature à mettre fin aux difficultés et à assurer la poursuite de l’activité.</p>
+          </div>
+        </div>
+
+        <h3>Conditions d’ouverture</h3>
+        <p>La requête du dirigeant doit exposer la situation de l’entreprise, l’origine des difficultés, les perspectives de redressement et les mesures envisagées pour traiter le passif.</p>
+        <ul>
+          <li>Difficultés juridiques, économiques ou financières avérées ou prévisibles.</li>
+          <li>Absence de cessation des paiements, ou cessation des paiements depuis moins de 45 jours.</li>
+          <li>Volonté de rechercher un accord avec les principaux partenaires concernés.</li>
         </ul>
 
         <div class="formula">
-            État de Cessation des Paiements = <span>Actif Disponible</span> < <span>Passif Exigible</span>
+          Cessation des paiements = <span>actif disponible</span> &lt; <span>passif exigible</span>
         </div>
 
-        <div class="sub">
-            <div class="sub-t">Déroulement & Mission</div>
-        </div>
-        <p>La mission est de favoriser un accord amiable. La durée est de <strong>4 mois</strong>, prorogation possible d'un mois maximum.</p>
-        
-        <div class="two">
-            <div class="card amber">
-                <div class="card-t">Moyens Incitatifs</div>
-                <strong>Privilège de New Money :</strong> En cas d'homologation, le créancier apportant de nouveaux fonds bénéficie d'un rang prioritaire.
+        <h3>Durée et mission du conciliateur</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-step">Étape 1</div>
+            <div>
+              <h4>Ouverture</h4>
+              <p>Le président du tribunal ouvre la conciliation et désigne le conciliateur.</p>
             </div>
-            <div class="card red">
-                <div class="card-t">Moyens Contraignants</div>
-                <strong>Délais de grâce :</strong> Possibilité de demander au juge d'imposer des délais de paiement (jusqu'à 24 mois) aux créanciers récalcitrants <span class="art">L.611-7</span>.
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-step">Étape 2</div>
+            <div>
+              <h4>Négociation</h4>
+              <p>Le conciliateur tente d’obtenir des remises, rééchelonnements, apports de trésorerie ou réaménagements contractuels.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="sec3" class="section">
-        <div class="sec-hd">
-            <div class="sec-n">03</div>
-            <div class="sec-t">Issue de la Procédure</div>
-        </div>
-        
-        <div class="tw">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Option</th>
-                        <th>Autorité</th>
-                        <th>Conditions & Effets</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Le Constat</strong></td>
-                        <td>Président du Trib.</td>
-                        <td>Donne force exécutoire. Reste confidentiel.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>L'Homologation</strong></td>
-                        <td>Tribunal (Collégial)</td>
-                        <td>Pérennité assurée + Pas d'atteinte aux non-signataires + Fin de la cessation de paiements. Publicité au BODACC.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="juris">
-            <div class="juris-head"><span class="badge">ARRÊT CLÉ</span> Cass. Com 20 nov. 2024</div>
-            <div class="juris-body">
-                Dispense d'obligation de déclaration de cessation des paiements (DCP) si le délai de 45 jours expire <strong>pendant</strong> la conciliation. L'obligation renaît sans délai à l'issue de la procédure.
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-step">Étape 3</div>
+            <div>
+              <h4>Clôture</h4>
+              <p>La procédure prend fin par un accord constaté ou homologué, ou par un échec conduisant éventuellement à une procédure collective.</p>
             </div>
+          </div>
         </div>
 
-        <div class="callout amber">
-            <div class="cb-bar"></div>
-            <div class="cb-body">
-                <div class="cb-lbl">Attention : Caducité vs Résolution</div>
-                L'ouverture d'une procédure collective ultérieure entraîne la résolution de plein droit du protocole. La caducité remet en cause les sûretés nouvelles prises sur des dettes anciennes.
-            </div>
-        </div>
-    </section>
+        <p>La durée est de <strong>quatre mois</strong>, avec une <strong>prorogation possible d’un mois</strong> au plus.</p>
 
-    <section id="sec4" class="section">
-        <div class="sec-hd">
-            <div class="sec-n">04</div>
-            <div class="sec-t">Le Principe de Confidentialité</div>
+        <div class="grid-2">
+          <article class="card green">
+            <h4>Moyens incitatifs</h4>
+            <p><strong>Privilège de “new money” :</strong> en cas d’homologation, les créanciers qui consentent un apport nouveau de trésorerie peuvent bénéficier d’un rang préférentiel ultérieur.</p>
+          </article>
+          <article class="card red">
+            <h4>Moyens plus contraignants</h4>
+            <p><strong>Délais de grâce :</strong> le juge peut accorder des délais de paiement à l’égard des créanciers récalcitrants, notamment sur le fondement de <span class="code-article">L.611-7</span>.</p>
+          </article>
         </div>
-        <p>C'est la pierre angulaire des procédures amiables pour éviter "l'effet de panique" des partenaires.</p>
-        
-        <ul class="sl">
-            <li><strong>Opposabilité :</strong> S'impose à tous les participants, même entre les parties (Cass. 2022).</li>
-            <li><strong>Presse :</strong> La confidentialité prime sauf question d'intérêt général (Cass. 2015).</li>
-            <li><strong>Banques :</strong> Interdiction de ficher l'entreprise en "défaut" sur les réseaux professionnels pendant la conciliation (Cass. 2024).</li>
-        </ul>
+      </section>
 
-        <div class="sub">
-            <div class="sub-t">Encadrement des coûts</div>
+      <section class="section" id="issue">
+        <div class="section-header">
+          <div class="section-index">03</div>
+          <div>
+            <h2>L’issue de la procédure de conciliation</h2>
+            <p>Lorsque les négociations aboutissent, l’accord peut être soit constaté, soit homologué. Les effets produits ne sont pas identiques.</p>
+          </div>
         </div>
-        <p>Pour éviter les abus, les honoraires du conciliateur font l'objet d'une convention préalable :</p>
-        <ul class="sl">
-            <li>Transmission au <strong>Ministère Public</strong> (droit d'opposition sous 48h).</li>
-            <li>Fixation d'un <strong>taux horaire</strong> et d'un <strong>plafond</strong>.</li>
-            <li>Approbation finale par ordonnance du Président du Tribunal.</li>
-        </ul>
-    </section>
 
-    <div class="recap">
-        <h3>Résumé de la Séance 1</h3>
-        <div class="recap-row"><span class="rn">1</span> La prévention est volontaire : le dirigeant garde la main sur son entreprise.</div>
-        <div class="recap-row"><span class="rn">2</span> Le mandat ad hoc n'a pas de limite de temps ; la conciliation est limitée à 5 mois.</div>
-        <div class="recap-row"><span class="rn">3</span> La confidentialité protège le crédit de l'entreprise mais est strictement encadrée.</div>
-        <div class="recap-row"><span class="rn">4</span> En cas d'échec de l'accord, le basculement vers le judiciaire (sauvegarde/redressement) devient inévitable.</div>
+        <table aria-label="Comparaison entre constat et homologation">
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Autorité compétente</th>
+              <th>Effets principaux</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Constat de l’accord</strong></td>
+              <td>Président du tribunal</td>
+              <td>Donne force exécutoire à l’accord tout en conservant la confidentialité de la procédure.</td>
+            </tr>
+            <tr>
+              <td><strong>Homologation de l’accord</strong></td>
+              <td>Tribunal statuant collégialement</td>
+              <td>Suppose notamment l’absence de cessation des paiements ou sa disparition, l’aptitude de l’accord à assurer la pérennité de l’entreprise et l’absence d’atteinte excessive aux intérêts des créanciers non signataires. Elle donne lieu à publicité.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="case-note">
+          <div class="case-note-head">Arrêt clé évoqué dans la fiche</div>
+          <div class="case-note-body">
+            <strong>Cass. com., 20 nov. 2024 :</strong> lorsque le délai de 45 jours expire pendant la conciliation, l’obligation de déclaration de cessation des paiements se trouve neutralisée le temps de la procédure, puis renaît immédiatement à son issue si la difficulté subsiste.
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:18px;">
+          <strong>Point d’attention :</strong> en cas d’ouverture ultérieure d’une procédure collective, le protocole peut être remis en cause. Il faut bien distinguer les mécanismes de résolution et les effets attachés aux sûretés nouvelles consenties pendant la conciliation.
+        </div>
+      </section>
+
+      <section class="section" id="confidentialite">
+        <div class="section-header">
+          <div class="section-index">04</div>
+          <div>
+            <h2>Confidentialité et encadrement des coûts</h2>
+            <p>La confidentialité constitue l’un des attraits majeurs de la prévention amiable : elle évite un effet de panique chez les partenaires commerciaux et financiers.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <article class="card blue">
+            <h4>Portée de la confidentialité</h4>
+            <ul>
+              <li>Elle s’impose aux participants à la procédure.</li>
+              <li>Elle protège l’entreprise contre une diffusion prématurée de ses difficultés.</li>
+              <li>Elle peut entrer en tension avec d’autres exigences, notamment médiatiques ou d’intérêt général.</li>
+            </ul>
+          </article>
+
+          <article class="card gold">
+            <h4>Encadrement des honoraires</h4>
+            <ul>
+              <li>Convention préalable sur les honoraires du conciliateur.</li>
+              <li>Détermination d’un taux horaire et d’un plafond.</li>
+              <li>Contrôle du ministère public et approbation finale par le président du tribunal.</li>
+            </ul>
+          </article>
+        </div>
+
+        <p>La maîtrise des coûts participe de la crédibilité du dispositif : la prévention doit rester un outil utile, non un facteur supplémentaire de fragilisation pour l’entreprise.</p>
+      </section>
+
+      <section class="summary" id="resume">
+        <h2>Résumé de la séance</h2>
+        <div class="summary-list">
+          <div class="summary-item">
+            <div class="n">1</div>
+            <div>La prévention repose sur une logique volontaire : le dirigeant garde l’initiative et conserve la maîtrise de l’entreprise.</div>
+          </div>
+          <div class="summary-item">
+            <div class="n">2</div>
+            <div>Le mandat ad hoc est plus souple que la conciliation, notamment parce qu’il n’est enfermé dans aucun délai légal maximal.</div>
+          </div>
+          <div class="summary-item">
+            <div class="n">3</div>
+            <div>La conciliation est limitée dans le temps, plus encadrée, mais peut produire des effets renforcés grâce au constat ou à l’homologation.</div>
+          </div>
+          <div class="summary-item">
+            <div class="n">4</div>
+            <div>La confidentialité protège le crédit de l’entreprise, tandis que l’encadrement des honoraires vise à éviter les abus.</div>
+          </div>
+          <div class="summary-item">
+            <div class="n">5</div>
+            <div>En cas d’échec des négociations, un basculement vers une procédure collective peut devenir nécessaire.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-card">
+      Version refaite et harmonisée de la fiche HTML sur la prévention des difficultés d’entreprise.
     </div>
-</main>
-</div>
-
-<footer>
-Fiche de révision élaborée pour le cycle de conférences 2026 - <strong>Maître Arnaud Durand</strong>
-</footer>
-
+  </footer>
 </body>
 </html>
